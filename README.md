@@ -1,5 +1,7 @@
 # moon-sfv
 
+[![CI](https://github.com/Sam-Hui-dot/moon-sfv/actions/workflows/ci.yml/badge.svg)](https://github.com/Sam-Hui-dot/moon-sfv/actions/workflows/ci.yml)
+
 `moon-sfv` is an original MoonBit implementation of Structured Field Values
 for HTTP as defined by [RFC 9651](https://www.rfc-editor.org/rfc/rfc9651.html).
 It aims to give MoonBit HTTP clients, servers, proxies, and WebAssembly
@@ -8,10 +10,13 @@ HTTP field values.
 
 ## Project status
 
-The project is at proposal-stage development. Its public data model and the
-first strict parser path for Boolean Items are present. The remaining RFC 9651
-types, containers, canonical serialization, conformance tests, CI, and package
-publication are planned in the public roadmap.
+The first complete Item parsing and serialization path is operational. The
+library currently supports Boolean, Integer, String, and Token bare items,
+ordered parameters, strict error handling, and canonical output for those
+types. The implementation is covered by 24 tests and checked by GitHub Actions.
+
+Decimal, Byte Sequence, Date, Display String, List, Dictionary, and Inner List
+support remain on the public roadmap.
 
 ## Planned scope
 
@@ -29,28 +34,26 @@ publication are planned in the public roadmap.
 ## Initial API
 
 ```moonbit
-match @sfv.parse_item("?1") {
-  Ok(item) => println(item)
-  Err(error) => println(error)
+match @sfv.parse_item("example;secure;level=2") {
+  Ok(item) => match @sfv.serialize_item(item) {
+    Ok(text) => println(text)
+    Err(_) => println("serialization failed")
+  }
+  Err(_) => println("parsing failed")
 }
 ```
 
-The proposal-stage implementation currently accepts `?1` and `?0` Boolean
-Items. The `parse_item` entry point will remain stable as additional bare item
-types and parameters are implemented.
+The example serializes to the canonical value `example;secure;level=2`.
 
 ## Development
 
-Once the MoonBit toolchain is installed, the standard checks will be:
+Run the standard checks with the current MoonBit toolchain:
 
 ```text
-moon check
+moon check --deny-warn
 moon test
 moon fmt --check
 ```
-
-No successful local or CI run is claimed yet; the initial repository was
-created before the development toolchain was installed on the first workstation.
 
 ## Originality and references
 
@@ -68,4 +71,3 @@ license and attribution will be retained.
 ## License
 
 The MoonBit implementation is available under the MIT License.
-

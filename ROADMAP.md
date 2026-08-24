@@ -4,11 +4,12 @@
 
 - [x] Public bare-item and Item data model
 - [x] Strict Boolean Item parsing
-- [ ] Integer and Decimal parsing with RFC range checks
-- [ ] String and Token parsing
+- [x] Integer parsing with RFC range checks
+- [ ] Decimal parsing with RFC range and precision checks
+- [x] String and Token parsing
 - [ ] Byte Sequence decoding
 - [ ] Date and Display String parsing
-- [ ] Ordered parameters
+- [x] Ordered parameters
 
 ## Milestone 2: Containers
 
@@ -19,7 +20,7 @@
 
 ## Milestone 3: Serialization
 
-- [ ] Item serialization
+- [x] Item serialization for Boolean, Integer, String, and Token values
 - [ ] List serialization
 - [ ] Dictionary serialization
 - [ ] Canonical formatting and validation
@@ -27,9 +28,8 @@
 ## Milestone 4: Release quality
 
 - [ ] Import and attribute HTTPWG conformance vectors
-- [ ] Add boundary and malformed-input tests
+- [x] Add initial boundary and malformed-input tests
 - [ ] Add runnable examples
-- [ ] Add GitHub Actions CI
+- [x] Add GitHub Actions CI
 - [ ] Complete API and usage documentation
 - [ ] Publish the first Mooncakes release
-

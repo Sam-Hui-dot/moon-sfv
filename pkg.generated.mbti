@@ -1,5 +1,18 @@
-///|
-/// A bare item value defined by RFC 9651.
+// Generated using `moon info`, DON'T EDIT IT
+package "Sam-Hui-dot/moon-sfv"
+
+import {
+  "moonbitlang/core/debug",
+}
+
+// Values
+pub fn parse_item(String) -> Result[Item, ParseError]
+
+pub fn serialize_item(Item) -> Result[String, SerializeError]
+
+// Errors
+
+// Types and methods
 pub(all) enum BareItem {
   SfInteger(Int64)
   SfDecimal(Double)
@@ -9,24 +22,18 @@ pub(all) enum BareItem {
   SfBoolean(Bool)
   SfDate(Int64)
   SfDisplayString(String)
-} derive(Debug)
+} derive(@debug.Debug)
 
-///|
-/// An ordered parameter attached to an Item or Inner List.
-pub(all) struct Parameter {
-  key : String
-  value : BareItem
-} derive(Debug)
-
-///|
-/// A parameterized RFC 9651 Item.
 pub(all) struct Item {
   value : BareItem
   parameters : Array[Parameter]
-} derive(Debug)
+} derive(@debug.Debug)
 
-///|
-/// Errors returned by the strict Structured Fields parser.
+pub(all) struct Parameter {
+  key : String
+  value : BareItem
+} derive(@debug.Debug)
+
 pub(all) enum ParseError {
   EmptyInput
   InvalidBoolean(Int)
@@ -39,14 +46,16 @@ pub(all) enum ParseError {
   InvalidParameterKey(Int)
   UnsupportedBareItem(Int)
   TrailingCharacters(Int)
-} derive(Debug)
+} derive(@debug.Debug)
 
-///|
-/// Errors returned when a value cannot be serialized as RFC 9651.
 pub(all) enum SerializeError {
   IntegerOutOfRange(Int64)
   InvalidString(String)
   InvalidToken(String)
   InvalidParameterKey(String)
   UnsupportedBareItem
-} derive(Debug)
+} derive(@debug.Debug)
+
+// Type aliases
+
+// Traits
