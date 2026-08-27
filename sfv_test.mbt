@@ -23,6 +23,27 @@ fn expect_integer(input : String, expected : Int64) -> Unit raise {
 }
 
 ///|
+fn expect_decimal(input : String, expected : Double) -> Unit raise {
+  match parse_item(input) {
+    Ok(item) =>
+      match item.value {
+        SfDecimal(value) => {
+          let diff = if value > expected {
+            value - expected
+          } else {
+            expected - value
+          }
+          if diff > 0.0001 {
+            fail("decimal mismatch")
+          }
+        }
+        _ => fail("expected Decimal item")
+      }
+    Err(_) => fail("expected Decimal item to parse")
+  }
+}
+
+///|
 fn expect_string(input : String, expected : String) -> Unit raise {
   match parse_item(input) {
     Ok(item) =>
@@ -47,7 +68,31 @@ fn expect_token(input : String, expected : String) -> Unit raise {
 }
 
 ///|
-fn expect_parse_error(input : String) -> Unit raise {
+fn expect_date(input : String, expected : Int64) -> Unit raise {
+  match parse_item(input) {
+    Ok(item) =>
+      match item.value {
+        SfDate(value) => assert_eq(value, expected)
+        _ => fail("expected Date item")
+      }
+    Err(_) => fail("expected Date item to parse")
+  }
+}
+
+///|
+fn expect_display_string(input : String, expected : String) -> Unit raise {
+  match parse_item(input) {
+    Ok(item) =>
+      match item.value {
+        SfDisplayString(value) => assert_eq(value, expected)
+        _ => fail("expected DisplayString item")
+      }
+    Err(_) => fail("expected DisplayString item to parse")
+  }
+}
+
+///|
+fn expect_parse_item_error(input : String) -> Unit raise {
   match parse_item(input) {
     Ok(_) => fail("expected malformed input to be rejected")
     Err(_) => ()
@@ -55,10 +100,48 @@ fn expect_parse_error(input : String) -> Unit raise {
 }
 
 ///|
-fn expect_serialized(item : Item, expected : String) -> Unit raise {
+fn expect_parse_list_error(input : String) -> Unit raise {
+  match parse_list(input) {
+    Ok(_) => fail("expected malformed list to be rejected")
+    Err(_) => ()
+  }
+}
+
+///|
+fn expect_parse_dict_error(input : String) -> Unit raise {
+  match parse_dictionary(input) {
+    Ok(_) => fail("expected malformed dictionary to be rejected")
+    Err(_) => ()
+  }
+}
+
+///|
+fn expect_serialized_item(item : Item, expected : String) -> Unit raise {
   match serialize_item(item) {
     Ok(value) => assert_eq(value, expected)
     Err(_) => fail("expected Item to serialize")
+  }
+}
+
+///|
+fn expect_serialized_list(
+  list : Array[ListMember],
+  expected : String,
+) -> Unit raise {
+  match serialize_list(list) {
+    Ok(value) => assert_eq(value, expected)
+    Err(_) => fail("expected List to serialize")
+  }
+}
+
+///|
+fn expect_serialized_dict(
+  dict : Array[DictionaryMember],
+  expected : String,
+) -> Unit raise {
+  match serialize_dictionary(dict) {
+    Ok(value) => assert_eq(value, expected)
+    Err(_) => fail("expected Dictionary to serialize")
   }
 }
 
@@ -74,7 +157,7 @@ test "parse Boolean false item" {
 
 ///|
 test "reject malformed Boolean item" {
-  expect_parse_error("?2")
+  expect_parse_item_error("?2")
 }
 
 ///|
@@ -99,7 +182,22 @@ test "parse maximum RFC Integer" {
 
 ///|
 test "reject out-of-range RFC Integer" {
-  expect_parse_error("1000000000000000")
+  expect_parse_item_error("1000000000000000")
+}
+
+///|
+test "parse Decimal item" {
+  expect_decimal("1.5", 1.5)
+  expect_decimal("-0.01", -0.01)
+  expect_decimal("123456789012.123", 123456789012.123)
+}
+
+///|
+test "reject malformed Decimal item" {
+  expect_parse_item_error("1.")
+  expect_parse_item_error(".5")
+  expect_parse_item_error("1.2345")
+  expect_parse_item_error("1234567890123.1")
 }
 
 ///|
@@ -114,12 +212,12 @@ test "parse escaped String item" {
 
 ///|
 test "reject invalid String escape" {
-  expect_parse_error("\"bad\\n\"")
+  expect_parse_item_error("\"bad\\n\"")
 }
 
 ///|
 test "reject unterminated String" {
-  expect_parse_error("\"unfinished")
+  expect_parse_item_error("\"unfinished")
 }
 
 ///|
@@ -130,6 +228,67 @@ test "parse Token item" {
 ///|
 test "parse Token with URI characters" {
   expect_token("abc/def:ghi", "abc/def:ghi")
+}
+
+///|
+test "parse Byte Sequence item" {
+  match parse_item(":aGVsbG8=:") {
+    Ok(item) =>
+      match item.value {
+        SfByteSequence(bytes) => {
+          assert_eq(bytes.length(), 5)
+          assert_eq(bytes[0].to_int(), 104) // 'h'
+        }
+        _ => fail("expected ByteSequence item")
+      }
+    Err(_) => fail("expected ByteSequence item to parse")
+  }
+}
+
+///|
+test "parse empty Byte Sequence item" {
+  match parse_item("::") {
+    Ok(item) =>
+      match item.value {
+        SfByteSequence(bytes) => assert_eq(bytes.length(), 0)
+        _ => fail("expected empty ByteSequence item")
+      }
+    Err(_) => fail("expected empty ByteSequence item to parse")
+  }
+}
+
+///|
+test "reject invalid Byte Sequence item" {
+  expect_parse_item_error(":invalid*:")
+  expect_parse_item_error(":aGVsb==:")
+  expect_parse_item_error(":aGVsbG8")
+}
+
+///|
+test "parse Date item" {
+  expect_date("@1659578233", 1659578233L)
+  expect_date("@-100", -100L)
+}
+
+///|
+test "reject malformed Date item" {
+  expect_parse_item_error("@")
+  expect_parse_item_error("@1659578233.5")
+  expect_parse_item_error("@1000000000000000")
+}
+
+///|
+test "parse Display String item" {
+  expect_display_string("%\"hello%20world\"", "hello world")
+  expect_display_string("%\"%c3%a9lat\"", "élat")
+}
+
+///|
+test "reject malformed Display String item" {
+  expect_parse_item_error("%\"hello")
+  expect_parse_item_error("%\"hello%2\"")
+  expect_parse_item_error("%\"hello%ZZ\"")
+  expect_parse_item_error("%\"%C3%A9lat\"") // uppercase hex must fail in parse
 }
 
 ///|
@@ -149,12 +308,13 @@ test "parse Boolean parameter shorthand" {
 
 ///|
 test "parse typed parameters" {
-  match parse_item("token;a=1;b=\"two\";c=?0") {
+  match parse_item("token;a=1;b=\"two\";c=?0;d=:aGVsbG8=:") {
     Ok(item) => {
-      assert_eq(item.parameters.length(), 3)
+      assert_eq(item.parameters.length(), 4)
       assert_eq(item.parameters[0].key, "a")
       assert_eq(item.parameters[1].key, "b")
       assert_eq(item.parameters[2].key, "c")
+      assert_eq(item.parameters[3].key, "d")
     }
     Err(_) => fail("expected typed parameters to parse")
   }
@@ -181,22 +341,155 @@ test "ignore surrounding spaces" {
 
 ///|
 test "reject trailing characters" {
-  expect_parse_error("42 extra")
+  expect_parse_item_error("42 extra")
+}
+
+///|
+test "parse empty List" {
+  match parse_list("   ") {
+    Ok(list) => assert_eq(list.length(), 0)
+    Err(_) => fail("expected empty list to parse")
+  }
+}
+
+///|
+test "parse List of items and Inner Lists" {
+  match parse_list("1, \"two\", (3 4);param=1") {
+    Ok(list) => {
+      assert_eq(list.length(), 3)
+      match list[0] {
+        ListMember::Item({ value: SfInteger(1L), .. }) => ()
+        _ => fail("expected item 1")
+      }
+      match list[1] {
+        ListMember::Item({ value: SfString("two"), .. }) => ()
+        _ => fail("expected item two")
+      }
+      match list[2] {
+        ListMember::InnerList({ items, parameters }) => {
+          assert_eq(items.length(), 2)
+          assert_eq(parameters.length(), 1)
+          assert_eq(parameters[0].key, "param")
+        }
+        _ => fail("expected inner list")
+      }
+    }
+    Err(_) => fail("expected list to parse")
+  }
+}
+
+///|
+test "reject trailing comma in List" {
+  expect_parse_list_error("1, 2, ")
+}
+
+///|
+test "parse empty Dictionary" {
+  match parse_dictionary("   ") {
+    Ok(dict) => assert_eq(dict.length(), 0)
+    Err(_) => fail("expected empty dictionary to parse")
+  }
+}
+
+///|
+test "parse Dictionary with mixed entries" {
+  match parse_dictionary("a=1, b, c;secure, d=(1 2)") {
+    Ok(dict) => {
+      assert_eq(dict.length(), 4)
+      assert_eq(dict[0].key, "a")
+      assert_eq(dict[1].key, "b")
+      match dict[1].value {
+        ListMember::Item({ value: SfBoolean(true), parameters }) =>
+          assert_eq(parameters.length(), 0)
+        _ => fail("expected boolean shorthand for b")
+      }
+      assert_eq(dict[2].key, "c")
+      match dict[2].value {
+        ListMember::Item({ value: SfBoolean(true), parameters }) => {
+          assert_eq(parameters.length(), 1)
+          assert_eq(parameters[0].key, "secure")
+        }
+        _ => fail("expected boolean shorthand with parameters for c")
+      }
+      assert_eq(dict[3].key, "d")
+      match dict[3].value {
+        ListMember::InnerList({ items, .. }) => assert_eq(items.length(), 2)
+        _ => fail("expected inner list for d")
+      }
+    }
+    Err(_) => fail("expected dictionary to parse")
+  }
+}
+
+///|
+test "duplicate Dictionary keys overwrite" {
+  match parse_dictionary("a=1, a=2") {
+    Ok(dict) => {
+      assert_eq(dict.length(), 1)
+      match dict[0].value {
+        ListMember::Item({ value: SfInteger(2L), .. }) => ()
+        _ => fail("expected overwrite of key a")
+      }
+    }
+    Err(_) => fail("expected dictionary with duplicate keys to parse")
+  }
+}
+
+///|
+test "reject trailing comma in Dictionary" {
+  expect_parse_dict_error("a=1, ")
 }
 
 ///|
 test "serialize Boolean Item" {
-  expect_serialized({ value: SfBoolean(true), parameters: [] }, "?1")
+  expect_serialized_item({ value: SfBoolean(true), parameters: [] }, "?1")
 }
 
 ///|
 test "serialize Integer Item" {
-  expect_serialized({ value: SfInteger(-42L), parameters: [] }, "-42")
+  expect_serialized_item({ value: SfInteger(-42L), parameters: [] }, "-42")
+}
+
+///|
+test "serialize Decimal Item" {
+  expect_serialized_item({ value: SfDecimal(1.5), parameters: [] }, "1.5")
+  expect_serialized_item({ value: SfDecimal(1.0), parameters: [] }, "1.0")
+  expect_serialized_item({ value: SfDecimal(1.234), parameters: [] }, "1.234")
+  expect_serialized_item({ value: SfDecimal(-0.5), parameters: [] }, "-0.5")
+}
+
+///|
+test "serialize Date Item" {
+  expect_serialized_item(
+    { value: SfDate(1659578233L), parameters: [] },
+    "@1659578233",
+  )
+}
+
+///|
+test "serialize Byte Sequence Item" {
+  let b = b"hello"
+  expect_serialized_item(
+    { value: SfByteSequence(b), parameters: [] },
+    ":aGVsbG8=:",
+  )
+}
+
+///|
+test "serialize Display String Item" {
+  expect_serialized_item(
+    { value: SfDisplayString("hello world"), parameters: [] },
+    "%\"hello world\"",
+  )
+  expect_serialized_item(
+    { value: SfDisplayString("say % \"hi\""), parameters: [] },
+    "%\"say %25 %22hi%22\"",
+  )
 }
 
 ///|
 test "serialize escaped String Item" {
-  expect_serialized(
+  expect_serialized_item(
     { value: SfString("say \"hi\""), parameters: [] },
     "\"say \\\"hi\\\"\"",
   )
@@ -204,7 +497,7 @@ test "serialize escaped String Item" {
 
 ///|
 test "serialize Token with parameters" {
-  expect_serialized(
+  expect_serialized_item(
     {
       value: SfToken("example"),
       parameters: [
@@ -214,6 +507,39 @@ test "serialize Token with parameters" {
     },
     "example;secure;level=2",
   )
+}
+
+///|
+test "serialize List" {
+  let item1 : Item = { value: SfInteger(1L), parameters: [] }
+  let item2 : Item = { value: SfString("two"), parameters: [] }
+  let inner1 : Item = { value: SfInteger(3L), parameters: [] }
+  let inner2 : Item = { value: SfInteger(4L), parameters: [] }
+  let list : Array[ListMember] = [
+    ListMember::Item(item1),
+    ListMember::Item(item2),
+    ListMember::InnerList({
+      items: [inner1, inner2],
+      parameters: [{ key: "param", value: SfInteger(1L) }],
+    }),
+  ]
+  expect_serialized_list(list, "1, \"two\", (3 4);param=1")
+}
+
+///|
+test "serialize Dictionary" {
+  let item_a : Item = { value: SfInteger(1L), parameters: [] }
+  let item_b : Item = { value: SfBoolean(true), parameters: [] }
+  let item_c : Item = {
+    value: SfBoolean(true),
+    parameters: [{ key: "secure", value: SfBoolean(true) }],
+  }
+  let dict : Array[DictionaryMember] = [
+    { key: "a", value: ListMember::Item(item_a) },
+    { key: "b", value: ListMember::Item(item_b) },
+    { key: "c", value: ListMember::Item(item_c) },
+  ]
+  expect_serialized_dict(dict, "a=1, b, c;secure")
 }
 
 ///|

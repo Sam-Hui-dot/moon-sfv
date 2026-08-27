@@ -6,9 +6,25 @@ import {
 }
 
 // Values
+pub fn base64_decode(String) -> Bytes?
+
+pub fn base64_encode(Bytes) -> String
+
+pub fn parse_dictionary(String) -> Result[Array[DictionaryMember], ParseError]
+
 pub fn parse_item(String) -> Result[Item, ParseError]
 
+pub fn parse_list(String) -> Result[Array[ListMember], ParseError]
+
+pub fn serialize_dictionary(Array[DictionaryMember]) -> Result[String, SerializeError]
+
 pub fn serialize_item(Item) -> Result[String, SerializeError]
+
+pub fn serialize_list(Array[ListMember]) -> Result[String, SerializeError]
+
+pub fn string_to_utf8_bytes(String) -> Array[Byte]
+
+pub fn utf8_bytes_to_string(Array[Byte]) -> String?
 
 // Errors
 
@@ -22,39 +38,69 @@ pub(all) enum BareItem {
   SfBoolean(Bool)
   SfDate(Int64)
   SfDisplayString(String)
-} derive(@debug.Debug)
+} derive(Eq, @debug.Debug)
+
+pub(all) struct DictionaryMember {
+  key : String
+  value : ListMember
+} derive(Eq, @debug.Debug)
+
+pub(all) struct InnerList {
+  items : Array[Item]
+  parameters : Array[Parameter]
+} derive(Eq, @debug.Debug)
 
 pub(all) struct Item {
   value : BareItem
   parameters : Array[Parameter]
-} derive(@debug.Debug)
+} derive(Eq, @debug.Debug)
+
+pub(all) enum ListMember {
+  Item(Item)
+  InnerList(InnerList)
+} derive(Eq, @debug.Debug)
 
 pub(all) struct Parameter {
   key : String
   value : BareItem
-} derive(@debug.Debug)
+} derive(Eq, @debug.Debug)
 
 pub(all) enum ParseError {
   EmptyInput
   InvalidBoolean(Int)
   InvalidInteger(String)
   IntegerOutOfRange(String)
+  InvalidDecimal(String)
+  DecimalOutOfRange(String)
   UnterminatedString(Int)
   InvalidStringEscape(Int)
   InvalidStringCharacter(Int)
   InvalidToken(Int)
+  InvalidByteSequence(Int)
+  InvalidDate(String)
+  InvalidDisplayString(Int)
   InvalidParameterKey(Int)
+  InvalidDictionaryKey(Int)
+  InvalidInnerList(Int)
+  InvalidList(Int)
+  InvalidDictionary(Int)
   UnsupportedBareItem(Int)
   TrailingCharacters(Int)
-} derive(@debug.Debug)
+} derive(Eq, @debug.Debug)
 
 pub(all) enum SerializeError {
   IntegerOutOfRange(Int64)
+  DecimalOutOfRange(Double)
+  InvalidDecimal(Double)
+  DateOutOfRange(Int64)
   InvalidString(String)
   InvalidToken(String)
+  InvalidByteSequence
+  InvalidDisplayString(String)
   InvalidParameterKey(String)
+  InvalidDictionaryKey(String)
   UnsupportedBareItem
-} derive(@debug.Debug)
+} derive(Eq, @debug.Debug)
 
 // Type aliases
 
