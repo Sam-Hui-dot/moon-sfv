@@ -390,7 +390,7 @@ fn parse_parameters(cursor : Cursor) -> Result[Array[Parameter], ParseError] {
     } else {
       SfBoolean(true)
     }
-    insert_parameter(parameters, { key, value })
+    insert_parameter(parameters, { key, value, })
   }
   Ok(parameters)
 }
@@ -398,14 +398,14 @@ fn parse_parameters(cursor : Cursor) -> Result[Array[Parameter], ParseError] {
 ///|
 fn parse_item_with_cursor(cursor : Cursor) -> Result[Item, ParseError] {
   let value = match parse_bare_item(cursor) {
-    Ok(value) => value
-    Err(error) => return Err(error)
+    Ok(val) => val
+    Err(err) => return Err(err)
   }
   let parameters = match parse_parameters(cursor) {
-    Ok(value) => value
-    Err(error) => return Err(error)
+    Ok(params) => params
+    Err(err) => return Err(err)
   }
-  Ok({ value, parameters })
+  Ok({ value, parameters, })
 }
 
 ///|
@@ -438,35 +438,35 @@ fn parse_inner_list_with_cursor(
     Ok(params) => params
     Err(err) => return Err(err)
   }
-  Ok({ items, parameters })
+  Ok({ items, parameters, })
 }
 
 ///|
 fn parse_list_member(cursor : Cursor) -> Result[ListMember, ParseError] {
   if cursor.peek() == Some((40 : UInt16)) {
     match parse_inner_list_with_cursor(cursor) {
-      Ok(il) => Ok(InnerList(il))
+      Ok(il) => Ok(ListMember::InnerList(il))
       Err(err) => Err(err)
     }
   } else {
     match parse_item_with_cursor(cursor) {
-      Ok(item) => Ok(Item(item))
+      Ok(item) => Ok(ListMember::Item(item))
       Err(err) => Err(err)
     }
   }
 }
 
 ///|
-/// Parse a top-level RFC 9651 Item, including ordered parameters.
+/// Parses a single RFC 9651 Item from an HTTP field string.
 pub fn parse_item(input : String) -> Result[Item, ParseError] {
-  let cursor : Cursor = { input, position: 0 }
+  let cursor : Cursor = { input, position: 0, }
   cursor.skip_sp()
   if cursor.at_end() {
     return Err(EmptyInput)
   }
   let item = match parse_item_with_cursor(cursor) {
-    Ok(item) => item
-    Err(error) => return Err(error)
+    Ok(it) => it
+    Err(err) => return Err(err)
   }
   cursor.skip_sp()
   if !cursor.at_end() {
@@ -476,20 +476,20 @@ pub fn parse_item(input : String) -> Result[Item, ParseError] {
 }
 
 ///|
-/// Parse a top-level RFC 9651 List.
+/// Parses an RFC 9651 List from an HTTP field string.
 pub fn parse_list(input : String) -> Result[Array[ListMember], ParseError] {
-  let cursor : Cursor = { input, position: 0 }
+  let cursor : Cursor = { input, position: 0, }
   cursor.skip_sp()
   if cursor.at_end() {
     return Ok([])
   }
-  let list_members : Array[ListMember] = []
+  let list : Array[ListMember] = []
   while true {
     let entry = match parse_list_member(cursor) {
       Ok(m) => m
       Err(err) => return Err(err)
     }
-    list_members.push(entry)
+    list.push(entry)
     cursor.skip_ows()
     if cursor.at_end() {
       break
@@ -497,13 +497,13 @@ pub fn parse_list(input : String) -> Result[Array[ListMember], ParseError] {
     if cursor.peek() != Some((44 : UInt16)) {
       return Err(InvalidList(cursor.position))
     }
-    cursor.advance() // consume ','
+    cursor.advance()
     cursor.skip_ows()
     if cursor.at_end() {
-      return Err(InvalidList(cursor.position)) // trailing comma is malformed
+      return Err(InvalidList(cursor.position))
     }
   }
-  Ok(list_members)
+  Ok(list)
 }
 
 ///|
@@ -523,11 +523,11 @@ fn insert_dictionary_entry(
 }
 
 ///|
-/// Parse a top-level RFC 9651 Dictionary.
+/// Parses an RFC 9651 Dictionary from an HTTP field string.
 pub fn parse_dictionary(
   input : String,
 ) -> Result[Array[DictionaryMember], ParseError] {
-  let cursor : Cursor = { input, position: 0 }
+  let cursor : Cursor = { input, position: 0, }
   cursor.skip_sp()
   if cursor.at_end() {
     return Ok([])
@@ -536,10 +536,10 @@ pub fn parse_dictionary(
   while true {
     let key = match parse_key(cursor) {
       Ok(k) => k
-      Err(_) => return Err(InvalidDictionaryKey(cursor.position))
+      Err(err) => return Err(err)
     }
     let value : ListMember = if cursor.peek() == Some((61 : UInt16)) {
-      cursor.advance() // consume '='
+      cursor.advance()
       match parse_list_member(cursor) {
         Ok(m) => m
         Err(err) => return Err(err)
@@ -549,9 +549,9 @@ pub fn parse_dictionary(
         Ok(params) => params
         Err(err) => return Err(err)
       }
-      Item({ value: SfBoolean(true), parameters })
+      Item({ value: SfBoolean(true), parameters, })
     }
-    insert_dictionary_entry(dict, { key, value })
+    insert_dictionary_entry(dict, { key, value, })
     cursor.skip_ows()
     if cursor.at_end() {
       break
@@ -559,10 +559,10 @@ pub fn parse_dictionary(
     if cursor.peek() != Some((44 : UInt16)) {
       return Err(InvalidDictionary(cursor.position))
     }
-    cursor.advance() // consume ','
+    cursor.advance()
     cursor.skip_ows()
     if cursor.at_end() {
-      return Err(InvalidDictionary(cursor.position)) // trailing comma
+      return Err(InvalidDictionary(cursor.position))
     }
   }
   Ok(dict)

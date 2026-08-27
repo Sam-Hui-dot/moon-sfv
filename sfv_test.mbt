@@ -1,16 +1,16 @@
 ///|
 fn item(value : BareItem, parameters : Array[Parameter]) -> Item {
-  { value, parameters }
+  { value, parameters, }
 }
 
 ///|
 fn bare_item(value : BareItem) -> Item {
-  { value, parameters: [] }
+  { value, parameters: [], }
 }
 
 ///|
 fn param(key : String, value : BareItem) -> Parameter {
-  { key, value }
+  { key, value, }
 }
 
 ///|
@@ -23,12 +23,12 @@ fn member_inner(
   items : Array[Item],
   parameters : Array[Parameter],
 ) -> ListMember {
-  ListMember::InnerList({ items, parameters })
+  ListMember::InnerList({ items, parameters, })
 }
 
 ///|
 fn dict_entry(key : String, value : ListMember) -> DictionaryMember {
-  { key, value }
+  { key, value, }
 }
 
 ///|
