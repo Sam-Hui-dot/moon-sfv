@@ -48,17 +48,22 @@ def val_to_bare_item(v):
     raise ValueError(f'Unknown value: {v}')
 
 def params_to_mbt(params):
+    if not params:
+        return '[]'
     res = []
     for p in params:
         k = escape_string(p[0])
         v = val_to_bare_item(p[1])
-        res.append(f'{{ key: "{k}", value: {v} }}')
+        res.append(f'param("{k}", {v})')
     return '[' + ', '.join(res) + ']'
 
 def item_to_mbt(item_arr):
     bare = val_to_bare_item(item_arr[0])
-    params = params_to_mbt(item_arr[1])
-    return f'{{ value: {bare}, parameters: {params} }}'
+    params = item_arr[1]
+    if not params:
+        return f'bare_item({bare})'
+    params_str = params_to_mbt(params)
+    return f'item({bare}, {params_str})'
 
 def generate_serialisation():
     files = sorted(glob.glob('test-vectors/structured-field-tests/serialisation-tests/*.json'))
@@ -112,12 +117,12 @@ def generate_serialisation():
                 for k, v in expected:
                     k_esc = escape_string(k)
                     if isinstance(v[0], list):
-                        inner_items = [f'Item({item_to_mbt(it)})' for it in v[0]]
+                        inner_items = [item_to_mbt(it) for it in v[0]]
                         inner_params = params_to_mbt(v[1])
-                        val_code = f'ListMember::InnerList({{ items: [{", ".join(inner_items)}], parameters: {inner_params} }})'
+                        val_code = f'member_inner([{", ".join(inner_items)}], {inner_params})'
                     else:
-                        val_code = f'ListMember::Item({item_to_mbt(v)})'
-                    dict_entries.append(f'{{ key: "{k_esc}", value: {val_code} }}')
+                        val_code = f'member_item({item_to_mbt(v)})'
+                    dict_entries.append(f'dict_entry("{k_esc}", {val_code})')
 
                 dict_code = '[' + ', '.join(dict_entries) + ']'
                 if must_fail:
@@ -138,11 +143,11 @@ def generate_serialisation():
                 list_entries = []
                 for v in expected:
                     if isinstance(v[0], list):
-                        inner_items = [f'Item({item_to_mbt(it)})' for it in v[0]]
+                        inner_items = [item_to_mbt(it) for it in v[0]]
                         inner_params = params_to_mbt(v[1])
-                        val_code = f'ListMember::InnerList({{ items: [{", ".join(inner_items)}], parameters: {inner_params} }})'
+                        val_code = f'member_inner([{", ".join(inner_items)}], {inner_params})'
                     else:
-                        val_code = f'ListMember::Item({item_to_mbt(v)})'
+                        val_code = f'member_item({item_to_mbt(v)})'
                     list_entries.append(val_code)
 
                 list_code = '[' + ', '.join(list_entries) + ']'
@@ -168,4 +173,5 @@ def generate_serialisation():
 
     print(f'Generated serialisation_test.mbt with {total_count} test cases.')
 
-generate_serialisation()
+if __name__ == '__main__':
+    generate_serialisation()
