@@ -1,0 +1,5 @@
+import {
+  "Sam-Hui-dot/moon-sfv" @sfv,
+}
+
+pkgtype(kind: "executable")
