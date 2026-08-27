@@ -4,10 +4,9 @@
 
 ///|
 test "httpwg: binary - basic binary" {
-  let expected : Item = {
-    value: SfByteSequence(base64_decode("aGVsbG8=").unwrap()),
-    parameters: [],
-  }
+  let expected : Item = bare_item(
+    SfByteSequence(base64_decode("aGVsbG8=").unwrap()),
+  )
   match parse_item(":aGVsbG8=:") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -22,10 +21,7 @@ test "httpwg: binary - basic binary" {
 
 ///|
 test "httpwg: binary - empty binary" {
-  let expected : Item = {
-    value: SfByteSequence(base64_decode("").unwrap()),
-    parameters: [],
-  }
+  let expected : Item = bare_item(SfByteSequence(base64_decode("").unwrap()))
   match parse_item("::") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -50,10 +46,9 @@ test "httpwg: binary - padding in middle" {
 
 ///|
 test "httpwg: binary - bad padding" {
-  let expected : Item = {
-    value: SfByteSequence(base64_decode("aGVsbG8=").unwrap()),
-    parameters: [],
-  }
+  let expected : Item = bare_item(
+    SfByteSequence(base64_decode("aGVsbG8=").unwrap()),
+  )
   match parse_item(":aGVsbG8:") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -98,10 +93,9 @@ test "httpwg: binary - suffix chars" {
 
 ///|
 test "httpwg: binary - non-zero pad bits" {
-  let expected : Item = {
-    value: SfByteSequence(base64_decode("iQ==").unwrap()),
-    parameters: [],
-  }
+  let expected : Item = bare_item(
+    SfByteSequence(base64_decode("iQ==").unwrap()),
+  )
   match parse_item(":iZ==:") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -116,10 +110,9 @@ test "httpwg: binary - non-zero pad bits" {
 
 ///|
 test "httpwg: binary - non-ASCII binary" {
-  let expected : Item = {
-    value: SfByteSequence(base64_decode("/+Ah").unwrap()),
-    parameters: [],
-  }
+  let expected : Item = bare_item(
+    SfByteSequence(base64_decode("/+Ah").unwrap()),
+  )
   match parse_item(":/+Ah:") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -144,7 +137,7 @@ test "httpwg: binary - binary prefix only" {
 
 ///|
 test "httpwg: boolean - basic true boolean" {
-  let expected : Item = { value: SfBoolean(true), parameters: [] }
+  let expected : Item = bare_item(SfBoolean(true))
   match parse_item("?1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -159,7 +152,7 @@ test "httpwg: boolean - basic true boolean" {
 
 ///|
 test "httpwg: boolean - basic false boolean" {
-  let expected : Item = { value: SfBoolean(false), parameters: [] }
+  let expected : Item = bare_item(SfBoolean(false))
   match parse_item("?0") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -224,7 +217,7 @@ test "httpwg: boolean - boolean prefix only" {
 
 ///|
 test "httpwg: date - date - 1970-01-01 00:00:00" {
-  let expected : Item = { value: SfDate(0L), parameters: [] }
+  let expected : Item = bare_item(SfDate(0L))
   match parse_item("@0") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -239,7 +232,7 @@ test "httpwg: date - date - 1970-01-01 00:00:00" {
 
 ///|
 test "httpwg: date - date - 2022-08-04 01:57:13" {
-  let expected : Item = { value: SfDate(1659578233L), parameters: [] }
+  let expected : Item = bare_item(SfDate(1659578233L))
   match parse_item("@1659578233") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -254,7 +247,7 @@ test "httpwg: date - date - 2022-08-04 01:57:13" {
 
 ///|
 test "httpwg: date - date - 1917-05-30 22:02:47" {
-  let expected : Item = { value: SfDate(-1659578233L), parameters: [] }
+  let expected : Item = bare_item(SfDate(-1659578233L))
   match parse_item("@-1659578233") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -269,7 +262,7 @@ test "httpwg: date - date - 1917-05-30 22:02:47" {
 
 ///|
 test "httpwg: date - date - 2^31" {
-  let expected : Item = { value: SfDate(2147483648L), parameters: [] }
+  let expected : Item = bare_item(SfDate(2147483648L))
   match parse_item("@2147483648") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -284,7 +277,7 @@ test "httpwg: date - date - 2^31" {
 
 ///|
 test "httpwg: date - date - 2^32" {
-  let expected : Item = { value: SfDate(4294967296L), parameters: [] }
+  let expected : Item = bare_item(SfDate(4294967296L))
   match parse_item("@4294967296") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -299,7 +292,7 @@ test "httpwg: date - date - 2^32" {
 
 ///|
 test "httpwg: date - interoperability max date - 9999-12-31 00:00:00" {
-  let expected : Item = { value: SfDate(253402214400L), parameters: [] }
+  let expected : Item = bare_item(SfDate(253402214400L))
   match parse_item("@253402214400") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -314,7 +307,7 @@ test "httpwg: date - interoperability max date - 9999-12-31 00:00:00" {
 
 ///|
 test "httpwg: date - interoperability min date - 0001-01-01 00:00:00" {
-  let expected : Item = { value: SfDate(-62135596800L), parameters: [] }
+  let expected : Item = bare_item(SfDate(-62135596800L))
   match parse_item("@-62135596800") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -334,7 +327,7 @@ test "httpwg: date - date - decimal" {
 
 ///|
 test "httpwg: date - syntactic max date - 999,999,999,999,999" {
-  let expected : Item = { value: SfDate(999999999999999L), parameters: [] }
+  let expected : Item = bare_item(SfDate(999999999999999L))
   match parse_item("@999999999999999") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -349,7 +342,7 @@ test "httpwg: date - syntactic max date - 999,999,999,999,999" {
 
 ///|
 test "httpwg: date - syntactic min date - -999,999,999,999,999" {
-  let expected : Item = { value: SfDate(-999999999999999L), parameters: [] }
+  let expected : Item = bare_item(SfDate(-999999999999999L))
   match parse_item("@-999999999999999") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -374,7 +367,7 @@ test "httpwg: date - too small syntactic date - -1,000,000,000,000,000" {
 
 ///|
 test "httpwg: date - date with negative zero" {
-  let expected : Item = { value: SfDate(0L), parameters: [] }
+  let expected : Item = bare_item(SfDate(0L))
   match parse_item("@-0") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -409,7 +402,7 @@ test "httpwg: date - date - non-digit" {
 
 ///|
 test "httpwg: display-string - basic display string (ascii content)" {
-  let expected : Item = { value: SfDisplayString("foo bar"), parameters: [] }
+  let expected : Item = bare_item(SfDisplayString("foo bar"))
   match parse_item("%\"foo bar\"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -424,12 +417,11 @@ test "httpwg: display-string - basic display string (ascii content)" {
 
 ///|
 test "httpwg: display-string - all printable ascii" {
-  let expected : Item = {
-    value: SfDisplayString(
+  let expected : Item = bare_item(
+    SfDisplayString(
       " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~",
     ),
-    parameters: [],
-  }
+  )
   match
     parse_item(
       "%\" !%22#$%25&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\"",
@@ -455,10 +447,7 @@ test "httpwg: display-string - non-ascii display string (uppercase escaping)" {
 
 ///|
 test "httpwg: display-string - non-ascii display string (lowercase escaping)" {
-  let expected : Item = {
-    value: SfDisplayString("f\u00fc\u00fc"),
-    parameters: [],
-  }
+  let expected : Item = bare_item(SfDisplayString("f\u00fc\u00fc"))
   match parse_item("%\"f%c3%bc%c3%bc\"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -508,10 +497,7 @@ test "httpwg: display-string - unbalanced display string" {
 
 ///|
 test "httpwg: display-string - display string quoting" {
-  let expected : Item = {
-    value: SfDisplayString("foo \"bar\" \\ baz"),
-    parameters: [],
-  }
+  let expected : Item = bare_item(SfDisplayString("foo \"bar\" \\ baz"))
   match parse_item("%\"foo %22bar%22 \\ baz\"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -556,10 +542,7 @@ test "httpwg: display-string - bad display string utf-8 (invalid 4-byte seq)" {
 
 ///|
 test "httpwg: display-string - BOM in display string" {
-  let expected : Item = {
-    value: SfDisplayString("BOM: \ufeff"),
-    parameters: [],
-  }
+  let expected : Item = bare_item(SfDisplayString("BOM: \ufeff"))
   match parse_item("%\"BOM: %ef%bb%bf\"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -574,7 +557,7 @@ test "httpwg: display-string - BOM in display string" {
 
 ///|
 test "httpwg: display-string - two lines display string" {
-  let expected : Item = { value: SfDisplayString("foo, bar"), parameters: [] }
+  let expected : Item = bare_item(SfDisplayString("foo, bar"))
   match parse_item("%\"foo, bar\"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -594,7 +577,7 @@ test "httpwg: display-string - truncated display string escape (zero digits)" {
 
 ///|
 test "httpwg: display-string - over-encoded display string" {
-  let expected : Item = { value: SfDisplayString("a"), parameters: [] }
+  let expected : Item = bare_item(SfDisplayString("a"))
   match parse_item("%\"%61\"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -609,7 +592,7 @@ test "httpwg: display-string - over-encoded display string" {
 
 ///|
 test "httpwg: number - basic integer" {
-  let expected : Item = { value: SfInteger(42L), parameters: [] }
+  let expected : Item = bare_item(SfInteger(42L))
   match parse_item("42") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -624,7 +607,7 @@ test "httpwg: number - basic integer" {
 
 ///|
 test "httpwg: number - zero integer" {
-  let expected : Item = { value: SfInteger(0L), parameters: [] }
+  let expected : Item = bare_item(SfInteger(0L))
   match parse_item("0") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -639,7 +622,7 @@ test "httpwg: number - zero integer" {
 
 ///|
 test "httpwg: number - negative zero" {
-  let expected : Item = { value: SfInteger(0L), parameters: [] }
+  let expected : Item = bare_item(SfInteger(0L))
   match parse_item("-0") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -659,7 +642,7 @@ test "httpwg: number - double negative zero" {
 
 ///|
 test "httpwg: number - negative integer" {
-  let expected : Item = { value: SfInteger(-42L), parameters: [] }
+  let expected : Item = bare_item(SfInteger(-42L))
   match parse_item("-42") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -674,7 +657,7 @@ test "httpwg: number - negative integer" {
 
 ///|
 test "httpwg: number - leading 0 integer" {
-  let expected : Item = { value: SfInteger(42L), parameters: [] }
+  let expected : Item = bare_item(SfInteger(42L))
   match parse_item("042") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -689,7 +672,7 @@ test "httpwg: number - leading 0 integer" {
 
 ///|
 test "httpwg: number - leading 0 negative integer" {
-  let expected : Item = { value: SfInteger(-42L), parameters: [] }
+  let expected : Item = bare_item(SfInteger(-42L))
   match parse_item("-042") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -704,7 +687,7 @@ test "httpwg: number - leading 0 negative integer" {
 
 ///|
 test "httpwg: number - leading 0 zero" {
-  let expected : Item = { value: SfInteger(0L), parameters: [] }
+  let expected : Item = bare_item(SfInteger(0L))
   match parse_item("00") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -739,7 +722,7 @@ test "httpwg: number - whitespace after sign" {
 
 ///|
 test "httpwg: number - long integer" {
-  let expected : Item = { value: SfInteger(123456789012345L), parameters: [] }
+  let expected : Item = bare_item(SfInteger(123456789012345L))
   match parse_item("123456789012345") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -755,8 +738,8 @@ test "httpwg: number - long integer" {
 ///|
 test "httpwg: number - long integer followed by comma" {
   let expected : Array[ListMember] = [
-    ListMember::Item({ value: SfInteger(123456789012345L), parameters: [] }),
-    ListMember::Item({ value: SfInteger(1L), parameters: [] }),
+    member_item(bare_item(SfInteger(123456789012345L))),
+    member_item(bare_item(SfInteger(1L))),
   ]
   match parse_list("123456789012345, 1") {
     Ok(parsed) => {
@@ -772,7 +755,7 @@ test "httpwg: number - long integer followed by comma" {
 
 ///|
 test "httpwg: number - long negative integer" {
-  let expected : Item = { value: SfInteger(-123456789012345L), parameters: [] }
+  let expected : Item = bare_item(SfInteger(-123456789012345L))
   match parse_item("-123456789012345") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -802,7 +785,7 @@ test "httpwg: number - negative too long integer" {
 
 ///|
 test "httpwg: number - simple decimal" {
-  let expected : Item = { value: SfDecimal(1.23), parameters: [] }
+  let expected : Item = bare_item(SfDecimal(1.23))
   match parse_item("1.23") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -817,7 +800,7 @@ test "httpwg: number - simple decimal" {
 
 ///|
 test "httpwg: number - negative decimal" {
-  let expected : Item = { value: SfDecimal(-1.23), parameters: [] }
+  let expected : Item = bare_item(SfDecimal(-1.23))
   match parse_item("-1.23") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -848,8 +831,8 @@ test "httpwg: number - negative decimal, whitespace after sign" {
 ///|
 test "httpwg: number - decimal, followed by comma" {
   let expected : Array[ListMember] = [
-    ListMember::Item({ value: SfDecimal(123456789012.123), parameters: [] }),
-    ListMember::Item({ value: SfDecimal(1.1), parameters: [] }),
+    member_item(bare_item(SfDecimal(123456789012.123))),
+    member_item(bare_item(SfDecimal(1.1))),
   ]
   match parse_list("123456789012.123, 1.1") {
     Ok(parsed) => {
@@ -865,7 +848,7 @@ test "httpwg: number - decimal, followed by comma" {
 
 ///|
 test "httpwg: number - tricky precision decimal" {
-  let expected : Item = { value: SfDecimal(123456789012.1), parameters: [] }
+  let expected : Item = bare_item(SfDecimal(123456789012.1))
   match parse_item("123456789012.1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -890,7 +873,7 @@ test "httpwg: number - adjacent double decimal decimal" {
 
 ///|
 test "httpwg: number - decimal with three fractional digits" {
-  let expected : Item = { value: SfDecimal(1.123), parameters: [] }
+  let expected : Item = bare_item(SfDecimal(1.123))
   match parse_item("1.123") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -905,7 +888,7 @@ test "httpwg: number - decimal with three fractional digits" {
 
 ///|
 test "httpwg: number - negative decimal with three fractional digits" {
-  let expected : Item = { value: SfDecimal(-1.123), parameters: [] }
+  let expected : Item = bare_item(SfDecimal(-1.123))
   match parse_item("-1.123") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -945,7 +928,7 @@ test "httpwg: number - negative decimal with thirteen integer digits" {
 
 ///|
 test "httpwg: number - decimal with 1 significant digit and 1 insignificant digit" {
-  let expected : Item = { value: SfDecimal(1.2), parameters: [] }
+  let expected : Item = bare_item(SfDecimal(1.2))
   match parse_item("1.20") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -960,7 +943,7 @@ test "httpwg: number - decimal with 1 significant digit and 1 insignificant digi
 
 ///|
 test "httpwg: number - decimal with 1 significant digit and 2 insignificant digits" {
-  let expected : Item = { value: SfDecimal(1.2), parameters: [] }
+  let expected : Item = bare_item(SfDecimal(1.2))
   match parse_item("1.200") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -975,7 +958,7 @@ test "httpwg: number - decimal with 1 significant digit and 2 insignificant digi
 
 ///|
 test "httpwg: number - decimal with 2 significant digits and 1 insignificant digit" {
-  let expected : Item = { value: SfDecimal(1.23), parameters: [] }
+  let expected : Item = bare_item(SfDecimal(1.23))
   match parse_item("1.230") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -990,7 +973,7 @@ test "httpwg: number - decimal with 2 significant digits and 1 insignificant dig
 
 ///|
 test "httpwg: string - basic string" {
-  let expected : Item = { value: SfString("foo bar"), parameters: [] }
+  let expected : Item = bare_item(SfString("foo bar"))
   match parse_item("\"foo bar\"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1005,7 +988,7 @@ test "httpwg: string - basic string" {
 
 ///|
 test "httpwg: string - empty string" {
-  let expected : Item = { value: SfString(""), parameters: [] }
+  let expected : Item = bare_item(SfString(""))
   match parse_item("\"\"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1020,12 +1003,11 @@ test "httpwg: string - empty string" {
 
 ///|
 test "httpwg: string - long string" {
-  let expected : Item = {
-    value: SfString(
+  let expected : Item = bare_item(
+    SfString(
       "foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo ",
     ),
-    parameters: [],
-  }
+  )
   match
     parse_item(
       "\"foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo \"",
@@ -1046,7 +1028,7 @@ test "httpwg: string - long string" {
 
 ///|
 test "httpwg: string - whitespace string" {
-  let expected : Item = { value: SfString("   "), parameters: [] }
+  let expected : Item = bare_item(SfString("   "))
   match parse_item("\"   \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1086,10 +1068,7 @@ test "httpwg: string - unbalanced string" {
 
 ///|
 test "httpwg: string - string quoting" {
-  let expected : Item = {
-    value: SfString("foo \"bar\" \\ baz"),
-    parameters: [],
-  }
+  let expected : Item = bare_item(SfString("foo \"bar\" \\ baz"))
   match parse_item("\"foo \\\"bar\\\" \\\\ baz\"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1119,7 +1098,7 @@ test "httpwg: string - abruptly ending string quote" {
 
 ///|
 test "httpwg: string - two lines string" {
-  let expected : Item = { value: SfString("foo, bar"), parameters: [] }
+  let expected : Item = bare_item(SfString("foo, bar"))
   match parse_item("\"foo, bar\"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1134,7 +1113,7 @@ test "httpwg: string - two lines string" {
 
 ///|
 test "httpwg: token - basic token - item" {
-  let expected : Item = { value: SfToken("a_b-c.d3:f%00/*"), parameters: [] }
+  let expected : Item = bare_item(SfToken("a_b-c.d3:f%00/*"))
   match parse_item("a_b-c.d3:f%00/*") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1149,7 +1128,7 @@ test "httpwg: token - basic token - item" {
 
 ///|
 test "httpwg: token - token with capitals - item" {
-  let expected : Item = { value: SfToken("fooBar"), parameters: [] }
+  let expected : Item = bare_item(SfToken("fooBar"))
   match parse_item("fooBar") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1164,7 +1143,7 @@ test "httpwg: token - token with capitals - item" {
 
 ///|
 test "httpwg: token - token starting with capitals - item" {
-  let expected : Item = { value: SfToken("FooBar"), parameters: [] }
+  let expected : Item = bare_item(SfToken("FooBar"))
   match parse_item("FooBar") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1180,7 +1159,7 @@ test "httpwg: token - token starting with capitals - item" {
 ///|
 test "httpwg: token - basic token - list" {
   let expected : Array[ListMember] = [
-    ListMember::Item({ value: SfToken("a_b-c3/*"), parameters: [] }),
+    member_item(bare_item(SfToken("a_b-c3/*"))),
   ]
   match parse_list("a_b-c3/*") {
     Ok(parsed) => {
@@ -1196,9 +1175,7 @@ test "httpwg: token - basic token - list" {
 
 ///|
 test "httpwg: token - token with capitals - list" {
-  let expected : Array[ListMember] = [
-    ListMember::Item({ value: SfToken("fooBar"), parameters: [] }),
-  ]
+  let expected : Array[ListMember] = [member_item(bare_item(SfToken("fooBar")))]
   match parse_list("fooBar") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1213,9 +1190,7 @@ test "httpwg: token - token with capitals - list" {
 
 ///|
 test "httpwg: token - token starting with capitals - list" {
-  let expected : Array[ListMember] = [
-    ListMember::Item({ value: SfToken("FooBar"), parameters: [] }),
-  ]
+  let expected : Array[ListMember] = [member_item(bare_item(SfToken("FooBar")))]
   match parse_list("FooBar") {
     Ok(parsed) => {
       assert_eq(parsed, expected)

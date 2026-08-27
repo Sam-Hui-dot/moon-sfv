@@ -164,7 +164,7 @@ test "httpwg: string-generated - 0x1f in string" {
 
 ///|
 test "httpwg: string-generated - 0x20 in string" {
-  let expected : Item = { value: SfString("   "), parameters: [] }
+  let expected : Item = bare_item(SfString("   "))
   match parse_item("\"   \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -179,7 +179,7 @@ test "httpwg: string-generated - 0x20 in string" {
 
 ///|
 test "httpwg: string-generated - 0x21 in string" {
-  let expected : Item = { value: SfString(" ! "), parameters: [] }
+  let expected : Item = bare_item(SfString(" ! "))
   match parse_item("\" ! \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -199,7 +199,7 @@ test "httpwg: string-generated - 0x22 in string" {
 
 ///|
 test "httpwg: string-generated - 0x23 in string" {
-  let expected : Item = { value: SfString(" # "), parameters: [] }
+  let expected : Item = bare_item(SfString(" # "))
   match parse_item("\" # \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -214,7 +214,7 @@ test "httpwg: string-generated - 0x23 in string" {
 
 ///|
 test "httpwg: string-generated - 0x24 in string" {
-  let expected : Item = { value: SfString(" $ "), parameters: [] }
+  let expected : Item = bare_item(SfString(" $ "))
   match parse_item("\" $ \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -229,7 +229,7 @@ test "httpwg: string-generated - 0x24 in string" {
 
 ///|
 test "httpwg: string-generated - 0x25 in string" {
-  let expected : Item = { value: SfString(" % "), parameters: [] }
+  let expected : Item = bare_item(SfString(" % "))
   match parse_item("\" % \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -244,7 +244,7 @@ test "httpwg: string-generated - 0x25 in string" {
 
 ///|
 test "httpwg: string-generated - 0x26 in string" {
-  let expected : Item = { value: SfString(" & "), parameters: [] }
+  let expected : Item = bare_item(SfString(" & "))
   match parse_item("\" & \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -259,7 +259,7 @@ test "httpwg: string-generated - 0x26 in string" {
 
 ///|
 test "httpwg: string-generated - 0x27 in string" {
-  let expected : Item = { value: SfString(" ' "), parameters: [] }
+  let expected : Item = bare_item(SfString(" ' "))
   match parse_item("\" ' \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -274,7 +274,7 @@ test "httpwg: string-generated - 0x27 in string" {
 
 ///|
 test "httpwg: string-generated - 0x28 in string" {
-  let expected : Item = { value: SfString(" ( "), parameters: [] }
+  let expected : Item = bare_item(SfString(" ( "))
   match parse_item("\" ( \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -289,7 +289,7 @@ test "httpwg: string-generated - 0x28 in string" {
 
 ///|
 test "httpwg: string-generated - 0x29 in string" {
-  let expected : Item = { value: SfString(" ) "), parameters: [] }
+  let expected : Item = bare_item(SfString(" ) "))
   match parse_item("\" ) \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -304,7 +304,7 @@ test "httpwg: string-generated - 0x29 in string" {
 
 ///|
 test "httpwg: string-generated - 0x2a in string" {
-  let expected : Item = { value: SfString(" * "), parameters: [] }
+  let expected : Item = bare_item(SfString(" * "))
   match parse_item("\" * \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -319,7 +319,7 @@ test "httpwg: string-generated - 0x2a in string" {
 
 ///|
 test "httpwg: string-generated - 0x2b in string" {
-  let expected : Item = { value: SfString(" + "), parameters: [] }
+  let expected : Item = bare_item(SfString(" + "))
   match parse_item("\" + \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -334,7 +334,7 @@ test "httpwg: string-generated - 0x2b in string" {
 
 ///|
 test "httpwg: string-generated - 0x2c in string" {
-  let expected : Item = { value: SfString(" , "), parameters: [] }
+  let expected : Item = bare_item(SfString(" , "))
   match parse_item("\" , \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -349,7 +349,7 @@ test "httpwg: string-generated - 0x2c in string" {
 
 ///|
 test "httpwg: string-generated - 0x2d in string" {
-  let expected : Item = { value: SfString(" - "), parameters: [] }
+  let expected : Item = bare_item(SfString(" - "))
   match parse_item("\" - \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -364,7 +364,7 @@ test "httpwg: string-generated - 0x2d in string" {
 
 ///|
 test "httpwg: string-generated - 0x2e in string" {
-  let expected : Item = { value: SfString(" . "), parameters: [] }
+  let expected : Item = bare_item(SfString(" . "))
   match parse_item("\" . \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -379,7 +379,7 @@ test "httpwg: string-generated - 0x2e in string" {
 
 ///|
 test "httpwg: string-generated - 0x2f in string" {
-  let expected : Item = { value: SfString(" / "), parameters: [] }
+  let expected : Item = bare_item(SfString(" / "))
   match parse_item("\" / \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -394,7 +394,7 @@ test "httpwg: string-generated - 0x2f in string" {
 
 ///|
 test "httpwg: string-generated - 0x30 in string" {
-  let expected : Item = { value: SfString(" 0 "), parameters: [] }
+  let expected : Item = bare_item(SfString(" 0 "))
   match parse_item("\" 0 \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -409,7 +409,7 @@ test "httpwg: string-generated - 0x30 in string" {
 
 ///|
 test "httpwg: string-generated - 0x31 in string" {
-  let expected : Item = { value: SfString(" 1 "), parameters: [] }
+  let expected : Item = bare_item(SfString(" 1 "))
   match parse_item("\" 1 \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -424,7 +424,7 @@ test "httpwg: string-generated - 0x31 in string" {
 
 ///|
 test "httpwg: string-generated - 0x32 in string" {
-  let expected : Item = { value: SfString(" 2 "), parameters: [] }
+  let expected : Item = bare_item(SfString(" 2 "))
   match parse_item("\" 2 \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -439,7 +439,7 @@ test "httpwg: string-generated - 0x32 in string" {
 
 ///|
 test "httpwg: string-generated - 0x33 in string" {
-  let expected : Item = { value: SfString(" 3 "), parameters: [] }
+  let expected : Item = bare_item(SfString(" 3 "))
   match parse_item("\" 3 \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -454,7 +454,7 @@ test "httpwg: string-generated - 0x33 in string" {
 
 ///|
 test "httpwg: string-generated - 0x34 in string" {
-  let expected : Item = { value: SfString(" 4 "), parameters: [] }
+  let expected : Item = bare_item(SfString(" 4 "))
   match parse_item("\" 4 \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -469,7 +469,7 @@ test "httpwg: string-generated - 0x34 in string" {
 
 ///|
 test "httpwg: string-generated - 0x35 in string" {
-  let expected : Item = { value: SfString(" 5 "), parameters: [] }
+  let expected : Item = bare_item(SfString(" 5 "))
   match parse_item("\" 5 \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -484,7 +484,7 @@ test "httpwg: string-generated - 0x35 in string" {
 
 ///|
 test "httpwg: string-generated - 0x36 in string" {
-  let expected : Item = { value: SfString(" 6 "), parameters: [] }
+  let expected : Item = bare_item(SfString(" 6 "))
   match parse_item("\" 6 \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -499,7 +499,7 @@ test "httpwg: string-generated - 0x36 in string" {
 
 ///|
 test "httpwg: string-generated - 0x37 in string" {
-  let expected : Item = { value: SfString(" 7 "), parameters: [] }
+  let expected : Item = bare_item(SfString(" 7 "))
   match parse_item("\" 7 \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -514,7 +514,7 @@ test "httpwg: string-generated - 0x37 in string" {
 
 ///|
 test "httpwg: string-generated - 0x38 in string" {
-  let expected : Item = { value: SfString(" 8 "), parameters: [] }
+  let expected : Item = bare_item(SfString(" 8 "))
   match parse_item("\" 8 \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -529,7 +529,7 @@ test "httpwg: string-generated - 0x38 in string" {
 
 ///|
 test "httpwg: string-generated - 0x39 in string" {
-  let expected : Item = { value: SfString(" 9 "), parameters: [] }
+  let expected : Item = bare_item(SfString(" 9 "))
   match parse_item("\" 9 \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -544,7 +544,7 @@ test "httpwg: string-generated - 0x39 in string" {
 
 ///|
 test "httpwg: string-generated - 0x3a in string" {
-  let expected : Item = { value: SfString(" : "), parameters: [] }
+  let expected : Item = bare_item(SfString(" : "))
   match parse_item("\" : \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -559,7 +559,7 @@ test "httpwg: string-generated - 0x3a in string" {
 
 ///|
 test "httpwg: string-generated - 0x3b in string" {
-  let expected : Item = { value: SfString(" ; "), parameters: [] }
+  let expected : Item = bare_item(SfString(" ; "))
   match parse_item("\" ; \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -574,7 +574,7 @@ test "httpwg: string-generated - 0x3b in string" {
 
 ///|
 test "httpwg: string-generated - 0x3c in string" {
-  let expected : Item = { value: SfString(" < "), parameters: [] }
+  let expected : Item = bare_item(SfString(" < "))
   match parse_item("\" < \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -589,7 +589,7 @@ test "httpwg: string-generated - 0x3c in string" {
 
 ///|
 test "httpwg: string-generated - 0x3d in string" {
-  let expected : Item = { value: SfString(" = "), parameters: [] }
+  let expected : Item = bare_item(SfString(" = "))
   match parse_item("\" = \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -604,7 +604,7 @@ test "httpwg: string-generated - 0x3d in string" {
 
 ///|
 test "httpwg: string-generated - 0x3e in string" {
-  let expected : Item = { value: SfString(" > "), parameters: [] }
+  let expected : Item = bare_item(SfString(" > "))
   match parse_item("\" > \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -619,7 +619,7 @@ test "httpwg: string-generated - 0x3e in string" {
 
 ///|
 test "httpwg: string-generated - 0x3f in string" {
-  let expected : Item = { value: SfString(" ? "), parameters: [] }
+  let expected : Item = bare_item(SfString(" ? "))
   match parse_item("\" ? \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -634,7 +634,7 @@ test "httpwg: string-generated - 0x3f in string" {
 
 ///|
 test "httpwg: string-generated - 0x40 in string" {
-  let expected : Item = { value: SfString(" @ "), parameters: [] }
+  let expected : Item = bare_item(SfString(" @ "))
   match parse_item("\" @ \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -649,7 +649,7 @@ test "httpwg: string-generated - 0x40 in string" {
 
 ///|
 test "httpwg: string-generated - 0x41 in string" {
-  let expected : Item = { value: SfString(" A "), parameters: [] }
+  let expected : Item = bare_item(SfString(" A "))
   match parse_item("\" A \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -664,7 +664,7 @@ test "httpwg: string-generated - 0x41 in string" {
 
 ///|
 test "httpwg: string-generated - 0x42 in string" {
-  let expected : Item = { value: SfString(" B "), parameters: [] }
+  let expected : Item = bare_item(SfString(" B "))
   match parse_item("\" B \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -679,7 +679,7 @@ test "httpwg: string-generated - 0x42 in string" {
 
 ///|
 test "httpwg: string-generated - 0x43 in string" {
-  let expected : Item = { value: SfString(" C "), parameters: [] }
+  let expected : Item = bare_item(SfString(" C "))
   match parse_item("\" C \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -694,7 +694,7 @@ test "httpwg: string-generated - 0x43 in string" {
 
 ///|
 test "httpwg: string-generated - 0x44 in string" {
-  let expected : Item = { value: SfString(" D "), parameters: [] }
+  let expected : Item = bare_item(SfString(" D "))
   match parse_item("\" D \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -709,7 +709,7 @@ test "httpwg: string-generated - 0x44 in string" {
 
 ///|
 test "httpwg: string-generated - 0x45 in string" {
-  let expected : Item = { value: SfString(" E "), parameters: [] }
+  let expected : Item = bare_item(SfString(" E "))
   match parse_item("\" E \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -724,7 +724,7 @@ test "httpwg: string-generated - 0x45 in string" {
 
 ///|
 test "httpwg: string-generated - 0x46 in string" {
-  let expected : Item = { value: SfString(" F "), parameters: [] }
+  let expected : Item = bare_item(SfString(" F "))
   match parse_item("\" F \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -739,7 +739,7 @@ test "httpwg: string-generated - 0x46 in string" {
 
 ///|
 test "httpwg: string-generated - 0x47 in string" {
-  let expected : Item = { value: SfString(" G "), parameters: [] }
+  let expected : Item = bare_item(SfString(" G "))
   match parse_item("\" G \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -754,7 +754,7 @@ test "httpwg: string-generated - 0x47 in string" {
 
 ///|
 test "httpwg: string-generated - 0x48 in string" {
-  let expected : Item = { value: SfString(" H "), parameters: [] }
+  let expected : Item = bare_item(SfString(" H "))
   match parse_item("\" H \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -769,7 +769,7 @@ test "httpwg: string-generated - 0x48 in string" {
 
 ///|
 test "httpwg: string-generated - 0x49 in string" {
-  let expected : Item = { value: SfString(" I "), parameters: [] }
+  let expected : Item = bare_item(SfString(" I "))
   match parse_item("\" I \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -784,7 +784,7 @@ test "httpwg: string-generated - 0x49 in string" {
 
 ///|
 test "httpwg: string-generated - 0x4a in string" {
-  let expected : Item = { value: SfString(" J "), parameters: [] }
+  let expected : Item = bare_item(SfString(" J "))
   match parse_item("\" J \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -799,7 +799,7 @@ test "httpwg: string-generated - 0x4a in string" {
 
 ///|
 test "httpwg: string-generated - 0x4b in string" {
-  let expected : Item = { value: SfString(" K "), parameters: [] }
+  let expected : Item = bare_item(SfString(" K "))
   match parse_item("\" K \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -814,7 +814,7 @@ test "httpwg: string-generated - 0x4b in string" {
 
 ///|
 test "httpwg: string-generated - 0x4c in string" {
-  let expected : Item = { value: SfString(" L "), parameters: [] }
+  let expected : Item = bare_item(SfString(" L "))
   match parse_item("\" L \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -829,7 +829,7 @@ test "httpwg: string-generated - 0x4c in string" {
 
 ///|
 test "httpwg: string-generated - 0x4d in string" {
-  let expected : Item = { value: SfString(" M "), parameters: [] }
+  let expected : Item = bare_item(SfString(" M "))
   match parse_item("\" M \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -844,7 +844,7 @@ test "httpwg: string-generated - 0x4d in string" {
 
 ///|
 test "httpwg: string-generated - 0x4e in string" {
-  let expected : Item = { value: SfString(" N "), parameters: [] }
+  let expected : Item = bare_item(SfString(" N "))
   match parse_item("\" N \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -859,7 +859,7 @@ test "httpwg: string-generated - 0x4e in string" {
 
 ///|
 test "httpwg: string-generated - 0x4f in string" {
-  let expected : Item = { value: SfString(" O "), parameters: [] }
+  let expected : Item = bare_item(SfString(" O "))
   match parse_item("\" O \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -874,7 +874,7 @@ test "httpwg: string-generated - 0x4f in string" {
 
 ///|
 test "httpwg: string-generated - 0x50 in string" {
-  let expected : Item = { value: SfString(" P "), parameters: [] }
+  let expected : Item = bare_item(SfString(" P "))
   match parse_item("\" P \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -889,7 +889,7 @@ test "httpwg: string-generated - 0x50 in string" {
 
 ///|
 test "httpwg: string-generated - 0x51 in string" {
-  let expected : Item = { value: SfString(" Q "), parameters: [] }
+  let expected : Item = bare_item(SfString(" Q "))
   match parse_item("\" Q \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -904,7 +904,7 @@ test "httpwg: string-generated - 0x51 in string" {
 
 ///|
 test "httpwg: string-generated - 0x52 in string" {
-  let expected : Item = { value: SfString(" R "), parameters: [] }
+  let expected : Item = bare_item(SfString(" R "))
   match parse_item("\" R \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -919,7 +919,7 @@ test "httpwg: string-generated - 0x52 in string" {
 
 ///|
 test "httpwg: string-generated - 0x53 in string" {
-  let expected : Item = { value: SfString(" S "), parameters: [] }
+  let expected : Item = bare_item(SfString(" S "))
   match parse_item("\" S \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -934,7 +934,7 @@ test "httpwg: string-generated - 0x53 in string" {
 
 ///|
 test "httpwg: string-generated - 0x54 in string" {
-  let expected : Item = { value: SfString(" T "), parameters: [] }
+  let expected : Item = bare_item(SfString(" T "))
   match parse_item("\" T \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -949,7 +949,7 @@ test "httpwg: string-generated - 0x54 in string" {
 
 ///|
 test "httpwg: string-generated - 0x55 in string" {
-  let expected : Item = { value: SfString(" U "), parameters: [] }
+  let expected : Item = bare_item(SfString(" U "))
   match parse_item("\" U \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -964,7 +964,7 @@ test "httpwg: string-generated - 0x55 in string" {
 
 ///|
 test "httpwg: string-generated - 0x56 in string" {
-  let expected : Item = { value: SfString(" V "), parameters: [] }
+  let expected : Item = bare_item(SfString(" V "))
   match parse_item("\" V \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -979,7 +979,7 @@ test "httpwg: string-generated - 0x56 in string" {
 
 ///|
 test "httpwg: string-generated - 0x57 in string" {
-  let expected : Item = { value: SfString(" W "), parameters: [] }
+  let expected : Item = bare_item(SfString(" W "))
   match parse_item("\" W \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -994,7 +994,7 @@ test "httpwg: string-generated - 0x57 in string" {
 
 ///|
 test "httpwg: string-generated - 0x58 in string" {
-  let expected : Item = { value: SfString(" X "), parameters: [] }
+  let expected : Item = bare_item(SfString(" X "))
   match parse_item("\" X \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1009,7 +1009,7 @@ test "httpwg: string-generated - 0x58 in string" {
 
 ///|
 test "httpwg: string-generated - 0x59 in string" {
-  let expected : Item = { value: SfString(" Y "), parameters: [] }
+  let expected : Item = bare_item(SfString(" Y "))
   match parse_item("\" Y \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1024,7 +1024,7 @@ test "httpwg: string-generated - 0x59 in string" {
 
 ///|
 test "httpwg: string-generated - 0x5a in string" {
-  let expected : Item = { value: SfString(" Z "), parameters: [] }
+  let expected : Item = bare_item(SfString(" Z "))
   match parse_item("\" Z \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1039,7 +1039,7 @@ test "httpwg: string-generated - 0x5a in string" {
 
 ///|
 test "httpwg: string-generated - 0x5b in string" {
-  let expected : Item = { value: SfString(" [ "), parameters: [] }
+  let expected : Item = bare_item(SfString(" [ "))
   match parse_item("\" [ \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1059,7 +1059,7 @@ test "httpwg: string-generated - 0x5c in string" {
 
 ///|
 test "httpwg: string-generated - 0x5d in string" {
-  let expected : Item = { value: SfString(" ] "), parameters: [] }
+  let expected : Item = bare_item(SfString(" ] "))
   match parse_item("\" ] \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1074,7 +1074,7 @@ test "httpwg: string-generated - 0x5d in string" {
 
 ///|
 test "httpwg: string-generated - 0x5e in string" {
-  let expected : Item = { value: SfString(" ^ "), parameters: [] }
+  let expected : Item = bare_item(SfString(" ^ "))
   match parse_item("\" ^ \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1089,7 +1089,7 @@ test "httpwg: string-generated - 0x5e in string" {
 
 ///|
 test "httpwg: string-generated - 0x5f in string" {
-  let expected : Item = { value: SfString(" _ "), parameters: [] }
+  let expected : Item = bare_item(SfString(" _ "))
   match parse_item("\" _ \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1104,7 +1104,7 @@ test "httpwg: string-generated - 0x5f in string" {
 
 ///|
 test "httpwg: string-generated - 0x60 in string" {
-  let expected : Item = { value: SfString(" ` "), parameters: [] }
+  let expected : Item = bare_item(SfString(" ` "))
   match parse_item("\" ` \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1119,7 +1119,7 @@ test "httpwg: string-generated - 0x60 in string" {
 
 ///|
 test "httpwg: string-generated - 0x61 in string" {
-  let expected : Item = { value: SfString(" a "), parameters: [] }
+  let expected : Item = bare_item(SfString(" a "))
   match parse_item("\" a \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1134,7 +1134,7 @@ test "httpwg: string-generated - 0x61 in string" {
 
 ///|
 test "httpwg: string-generated - 0x62 in string" {
-  let expected : Item = { value: SfString(" b "), parameters: [] }
+  let expected : Item = bare_item(SfString(" b "))
   match parse_item("\" b \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1149,7 +1149,7 @@ test "httpwg: string-generated - 0x62 in string" {
 
 ///|
 test "httpwg: string-generated - 0x63 in string" {
-  let expected : Item = { value: SfString(" c "), parameters: [] }
+  let expected : Item = bare_item(SfString(" c "))
   match parse_item("\" c \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1164,7 +1164,7 @@ test "httpwg: string-generated - 0x63 in string" {
 
 ///|
 test "httpwg: string-generated - 0x64 in string" {
-  let expected : Item = { value: SfString(" d "), parameters: [] }
+  let expected : Item = bare_item(SfString(" d "))
   match parse_item("\" d \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1179,7 +1179,7 @@ test "httpwg: string-generated - 0x64 in string" {
 
 ///|
 test "httpwg: string-generated - 0x65 in string" {
-  let expected : Item = { value: SfString(" e "), parameters: [] }
+  let expected : Item = bare_item(SfString(" e "))
   match parse_item("\" e \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1194,7 +1194,7 @@ test "httpwg: string-generated - 0x65 in string" {
 
 ///|
 test "httpwg: string-generated - 0x66 in string" {
-  let expected : Item = { value: SfString(" f "), parameters: [] }
+  let expected : Item = bare_item(SfString(" f "))
   match parse_item("\" f \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1209,7 +1209,7 @@ test "httpwg: string-generated - 0x66 in string" {
 
 ///|
 test "httpwg: string-generated - 0x67 in string" {
-  let expected : Item = { value: SfString(" g "), parameters: [] }
+  let expected : Item = bare_item(SfString(" g "))
   match parse_item("\" g \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1224,7 +1224,7 @@ test "httpwg: string-generated - 0x67 in string" {
 
 ///|
 test "httpwg: string-generated - 0x68 in string" {
-  let expected : Item = { value: SfString(" h "), parameters: [] }
+  let expected : Item = bare_item(SfString(" h "))
   match parse_item("\" h \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1239,7 +1239,7 @@ test "httpwg: string-generated - 0x68 in string" {
 
 ///|
 test "httpwg: string-generated - 0x69 in string" {
-  let expected : Item = { value: SfString(" i "), parameters: [] }
+  let expected : Item = bare_item(SfString(" i "))
   match parse_item("\" i \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1254,7 +1254,7 @@ test "httpwg: string-generated - 0x69 in string" {
 
 ///|
 test "httpwg: string-generated - 0x6a in string" {
-  let expected : Item = { value: SfString(" j "), parameters: [] }
+  let expected : Item = bare_item(SfString(" j "))
   match parse_item("\" j \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1269,7 +1269,7 @@ test "httpwg: string-generated - 0x6a in string" {
 
 ///|
 test "httpwg: string-generated - 0x6b in string" {
-  let expected : Item = { value: SfString(" k "), parameters: [] }
+  let expected : Item = bare_item(SfString(" k "))
   match parse_item("\" k \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1284,7 +1284,7 @@ test "httpwg: string-generated - 0x6b in string" {
 
 ///|
 test "httpwg: string-generated - 0x6c in string" {
-  let expected : Item = { value: SfString(" l "), parameters: [] }
+  let expected : Item = bare_item(SfString(" l "))
   match parse_item("\" l \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1299,7 +1299,7 @@ test "httpwg: string-generated - 0x6c in string" {
 
 ///|
 test "httpwg: string-generated - 0x6d in string" {
-  let expected : Item = { value: SfString(" m "), parameters: [] }
+  let expected : Item = bare_item(SfString(" m "))
   match parse_item("\" m \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1314,7 +1314,7 @@ test "httpwg: string-generated - 0x6d in string" {
 
 ///|
 test "httpwg: string-generated - 0x6e in string" {
-  let expected : Item = { value: SfString(" n "), parameters: [] }
+  let expected : Item = bare_item(SfString(" n "))
   match parse_item("\" n \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1329,7 +1329,7 @@ test "httpwg: string-generated - 0x6e in string" {
 
 ///|
 test "httpwg: string-generated - 0x6f in string" {
-  let expected : Item = { value: SfString(" o "), parameters: [] }
+  let expected : Item = bare_item(SfString(" o "))
   match parse_item("\" o \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1344,7 +1344,7 @@ test "httpwg: string-generated - 0x6f in string" {
 
 ///|
 test "httpwg: string-generated - 0x70 in string" {
-  let expected : Item = { value: SfString(" p "), parameters: [] }
+  let expected : Item = bare_item(SfString(" p "))
   match parse_item("\" p \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1359,7 +1359,7 @@ test "httpwg: string-generated - 0x70 in string" {
 
 ///|
 test "httpwg: string-generated - 0x71 in string" {
-  let expected : Item = { value: SfString(" q "), parameters: [] }
+  let expected : Item = bare_item(SfString(" q "))
   match parse_item("\" q \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1374,7 +1374,7 @@ test "httpwg: string-generated - 0x71 in string" {
 
 ///|
 test "httpwg: string-generated - 0x72 in string" {
-  let expected : Item = { value: SfString(" r "), parameters: [] }
+  let expected : Item = bare_item(SfString(" r "))
   match parse_item("\" r \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1389,7 +1389,7 @@ test "httpwg: string-generated - 0x72 in string" {
 
 ///|
 test "httpwg: string-generated - 0x73 in string" {
-  let expected : Item = { value: SfString(" s "), parameters: [] }
+  let expected : Item = bare_item(SfString(" s "))
   match parse_item("\" s \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1404,7 +1404,7 @@ test "httpwg: string-generated - 0x73 in string" {
 
 ///|
 test "httpwg: string-generated - 0x74 in string" {
-  let expected : Item = { value: SfString(" t "), parameters: [] }
+  let expected : Item = bare_item(SfString(" t "))
   match parse_item("\" t \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1419,7 +1419,7 @@ test "httpwg: string-generated - 0x74 in string" {
 
 ///|
 test "httpwg: string-generated - 0x75 in string" {
-  let expected : Item = { value: SfString(" u "), parameters: [] }
+  let expected : Item = bare_item(SfString(" u "))
   match parse_item("\" u \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1434,7 +1434,7 @@ test "httpwg: string-generated - 0x75 in string" {
 
 ///|
 test "httpwg: string-generated - 0x76 in string" {
-  let expected : Item = { value: SfString(" v "), parameters: [] }
+  let expected : Item = bare_item(SfString(" v "))
   match parse_item("\" v \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1449,7 +1449,7 @@ test "httpwg: string-generated - 0x76 in string" {
 
 ///|
 test "httpwg: string-generated - 0x77 in string" {
-  let expected : Item = { value: SfString(" w "), parameters: [] }
+  let expected : Item = bare_item(SfString(" w "))
   match parse_item("\" w \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1464,7 +1464,7 @@ test "httpwg: string-generated - 0x77 in string" {
 
 ///|
 test "httpwg: string-generated - 0x78 in string" {
-  let expected : Item = { value: SfString(" x "), parameters: [] }
+  let expected : Item = bare_item(SfString(" x "))
   match parse_item("\" x \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1479,7 +1479,7 @@ test "httpwg: string-generated - 0x78 in string" {
 
 ///|
 test "httpwg: string-generated - 0x79 in string" {
-  let expected : Item = { value: SfString(" y "), parameters: [] }
+  let expected : Item = bare_item(SfString(" y "))
   match parse_item("\" y \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1494,7 +1494,7 @@ test "httpwg: string-generated - 0x79 in string" {
 
 ///|
 test "httpwg: string-generated - 0x7a in string" {
-  let expected : Item = { value: SfString(" z "), parameters: [] }
+  let expected : Item = bare_item(SfString(" z "))
   match parse_item("\" z \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1509,7 +1509,7 @@ test "httpwg: string-generated - 0x7a in string" {
 
 ///|
 test "httpwg: string-generated - 0x7b in string" {
-  let expected : Item = { value: SfString(" { "), parameters: [] }
+  let expected : Item = bare_item(SfString(" { "))
   match parse_item("\" { \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1524,7 +1524,7 @@ test "httpwg: string-generated - 0x7b in string" {
 
 ///|
 test "httpwg: string-generated - 0x7c in string" {
-  let expected : Item = { value: SfString(" | "), parameters: [] }
+  let expected : Item = bare_item(SfString(" | "))
   match parse_item("\" | \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1539,7 +1539,7 @@ test "httpwg: string-generated - 0x7c in string" {
 
 ///|
 test "httpwg: string-generated - 0x7d in string" {
-  let expected : Item = { value: SfString(" } "), parameters: [] }
+  let expected : Item = bare_item(SfString(" } "))
   match parse_item("\" } \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1554,7 +1554,7 @@ test "httpwg: string-generated - 0x7d in string" {
 
 ///|
 test "httpwg: string-generated - 0x7e in string" {
-  let expected : Item = { value: SfString(" ~ "), parameters: [] }
+  let expected : Item = bare_item(SfString(" ~ "))
   match parse_item("\" ~ \"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1744,7 +1744,7 @@ test "httpwg: string-generated - Escaped 0x21 in string" {
 
 ///|
 test "httpwg: string-generated - Escaped 0x22 in string" {
-  let expected : Item = { value: SfString("\""), parameters: [] }
+  let expected : Item = bare_item(SfString("\""))
   match parse_item("\"\\\"\"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2044,7 +2044,7 @@ test "httpwg: string-generated - Escaped 0x5b in string" {
 
 ///|
 test "httpwg: string-generated - Escaped 0x5c in string" {
-  let expected : Item = { value: SfString("\\"), parameters: [] }
+  let expected : Item = bare_item(SfString("\\"))
   match parse_item("\"\\\\\"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)

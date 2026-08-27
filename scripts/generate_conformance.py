@@ -48,26 +48,31 @@ def val_to_bare_item(v):
     raise ValueError(f'Unknown value: {v}')
 
 def params_to_mbt(params):
+    if not params:
+        return '[]'
     res = []
     for p in params:
         k = escape_string(p[0])
         v = val_to_bare_item(p[1])
-        res.append(f'{{ key: "{k}", value: {v} }}')
+        res.append(f'param("{k}", {v})')
     return '[' + ', '.join(res) + ']'
 
 def item_to_mbt(item_arr):
     bare = val_to_bare_item(item_arr[0])
-    params = params_to_mbt(item_arr[1])
-    return f'{{ value: {bare}, parameters: {params} }}'
+    params = item_arr[1]
+    if not params:
+        return f'bare_item({bare})'
+    params_str = params_to_mbt(params)
+    return f'item({bare}, {params_str})'
 
 def list_member_to_mbt(v):
     if isinstance(v[0], list): # inner list
-        inner_items = [f'{{ value: {val_to_bare_item(it[0])}, parameters: {params_to_mbt(it[1])} }}' for it in v[0]]
+        inner_items = [item_to_mbt(it) for it in v[0]]
         inner_params = params_to_mbt(v[1])
         inner_items_str = ', '.join(inner_items)
-        return f'ListMember::InnerList({{ items: [{inner_items_str}], parameters: {inner_params} }})'
+        return f'member_inner([{inner_items_str}], {inner_params})'
     else:
-        return f'ListMember::Item({item_to_mbt(v)})'
+        return f'member_item({item_to_mbt(v)})'
 
 def generate_file_tests(fpaths):
     out_lines = [
@@ -156,7 +161,7 @@ def generate_file_tests(fpaths):
                     for k, v in expected:
                         k_esc = escape_string(k)
                         v_mbt = list_member_to_mbt(v)
-                        dict_entries.append(f'{{ key: "{k_esc}", value: {v_mbt} }}')
+                        dict_entries.append(f'dict_entry("{k_esc}", {v_mbt})')
                     exp_mbt = '[' + ', '.join(dict_entries) + ']'
                     out_lines.append(f'  let expected : Array[DictionaryMember] = {exp_mbt}')
                     out_lines.append(f'  match parse_dictionary("{raw_str}") {{')
@@ -178,10 +183,6 @@ def generate_file_tests(fpaths):
     return count, '\n'.join(out_lines)
 
 def main():
-    for f in glob.glob('conformance_*_test.mbt') + glob.glob('conformance_test.mbt'):
-        if os.path.exists(f):
-            os.remove(f)
-
     splits = {
         'conformance_bare_items_test.mbt': [
             'test-vectors/structured-field-tests/binary.json',
@@ -227,4 +228,5 @@ def main():
 
     print(f'Total parsing conformance vectors: {tot}')
 
-main()
+if __name__ == '__main__':
+    main()

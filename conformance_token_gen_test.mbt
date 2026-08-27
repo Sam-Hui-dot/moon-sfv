@@ -169,7 +169,7 @@ test "httpwg: token-generated - 0x20 in token" {
 
 ///|
 test "httpwg: token-generated - 0x21 in token" {
-  let expected : Item = { value: SfToken("a!a"), parameters: [] }
+  let expected : Item = bare_item(SfToken("a!a"))
   match parse_item("a!a") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -189,7 +189,7 @@ test "httpwg: token-generated - 0x22 in token" {
 
 ///|
 test "httpwg: token-generated - 0x23 in token" {
-  let expected : Item = { value: SfToken("a#a"), parameters: [] }
+  let expected : Item = bare_item(SfToken("a#a"))
   match parse_item("a#a") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -204,7 +204,7 @@ test "httpwg: token-generated - 0x23 in token" {
 
 ///|
 test "httpwg: token-generated - 0x24 in token" {
-  let expected : Item = { value: SfToken("a$a"), parameters: [] }
+  let expected : Item = bare_item(SfToken("a$a"))
   match parse_item("a$a") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -219,7 +219,7 @@ test "httpwg: token-generated - 0x24 in token" {
 
 ///|
 test "httpwg: token-generated - 0x25 in token" {
-  let expected : Item = { value: SfToken("a%a"), parameters: [] }
+  let expected : Item = bare_item(SfToken("a%a"))
   match parse_item("a%a") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -234,7 +234,7 @@ test "httpwg: token-generated - 0x25 in token" {
 
 ///|
 test "httpwg: token-generated - 0x26 in token" {
-  let expected : Item = { value: SfToken("a&a"), parameters: [] }
+  let expected : Item = bare_item(SfToken("a&a"))
   match parse_item("a&a") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -249,7 +249,7 @@ test "httpwg: token-generated - 0x26 in token" {
 
 ///|
 test "httpwg: token-generated - 0x27 in token" {
-  let expected : Item = { value: SfToken("a'a"), parameters: [] }
+  let expected : Item = bare_item(SfToken("a'a"))
   match parse_item("a'a") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -274,7 +274,7 @@ test "httpwg: token-generated - 0x29 in token" {
 
 ///|
 test "httpwg: token-generated - 0x2a in token" {
-  let expected : Item = { value: SfToken("a*a"), parameters: [] }
+  let expected : Item = bare_item(SfToken("a*a"))
   match parse_item("a*a") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -289,7 +289,7 @@ test "httpwg: token-generated - 0x2a in token" {
 
 ///|
 test "httpwg: token-generated - 0x2b in token" {
-  let expected : Item = { value: SfToken("a+a"), parameters: [] }
+  let expected : Item = bare_item(SfToken("a+a"))
   match parse_item("a+a") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -309,7 +309,7 @@ test "httpwg: token-generated - 0x2c in token" {
 
 ///|
 test "httpwg: token-generated - 0x2d in token" {
-  let expected : Item = { value: SfToken("a-a"), parameters: [] }
+  let expected : Item = bare_item(SfToken("a-a"))
   match parse_item("a-a") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -324,7 +324,7 @@ test "httpwg: token-generated - 0x2d in token" {
 
 ///|
 test "httpwg: token-generated - 0x2e in token" {
-  let expected : Item = { value: SfToken("a.a"), parameters: [] }
+  let expected : Item = bare_item(SfToken("a.a"))
   match parse_item("a.a") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -339,7 +339,7 @@ test "httpwg: token-generated - 0x2e in token" {
 
 ///|
 test "httpwg: token-generated - 0x2f in token" {
-  let expected : Item = { value: SfToken("a/a"), parameters: [] }
+  let expected : Item = bare_item(SfToken("a/a"))
   match parse_item("a/a") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -354,7 +354,7 @@ test "httpwg: token-generated - 0x2f in token" {
 
 ///|
 test "httpwg: token-generated - 0x30 in token" {
-  let expected : Item = { value: SfToken("a0a"), parameters: [] }
+  let expected : Item = bare_item(SfToken("a0a"))
   match parse_item("a0a") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -369,7 +369,7 @@ test "httpwg: token-generated - 0x30 in token" {
 
 ///|
 test "httpwg: token-generated - 0x31 in token" {
-  let expected : Item = { value: SfToken("a1a"), parameters: [] }
+  let expected : Item = bare_item(SfToken("a1a"))
   match parse_item("a1a") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -384,7 +384,7 @@ test "httpwg: token-generated - 0x31 in token" {
 
 ///|
 test "httpwg: token-generated - 0x32 in token" {
-  let expected : Item = { value: SfToken("a2a"), parameters: [] }
+  let expected : Item = bare_item(SfToken("a2a"))
   match parse_item("a2a") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -399,7 +399,7 @@ test "httpwg: token-generated - 0x32 in token" {
 
 ///|
 test "httpwg: token-generated - 0x33 in token" {
-  let expected : Item = { value: SfToken("a3a"), parameters: [] }
+  let expected : Item = bare_item(SfToken("a3a"))
   match parse_item("a3a") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -414,7 +414,7 @@ test "httpwg: token-generated - 0x33 in token" {
 
 ///|
 test "httpwg: token-generated - 0x34 in token" {
-  let expected : Item = { value: SfToken("a4a"), parameters: [] }
+  let expected : Item = bare_item(SfToken("a4a"))
   match parse_item("a4a") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -429,7 +429,7 @@ test "httpwg: token-generated - 0x34 in token" {
 
 ///|
 test "httpwg: token-generated - 0x35 in token" {
-  let expected : Item = { value: SfToken("a5a"), parameters: [] }
+  let expected : Item = bare_item(SfToken("a5a"))
   match parse_item("a5a") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -444,7 +444,7 @@ test "httpwg: token-generated - 0x35 in token" {
 
 ///|
 test "httpwg: token-generated - 0x36 in token" {
-  let expected : Item = { value: SfToken("a6a"), parameters: [] }
+  let expected : Item = bare_item(SfToken("a6a"))
   match parse_item("a6a") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -459,7 +459,7 @@ test "httpwg: token-generated - 0x36 in token" {
 
 ///|
 test "httpwg: token-generated - 0x37 in token" {
-  let expected : Item = { value: SfToken("a7a"), parameters: [] }
+  let expected : Item = bare_item(SfToken("a7a"))
   match parse_item("a7a") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -474,7 +474,7 @@ test "httpwg: token-generated - 0x37 in token" {
 
 ///|
 test "httpwg: token-generated - 0x38 in token" {
-  let expected : Item = { value: SfToken("a8a"), parameters: [] }
+  let expected : Item = bare_item(SfToken("a8a"))
   match parse_item("a8a") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -489,7 +489,7 @@ test "httpwg: token-generated - 0x38 in token" {
 
 ///|
 test "httpwg: token-generated - 0x39 in token" {
-  let expected : Item = { value: SfToken("a9a"), parameters: [] }
+  let expected : Item = bare_item(SfToken("a9a"))
   match parse_item("a9a") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -504,7 +504,7 @@ test "httpwg: token-generated - 0x39 in token" {
 
 ///|
 test "httpwg: token-generated - 0x3a in token" {
-  let expected : Item = { value: SfToken("a:a"), parameters: [] }
+  let expected : Item = bare_item(SfToken("a:a"))
   match parse_item("a:a") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -519,10 +519,7 @@ test "httpwg: token-generated - 0x3a in token" {
 
 ///|
 test "httpwg: token-generated - 0x3b in token" {
-  let expected : Item = {
-    value: SfToken("a"),
-    parameters: [{ key: "a", value: SfBoolean(true) }],
-  }
+  let expected : Item = item(SfToken("a"), [param("a", SfBoolean(true))])
   match parse_item("a;a") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -562,7 +559,7 @@ test "httpwg: token-generated - 0x40 in token" {
 
 ///|
 test "httpwg: token-generated - 0x41 in token" {
-  let expected : Item = { value: SfToken("aAa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aAa"))
   match parse_item("aAa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -577,7 +574,7 @@ test "httpwg: token-generated - 0x41 in token" {
 
 ///|
 test "httpwg: token-generated - 0x42 in token" {
-  let expected : Item = { value: SfToken("aBa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aBa"))
   match parse_item("aBa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -592,7 +589,7 @@ test "httpwg: token-generated - 0x42 in token" {
 
 ///|
 test "httpwg: token-generated - 0x43 in token" {
-  let expected : Item = { value: SfToken("aCa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aCa"))
   match parse_item("aCa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -607,7 +604,7 @@ test "httpwg: token-generated - 0x43 in token" {
 
 ///|
 test "httpwg: token-generated - 0x44 in token" {
-  let expected : Item = { value: SfToken("aDa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aDa"))
   match parse_item("aDa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -622,7 +619,7 @@ test "httpwg: token-generated - 0x44 in token" {
 
 ///|
 test "httpwg: token-generated - 0x45 in token" {
-  let expected : Item = { value: SfToken("aEa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aEa"))
   match parse_item("aEa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -637,7 +634,7 @@ test "httpwg: token-generated - 0x45 in token" {
 
 ///|
 test "httpwg: token-generated - 0x46 in token" {
-  let expected : Item = { value: SfToken("aFa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aFa"))
   match parse_item("aFa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -652,7 +649,7 @@ test "httpwg: token-generated - 0x46 in token" {
 
 ///|
 test "httpwg: token-generated - 0x47 in token" {
-  let expected : Item = { value: SfToken("aGa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aGa"))
   match parse_item("aGa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -667,7 +664,7 @@ test "httpwg: token-generated - 0x47 in token" {
 
 ///|
 test "httpwg: token-generated - 0x48 in token" {
-  let expected : Item = { value: SfToken("aHa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aHa"))
   match parse_item("aHa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -682,7 +679,7 @@ test "httpwg: token-generated - 0x48 in token" {
 
 ///|
 test "httpwg: token-generated - 0x49 in token" {
-  let expected : Item = { value: SfToken("aIa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aIa"))
   match parse_item("aIa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -697,7 +694,7 @@ test "httpwg: token-generated - 0x49 in token" {
 
 ///|
 test "httpwg: token-generated - 0x4a in token" {
-  let expected : Item = { value: SfToken("aJa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aJa"))
   match parse_item("aJa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -712,7 +709,7 @@ test "httpwg: token-generated - 0x4a in token" {
 
 ///|
 test "httpwg: token-generated - 0x4b in token" {
-  let expected : Item = { value: SfToken("aKa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aKa"))
   match parse_item("aKa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -727,7 +724,7 @@ test "httpwg: token-generated - 0x4b in token" {
 
 ///|
 test "httpwg: token-generated - 0x4c in token" {
-  let expected : Item = { value: SfToken("aLa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aLa"))
   match parse_item("aLa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -742,7 +739,7 @@ test "httpwg: token-generated - 0x4c in token" {
 
 ///|
 test "httpwg: token-generated - 0x4d in token" {
-  let expected : Item = { value: SfToken("aMa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aMa"))
   match parse_item("aMa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -757,7 +754,7 @@ test "httpwg: token-generated - 0x4d in token" {
 
 ///|
 test "httpwg: token-generated - 0x4e in token" {
-  let expected : Item = { value: SfToken("aNa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aNa"))
   match parse_item("aNa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -772,7 +769,7 @@ test "httpwg: token-generated - 0x4e in token" {
 
 ///|
 test "httpwg: token-generated - 0x4f in token" {
-  let expected : Item = { value: SfToken("aOa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aOa"))
   match parse_item("aOa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -787,7 +784,7 @@ test "httpwg: token-generated - 0x4f in token" {
 
 ///|
 test "httpwg: token-generated - 0x50 in token" {
-  let expected : Item = { value: SfToken("aPa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aPa"))
   match parse_item("aPa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -802,7 +799,7 @@ test "httpwg: token-generated - 0x50 in token" {
 
 ///|
 test "httpwg: token-generated - 0x51 in token" {
-  let expected : Item = { value: SfToken("aQa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aQa"))
   match parse_item("aQa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -817,7 +814,7 @@ test "httpwg: token-generated - 0x51 in token" {
 
 ///|
 test "httpwg: token-generated - 0x52 in token" {
-  let expected : Item = { value: SfToken("aRa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aRa"))
   match parse_item("aRa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -832,7 +829,7 @@ test "httpwg: token-generated - 0x52 in token" {
 
 ///|
 test "httpwg: token-generated - 0x53 in token" {
-  let expected : Item = { value: SfToken("aSa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aSa"))
   match parse_item("aSa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -847,7 +844,7 @@ test "httpwg: token-generated - 0x53 in token" {
 
 ///|
 test "httpwg: token-generated - 0x54 in token" {
-  let expected : Item = { value: SfToken("aTa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aTa"))
   match parse_item("aTa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -862,7 +859,7 @@ test "httpwg: token-generated - 0x54 in token" {
 
 ///|
 test "httpwg: token-generated - 0x55 in token" {
-  let expected : Item = { value: SfToken("aUa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aUa"))
   match parse_item("aUa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -877,7 +874,7 @@ test "httpwg: token-generated - 0x55 in token" {
 
 ///|
 test "httpwg: token-generated - 0x56 in token" {
-  let expected : Item = { value: SfToken("aVa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aVa"))
   match parse_item("aVa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -892,7 +889,7 @@ test "httpwg: token-generated - 0x56 in token" {
 
 ///|
 test "httpwg: token-generated - 0x57 in token" {
-  let expected : Item = { value: SfToken("aWa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aWa"))
   match parse_item("aWa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -907,7 +904,7 @@ test "httpwg: token-generated - 0x57 in token" {
 
 ///|
 test "httpwg: token-generated - 0x58 in token" {
-  let expected : Item = { value: SfToken("aXa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aXa"))
   match parse_item("aXa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -922,7 +919,7 @@ test "httpwg: token-generated - 0x58 in token" {
 
 ///|
 test "httpwg: token-generated - 0x59 in token" {
-  let expected : Item = { value: SfToken("aYa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aYa"))
   match parse_item("aYa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -937,7 +934,7 @@ test "httpwg: token-generated - 0x59 in token" {
 
 ///|
 test "httpwg: token-generated - 0x5a in token" {
-  let expected : Item = { value: SfToken("aZa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aZa"))
   match parse_item("aZa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -967,7 +964,7 @@ test "httpwg: token-generated - 0x5d in token" {
 
 ///|
 test "httpwg: token-generated - 0x5e in token" {
-  let expected : Item = { value: SfToken("a^a"), parameters: [] }
+  let expected : Item = bare_item(SfToken("a^a"))
   match parse_item("a^a") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -982,7 +979,7 @@ test "httpwg: token-generated - 0x5e in token" {
 
 ///|
 test "httpwg: token-generated - 0x5f in token" {
-  let expected : Item = { value: SfToken("a_a"), parameters: [] }
+  let expected : Item = bare_item(SfToken("a_a"))
   match parse_item("a_a") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -997,7 +994,7 @@ test "httpwg: token-generated - 0x5f in token" {
 
 ///|
 test "httpwg: token-generated - 0x60 in token" {
-  let expected : Item = { value: SfToken("a`a"), parameters: [] }
+  let expected : Item = bare_item(SfToken("a`a"))
   match parse_item("a`a") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1012,7 +1009,7 @@ test "httpwg: token-generated - 0x60 in token" {
 
 ///|
 test "httpwg: token-generated - 0x61 in token" {
-  let expected : Item = { value: SfToken("aaa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aaa"))
   match parse_item("aaa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1027,7 +1024,7 @@ test "httpwg: token-generated - 0x61 in token" {
 
 ///|
 test "httpwg: token-generated - 0x62 in token" {
-  let expected : Item = { value: SfToken("aba"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aba"))
   match parse_item("aba") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1042,7 +1039,7 @@ test "httpwg: token-generated - 0x62 in token" {
 
 ///|
 test "httpwg: token-generated - 0x63 in token" {
-  let expected : Item = { value: SfToken("aca"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aca"))
   match parse_item("aca") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1057,7 +1054,7 @@ test "httpwg: token-generated - 0x63 in token" {
 
 ///|
 test "httpwg: token-generated - 0x64 in token" {
-  let expected : Item = { value: SfToken("ada"), parameters: [] }
+  let expected : Item = bare_item(SfToken("ada"))
   match parse_item("ada") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1072,7 +1069,7 @@ test "httpwg: token-generated - 0x64 in token" {
 
 ///|
 test "httpwg: token-generated - 0x65 in token" {
-  let expected : Item = { value: SfToken("aea"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aea"))
   match parse_item("aea") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1087,7 +1084,7 @@ test "httpwg: token-generated - 0x65 in token" {
 
 ///|
 test "httpwg: token-generated - 0x66 in token" {
-  let expected : Item = { value: SfToken("afa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("afa"))
   match parse_item("afa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1102,7 +1099,7 @@ test "httpwg: token-generated - 0x66 in token" {
 
 ///|
 test "httpwg: token-generated - 0x67 in token" {
-  let expected : Item = { value: SfToken("aga"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aga"))
   match parse_item("aga") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1117,7 +1114,7 @@ test "httpwg: token-generated - 0x67 in token" {
 
 ///|
 test "httpwg: token-generated - 0x68 in token" {
-  let expected : Item = { value: SfToken("aha"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aha"))
   match parse_item("aha") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1132,7 +1129,7 @@ test "httpwg: token-generated - 0x68 in token" {
 
 ///|
 test "httpwg: token-generated - 0x69 in token" {
-  let expected : Item = { value: SfToken("aia"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aia"))
   match parse_item("aia") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1147,7 +1144,7 @@ test "httpwg: token-generated - 0x69 in token" {
 
 ///|
 test "httpwg: token-generated - 0x6a in token" {
-  let expected : Item = { value: SfToken("aja"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aja"))
   match parse_item("aja") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1162,7 +1159,7 @@ test "httpwg: token-generated - 0x6a in token" {
 
 ///|
 test "httpwg: token-generated - 0x6b in token" {
-  let expected : Item = { value: SfToken("aka"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aka"))
   match parse_item("aka") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1177,7 +1174,7 @@ test "httpwg: token-generated - 0x6b in token" {
 
 ///|
 test "httpwg: token-generated - 0x6c in token" {
-  let expected : Item = { value: SfToken("ala"), parameters: [] }
+  let expected : Item = bare_item(SfToken("ala"))
   match parse_item("ala") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1192,7 +1189,7 @@ test "httpwg: token-generated - 0x6c in token" {
 
 ///|
 test "httpwg: token-generated - 0x6d in token" {
-  let expected : Item = { value: SfToken("ama"), parameters: [] }
+  let expected : Item = bare_item(SfToken("ama"))
   match parse_item("ama") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1207,7 +1204,7 @@ test "httpwg: token-generated - 0x6d in token" {
 
 ///|
 test "httpwg: token-generated - 0x6e in token" {
-  let expected : Item = { value: SfToken("ana"), parameters: [] }
+  let expected : Item = bare_item(SfToken("ana"))
   match parse_item("ana") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1222,7 +1219,7 @@ test "httpwg: token-generated - 0x6e in token" {
 
 ///|
 test "httpwg: token-generated - 0x6f in token" {
-  let expected : Item = { value: SfToken("aoa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aoa"))
   match parse_item("aoa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1237,7 +1234,7 @@ test "httpwg: token-generated - 0x6f in token" {
 
 ///|
 test "httpwg: token-generated - 0x70 in token" {
-  let expected : Item = { value: SfToken("apa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("apa"))
   match parse_item("apa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1252,7 +1249,7 @@ test "httpwg: token-generated - 0x70 in token" {
 
 ///|
 test "httpwg: token-generated - 0x71 in token" {
-  let expected : Item = { value: SfToken("aqa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aqa"))
   match parse_item("aqa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1267,7 +1264,7 @@ test "httpwg: token-generated - 0x71 in token" {
 
 ///|
 test "httpwg: token-generated - 0x72 in token" {
-  let expected : Item = { value: SfToken("ara"), parameters: [] }
+  let expected : Item = bare_item(SfToken("ara"))
   match parse_item("ara") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1282,7 +1279,7 @@ test "httpwg: token-generated - 0x72 in token" {
 
 ///|
 test "httpwg: token-generated - 0x73 in token" {
-  let expected : Item = { value: SfToken("asa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("asa"))
   match parse_item("asa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1297,7 +1294,7 @@ test "httpwg: token-generated - 0x73 in token" {
 
 ///|
 test "httpwg: token-generated - 0x74 in token" {
-  let expected : Item = { value: SfToken("ata"), parameters: [] }
+  let expected : Item = bare_item(SfToken("ata"))
   match parse_item("ata") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1312,7 +1309,7 @@ test "httpwg: token-generated - 0x74 in token" {
 
 ///|
 test "httpwg: token-generated - 0x75 in token" {
-  let expected : Item = { value: SfToken("aua"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aua"))
   match parse_item("aua") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1327,7 +1324,7 @@ test "httpwg: token-generated - 0x75 in token" {
 
 ///|
 test "httpwg: token-generated - 0x76 in token" {
-  let expected : Item = { value: SfToken("ava"), parameters: [] }
+  let expected : Item = bare_item(SfToken("ava"))
   match parse_item("ava") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1342,7 +1339,7 @@ test "httpwg: token-generated - 0x76 in token" {
 
 ///|
 test "httpwg: token-generated - 0x77 in token" {
-  let expected : Item = { value: SfToken("awa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("awa"))
   match parse_item("awa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1357,7 +1354,7 @@ test "httpwg: token-generated - 0x77 in token" {
 
 ///|
 test "httpwg: token-generated - 0x78 in token" {
-  let expected : Item = { value: SfToken("axa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("axa"))
   match parse_item("axa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1372,7 +1369,7 @@ test "httpwg: token-generated - 0x78 in token" {
 
 ///|
 test "httpwg: token-generated - 0x79 in token" {
-  let expected : Item = { value: SfToken("aya"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aya"))
   match parse_item("aya") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1387,7 +1384,7 @@ test "httpwg: token-generated - 0x79 in token" {
 
 ///|
 test "httpwg: token-generated - 0x7a in token" {
-  let expected : Item = { value: SfToken("aza"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aza"))
   match parse_item("aza") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1407,7 +1404,7 @@ test "httpwg: token-generated - 0x7b in token" {
 
 ///|
 test "httpwg: token-generated - 0x7c in token" {
-  let expected : Item = { value: SfToken("a|a"), parameters: [] }
+  let expected : Item = bare_item(SfToken("a|a"))
   match parse_item("a|a") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1427,7 +1424,7 @@ test "httpwg: token-generated - 0x7d in token" {
 
 ///|
 test "httpwg: token-generated - 0x7e in token" {
-  let expected : Item = { value: SfToken("a~a"), parameters: [] }
+  let expected : Item = bare_item(SfToken("a~a"))
   match parse_item("a~a") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1607,7 +1604,7 @@ test "httpwg: token-generated - 0x1f starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x20 starting a token" {
-  let expected : Item = { value: SfToken("a"), parameters: [] }
+  let expected : Item = bare_item(SfToken("a"))
   match parse_item(" a") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1667,7 +1664,7 @@ test "httpwg: token-generated - 0x29 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x2a starting a token" {
-  let expected : Item = { value: SfToken("*a"), parameters: [] }
+  let expected : Item = bare_item(SfToken("*a"))
   match parse_item("*a") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1792,7 +1789,7 @@ test "httpwg: token-generated - 0x40 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x41 starting a token" {
-  let expected : Item = { value: SfToken("Aa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("Aa"))
   match parse_item("Aa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1807,7 +1804,7 @@ test "httpwg: token-generated - 0x41 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x42 starting a token" {
-  let expected : Item = { value: SfToken("Ba"), parameters: [] }
+  let expected : Item = bare_item(SfToken("Ba"))
   match parse_item("Ba") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1822,7 +1819,7 @@ test "httpwg: token-generated - 0x42 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x43 starting a token" {
-  let expected : Item = { value: SfToken("Ca"), parameters: [] }
+  let expected : Item = bare_item(SfToken("Ca"))
   match parse_item("Ca") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1837,7 +1834,7 @@ test "httpwg: token-generated - 0x43 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x44 starting a token" {
-  let expected : Item = { value: SfToken("Da"), parameters: [] }
+  let expected : Item = bare_item(SfToken("Da"))
   match parse_item("Da") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1852,7 +1849,7 @@ test "httpwg: token-generated - 0x44 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x45 starting a token" {
-  let expected : Item = { value: SfToken("Ea"), parameters: [] }
+  let expected : Item = bare_item(SfToken("Ea"))
   match parse_item("Ea") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1867,7 +1864,7 @@ test "httpwg: token-generated - 0x45 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x46 starting a token" {
-  let expected : Item = { value: SfToken("Fa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("Fa"))
   match parse_item("Fa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1882,7 +1879,7 @@ test "httpwg: token-generated - 0x46 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x47 starting a token" {
-  let expected : Item = { value: SfToken("Ga"), parameters: [] }
+  let expected : Item = bare_item(SfToken("Ga"))
   match parse_item("Ga") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1897,7 +1894,7 @@ test "httpwg: token-generated - 0x47 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x48 starting a token" {
-  let expected : Item = { value: SfToken("Ha"), parameters: [] }
+  let expected : Item = bare_item(SfToken("Ha"))
   match parse_item("Ha") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1912,7 +1909,7 @@ test "httpwg: token-generated - 0x48 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x49 starting a token" {
-  let expected : Item = { value: SfToken("Ia"), parameters: [] }
+  let expected : Item = bare_item(SfToken("Ia"))
   match parse_item("Ia") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1927,7 +1924,7 @@ test "httpwg: token-generated - 0x49 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x4a starting a token" {
-  let expected : Item = { value: SfToken("Ja"), parameters: [] }
+  let expected : Item = bare_item(SfToken("Ja"))
   match parse_item("Ja") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1942,7 +1939,7 @@ test "httpwg: token-generated - 0x4a starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x4b starting a token" {
-  let expected : Item = { value: SfToken("Ka"), parameters: [] }
+  let expected : Item = bare_item(SfToken("Ka"))
   match parse_item("Ka") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1957,7 +1954,7 @@ test "httpwg: token-generated - 0x4b starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x4c starting a token" {
-  let expected : Item = { value: SfToken("La"), parameters: [] }
+  let expected : Item = bare_item(SfToken("La"))
   match parse_item("La") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1972,7 +1969,7 @@ test "httpwg: token-generated - 0x4c starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x4d starting a token" {
-  let expected : Item = { value: SfToken("Ma"), parameters: [] }
+  let expected : Item = bare_item(SfToken("Ma"))
   match parse_item("Ma") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1987,7 +1984,7 @@ test "httpwg: token-generated - 0x4d starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x4e starting a token" {
-  let expected : Item = { value: SfToken("Na"), parameters: [] }
+  let expected : Item = bare_item(SfToken("Na"))
   match parse_item("Na") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2002,7 +1999,7 @@ test "httpwg: token-generated - 0x4e starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x4f starting a token" {
-  let expected : Item = { value: SfToken("Oa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("Oa"))
   match parse_item("Oa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2017,7 +2014,7 @@ test "httpwg: token-generated - 0x4f starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x50 starting a token" {
-  let expected : Item = { value: SfToken("Pa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("Pa"))
   match parse_item("Pa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2032,7 +2029,7 @@ test "httpwg: token-generated - 0x50 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x51 starting a token" {
-  let expected : Item = { value: SfToken("Qa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("Qa"))
   match parse_item("Qa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2047,7 +2044,7 @@ test "httpwg: token-generated - 0x51 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x52 starting a token" {
-  let expected : Item = { value: SfToken("Ra"), parameters: [] }
+  let expected : Item = bare_item(SfToken("Ra"))
   match parse_item("Ra") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2062,7 +2059,7 @@ test "httpwg: token-generated - 0x52 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x53 starting a token" {
-  let expected : Item = { value: SfToken("Sa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("Sa"))
   match parse_item("Sa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2077,7 +2074,7 @@ test "httpwg: token-generated - 0x53 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x54 starting a token" {
-  let expected : Item = { value: SfToken("Ta"), parameters: [] }
+  let expected : Item = bare_item(SfToken("Ta"))
   match parse_item("Ta") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2092,7 +2089,7 @@ test "httpwg: token-generated - 0x54 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x55 starting a token" {
-  let expected : Item = { value: SfToken("Ua"), parameters: [] }
+  let expected : Item = bare_item(SfToken("Ua"))
   match parse_item("Ua") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2107,7 +2104,7 @@ test "httpwg: token-generated - 0x55 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x56 starting a token" {
-  let expected : Item = { value: SfToken("Va"), parameters: [] }
+  let expected : Item = bare_item(SfToken("Va"))
   match parse_item("Va") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2122,7 +2119,7 @@ test "httpwg: token-generated - 0x56 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x57 starting a token" {
-  let expected : Item = { value: SfToken("Wa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("Wa"))
   match parse_item("Wa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2137,7 +2134,7 @@ test "httpwg: token-generated - 0x57 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x58 starting a token" {
-  let expected : Item = { value: SfToken("Xa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("Xa"))
   match parse_item("Xa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2152,7 +2149,7 @@ test "httpwg: token-generated - 0x58 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x59 starting a token" {
-  let expected : Item = { value: SfToken("Ya"), parameters: [] }
+  let expected : Item = bare_item(SfToken("Ya"))
   match parse_item("Ya") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2167,7 +2164,7 @@ test "httpwg: token-generated - 0x59 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x5a starting a token" {
-  let expected : Item = { value: SfToken("Za"), parameters: [] }
+  let expected : Item = bare_item(SfToken("Za"))
   match parse_item("Za") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2212,7 +2209,7 @@ test "httpwg: token-generated - 0x60 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x61 starting a token" {
-  let expected : Item = { value: SfToken("aa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("aa"))
   match parse_item("aa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2227,7 +2224,7 @@ test "httpwg: token-generated - 0x61 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x62 starting a token" {
-  let expected : Item = { value: SfToken("ba"), parameters: [] }
+  let expected : Item = bare_item(SfToken("ba"))
   match parse_item("ba") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2242,7 +2239,7 @@ test "httpwg: token-generated - 0x62 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x63 starting a token" {
-  let expected : Item = { value: SfToken("ca"), parameters: [] }
+  let expected : Item = bare_item(SfToken("ca"))
   match parse_item("ca") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2257,7 +2254,7 @@ test "httpwg: token-generated - 0x63 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x64 starting a token" {
-  let expected : Item = { value: SfToken("da"), parameters: [] }
+  let expected : Item = bare_item(SfToken("da"))
   match parse_item("da") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2272,7 +2269,7 @@ test "httpwg: token-generated - 0x64 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x65 starting a token" {
-  let expected : Item = { value: SfToken("ea"), parameters: [] }
+  let expected : Item = bare_item(SfToken("ea"))
   match parse_item("ea") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2287,7 +2284,7 @@ test "httpwg: token-generated - 0x65 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x66 starting a token" {
-  let expected : Item = { value: SfToken("fa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("fa"))
   match parse_item("fa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2302,7 +2299,7 @@ test "httpwg: token-generated - 0x66 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x67 starting a token" {
-  let expected : Item = { value: SfToken("ga"), parameters: [] }
+  let expected : Item = bare_item(SfToken("ga"))
   match parse_item("ga") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2317,7 +2314,7 @@ test "httpwg: token-generated - 0x67 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x68 starting a token" {
-  let expected : Item = { value: SfToken("ha"), parameters: [] }
+  let expected : Item = bare_item(SfToken("ha"))
   match parse_item("ha") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2332,7 +2329,7 @@ test "httpwg: token-generated - 0x68 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x69 starting a token" {
-  let expected : Item = { value: SfToken("ia"), parameters: [] }
+  let expected : Item = bare_item(SfToken("ia"))
   match parse_item("ia") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2347,7 +2344,7 @@ test "httpwg: token-generated - 0x69 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x6a starting a token" {
-  let expected : Item = { value: SfToken("ja"), parameters: [] }
+  let expected : Item = bare_item(SfToken("ja"))
   match parse_item("ja") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2362,7 +2359,7 @@ test "httpwg: token-generated - 0x6a starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x6b starting a token" {
-  let expected : Item = { value: SfToken("ka"), parameters: [] }
+  let expected : Item = bare_item(SfToken("ka"))
   match parse_item("ka") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2377,7 +2374,7 @@ test "httpwg: token-generated - 0x6b starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x6c starting a token" {
-  let expected : Item = { value: SfToken("la"), parameters: [] }
+  let expected : Item = bare_item(SfToken("la"))
   match parse_item("la") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2392,7 +2389,7 @@ test "httpwg: token-generated - 0x6c starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x6d starting a token" {
-  let expected : Item = { value: SfToken("ma"), parameters: [] }
+  let expected : Item = bare_item(SfToken("ma"))
   match parse_item("ma") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2407,7 +2404,7 @@ test "httpwg: token-generated - 0x6d starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x6e starting a token" {
-  let expected : Item = { value: SfToken("na"), parameters: [] }
+  let expected : Item = bare_item(SfToken("na"))
   match parse_item("na") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2422,7 +2419,7 @@ test "httpwg: token-generated - 0x6e starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x6f starting a token" {
-  let expected : Item = { value: SfToken("oa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("oa"))
   match parse_item("oa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2437,7 +2434,7 @@ test "httpwg: token-generated - 0x6f starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x70 starting a token" {
-  let expected : Item = { value: SfToken("pa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("pa"))
   match parse_item("pa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2452,7 +2449,7 @@ test "httpwg: token-generated - 0x70 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x71 starting a token" {
-  let expected : Item = { value: SfToken("qa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("qa"))
   match parse_item("qa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2467,7 +2464,7 @@ test "httpwg: token-generated - 0x71 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x72 starting a token" {
-  let expected : Item = { value: SfToken("ra"), parameters: [] }
+  let expected : Item = bare_item(SfToken("ra"))
   match parse_item("ra") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2482,7 +2479,7 @@ test "httpwg: token-generated - 0x72 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x73 starting a token" {
-  let expected : Item = { value: SfToken("sa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("sa"))
   match parse_item("sa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2497,7 +2494,7 @@ test "httpwg: token-generated - 0x73 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x74 starting a token" {
-  let expected : Item = { value: SfToken("ta"), parameters: [] }
+  let expected : Item = bare_item(SfToken("ta"))
   match parse_item("ta") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2512,7 +2509,7 @@ test "httpwg: token-generated - 0x74 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x75 starting a token" {
-  let expected : Item = { value: SfToken("ua"), parameters: [] }
+  let expected : Item = bare_item(SfToken("ua"))
   match parse_item("ua") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2527,7 +2524,7 @@ test "httpwg: token-generated - 0x75 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x76 starting a token" {
-  let expected : Item = { value: SfToken("va"), parameters: [] }
+  let expected : Item = bare_item(SfToken("va"))
   match parse_item("va") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2542,7 +2539,7 @@ test "httpwg: token-generated - 0x76 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x77 starting a token" {
-  let expected : Item = { value: SfToken("wa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("wa"))
   match parse_item("wa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2557,7 +2554,7 @@ test "httpwg: token-generated - 0x77 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x78 starting a token" {
-  let expected : Item = { value: SfToken("xa"), parameters: [] }
+  let expected : Item = bare_item(SfToken("xa"))
   match parse_item("xa") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2572,7 +2569,7 @@ test "httpwg: token-generated - 0x78 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x79 starting a token" {
-  let expected : Item = { value: SfToken("ya"), parameters: [] }
+  let expected : Item = bare_item(SfToken("ya"))
   match parse_item("ya") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2587,7 +2584,7 @@ test "httpwg: token-generated - 0x79 starting a token" {
 
 ///|
 test "httpwg: token-generated - 0x7a starting a token" {
-  let expected : Item = { value: SfToken("za"), parameters: [] }
+  let expected : Item = bare_item(SfToken("za"))
   match parse_item("za") {
     Ok(parsed) => {
       assert_eq(parsed, expected)

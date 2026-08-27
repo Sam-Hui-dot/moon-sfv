@@ -1,4 +1,37 @@
 ///|
+fn item(value : BareItem, parameters : Array[Parameter]) -> Item {
+  { value, parameters }
+}
+
+///|
+fn bare_item(value : BareItem) -> Item {
+  { value, parameters: [] }
+}
+
+///|
+fn param(key : String, value : BareItem) -> Parameter {
+  { key, value }
+}
+
+///|
+fn member_item(item : Item) -> ListMember {
+  ListMember::Item(item)
+}
+
+///|
+fn member_inner(
+  items : Array[Item],
+  parameters : Array[Parameter],
+) -> ListMember {
+  ListMember::InnerList({ items, parameters })
+}
+
+///|
+fn dict_entry(key : String, value : ListMember) -> DictionaryMember {
+  { key, value }
+}
+
+///|
 fn expect_boolean(input : String, expected : Bool) -> Unit raise {
   match parse_item(input) {
     Ok(item) =>
