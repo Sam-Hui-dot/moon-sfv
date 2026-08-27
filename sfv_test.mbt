@@ -391,18 +391,18 @@ test "parse List of items and Inner Lists" {
     Ok(list) => {
       assert_eq(list.length(), 3)
       match list[0] {
-        ListMember::Item({ value: SfInteger(1L), .. }) => ()
+        ListMember::Item(it) => assert_eq(it.value, SfInteger(1L))
         _ => fail("expected item 1")
       }
       match list[1] {
-        ListMember::Item({ value: SfString("two"), .. }) => ()
+        ListMember::Item(it) => assert_eq(it.value, SfString("two"))
         _ => fail("expected item two")
       }
       match list[2] {
-        ListMember::InnerList({ items, parameters }) => {
-          assert_eq(items.length(), 2)
-          assert_eq(parameters.length(), 1)
-          assert_eq(parameters[0].key, "param")
+        ListMember::InnerList(inner) => {
+          assert_eq(inner.items.length(), 2)
+          assert_eq(inner.parameters.length(), 1)
+          assert_eq(inner.parameters[0].key, "param")
         }
         _ => fail("expected inner list")
       }
@@ -432,21 +432,24 @@ test "parse Dictionary with mixed entries" {
       assert_eq(dict[0].key, "a")
       assert_eq(dict[1].key, "b")
       match dict[1].value {
-        ListMember::Item({ value: SfBoolean(true), parameters }) =>
-          assert_eq(parameters.length(), 0)
+        ListMember::Item(it) => {
+          assert_eq(it.value, SfBoolean(true))
+          assert_eq(it.parameters.length(), 0)
+        }
         _ => fail("expected boolean shorthand for b")
       }
       assert_eq(dict[2].key, "c")
       match dict[2].value {
-        ListMember::Item({ value: SfBoolean(true), parameters }) => {
-          assert_eq(parameters.length(), 1)
-          assert_eq(parameters[0].key, "secure")
+        ListMember::Item(it) => {
+          assert_eq(it.value, SfBoolean(true))
+          assert_eq(it.parameters.length(), 1)
+          assert_eq(it.parameters[0].key, "secure")
         }
         _ => fail("expected boolean shorthand with parameters for c")
       }
       assert_eq(dict[3].key, "d")
       match dict[3].value {
-        ListMember::InnerList({ items, .. }) => assert_eq(items.length(), 2)
+        ListMember::InnerList(inner) => assert_eq(inner.items.length(), 2)
         _ => fail("expected inner list for d")
       }
     }
@@ -459,9 +462,10 @@ test "duplicate Dictionary keys overwrite" {
   match parse_dictionary("a=1, a=2") {
     Ok(dict) => {
       assert_eq(dict.length(), 1)
+      assert_eq(dict[0].key, "a")
       match dict[0].value {
-        ListMember::Item({ value: SfInteger(2L), .. }) => ()
-        _ => fail("expected overwrite of key a")
+        ListMember::Item(it) => assert_eq(it.value, SfInteger(2L))
+        _ => fail("expected item 2")
       }
     }
     Err(_) => fail("expected dictionary with duplicate keys to parse")

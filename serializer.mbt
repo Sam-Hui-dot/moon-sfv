@@ -282,8 +282,8 @@ pub fn serialize_dictionary(
     }
     builder.write_string(entry.key)
     match entry.value {
-      Item({ value: SfBoolean(true), parameters }) =>
-        match serialize_parameters_into(builder, parameters) {
+      Item(item) if item.value == SfBoolean(true) =>
+        match serialize_parameters_into(builder, item.parameters) {
           Ok(_) => ()
           Err(err) => return Err(err)
         }
