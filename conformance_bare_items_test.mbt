@@ -1,9 +1,12 @@
 ///| Conformance test vectors generated from httpwg/structured-field-tests
+
 ///| BSD 3-Clause License - IETF Trust
 
 ///|
 test "httpwg: binary - basic binary" {
-  let expected : Item = bare_item(SfByteSequence(base64_decode("aGVsbG8=").unwrap()))
+  let expected : Item = bare_item(
+    SfByteSequence(base64_decode("aGVsbG8=").unwrap()),
+  )
   match parse_item(":aGVsbG8=:") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -43,7 +46,9 @@ test "httpwg: binary - padding in middle" {
 
 ///|
 test "httpwg: binary - bad padding" {
-  let expected : Item = bare_item(SfByteSequence(base64_decode("aGVsbG8=").unwrap()))
+  let expected : Item = bare_item(
+    SfByteSequence(base64_decode("aGVsbG8=").unwrap()),
+  )
   match parse_item(":aGVsbG8:") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -88,7 +93,9 @@ test "httpwg: binary - suffix chars" {
 
 ///|
 test "httpwg: binary - non-zero pad bits" {
-  let expected : Item = bare_item(SfByteSequence(base64_decode("iQ==").unwrap()))
+  let expected : Item = bare_item(
+    SfByteSequence(base64_decode("iQ==").unwrap()),
+  )
   match parse_item(":iZ==:") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -103,7 +110,9 @@ test "httpwg: binary - non-zero pad bits" {
 
 ///|
 test "httpwg: binary - non-ASCII binary" {
-  let expected : Item = bare_item(SfByteSequence(base64_decode("/+Ah").unwrap()))
+  let expected : Item = bare_item(
+    SfByteSequence(base64_decode("/+Ah").unwrap()),
+  )
   match parse_item(":/+Ah:") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -408,12 +417,22 @@ test "httpwg: display-string - basic display string (ascii content)" {
 
 ///|
 test "httpwg: display-string - all printable ascii" {
-  let expected : Item = bare_item(SfDisplayString(" !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~"))
-  match parse_item("%\" !%22#$%25&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\"") {
+  let expected : Item = bare_item(
+    SfDisplayString(
+      " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~",
+    ),
+  )
+  match
+    parse_item(
+      "%\" !%22#$%25&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\"",
+    ) {
     Ok(parsed) => {
       assert_eq(parsed, expected)
       match serialize_item(parsed) {
-        Ok(s) => assert_eq(s, "%\" !%22#$%25&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\"")
+        Ok(s) =>
+          assert_eq(
+            s, "%\" !%22#$%25&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\"",
+          )
         Err(_) => fail("expected canonical serialization")
       }
     }
@@ -718,7 +737,10 @@ test "httpwg: number - long integer" {
 
 ///|
 test "httpwg: number - long integer followed by comma" {
-  let expected : Array[ListMember] = [member_item(bare_item(SfInteger(123456789012345L))), member_item(bare_item(SfInteger(1L)))]
+  let expected : Array[ListMember] = [
+    member_item(bare_item(SfInteger(123456789012345L))),
+    member_item(bare_item(SfInteger(1L))),
+  ]
   match parse_list("123456789012345, 1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -808,7 +830,10 @@ test "httpwg: number - negative decimal, whitespace after sign" {
 
 ///|
 test "httpwg: number - decimal, followed by comma" {
-  let expected : Array[ListMember] = [member_item(bare_item(SfDecimal(123456789012.123))), member_item(bare_item(SfDecimal(1.1)))]
+  let expected : Array[ListMember] = [
+    member_item(bare_item(SfDecimal(123456789012.123))),
+    member_item(bare_item(SfDecimal(1.1))),
+  ]
   match parse_list("123456789012.123, 1.1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -978,12 +1003,22 @@ test "httpwg: string - empty string" {
 
 ///|
 test "httpwg: string - long string" {
-  let expected : Item = bare_item(SfString("foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo "))
-  match parse_item("\"foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo \"") {
+  let expected : Item = bare_item(
+    SfString(
+      "foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo ",
+    ),
+  )
+  match
+    parse_item(
+      "\"foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo \"",
+    ) {
     Ok(parsed) => {
       assert_eq(parsed, expected)
       match serialize_item(parsed) {
-        Ok(s) => assert_eq(s, "\"foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo \"")
+        Ok(s) =>
+          assert_eq(
+            s, "\"foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo foo \"",
+          )
         Err(_) => fail("expected canonical serialization")
       }
     }
@@ -1123,7 +1158,9 @@ test "httpwg: token - token starting with capitals - item" {
 
 ///|
 test "httpwg: token - basic token - list" {
-  let expected : Array[ListMember] = [member_item(bare_item(SfToken("a_b-c3/*")))]
+  let expected : Array[ListMember] = [
+    member_item(bare_item(SfToken("a_b-c3/*"))),
+  ]
   match parse_list("a_b-c3/*") {
     Ok(parsed) => {
       assert_eq(parsed, expected)

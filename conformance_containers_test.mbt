@@ -1,4 +1,5 @@
 ///| Conformance test vectors generated from httpwg/structured-field-tests
+
 ///| BSD 3-Clause License - IETF Trust
 
 ///|
@@ -48,7 +49,10 @@ test "httpwg: item - leading and trailing whitespace" {
 
 ///|
 test "httpwg: list - basic list" {
-  let expected : Array[ListMember] = [member_item(bare_item(SfInteger(1L))), member_item(bare_item(SfInteger(42L)))]
+  let expected : Array[ListMember] = [
+    member_item(bare_item(SfInteger(1L))),
+    member_item(bare_item(SfInteger(42L))),
+  ]
   match parse_list("1, 42") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -78,7 +82,10 @@ test "httpwg: list - empty list" {
 
 ///|
 test "httpwg: list - leading SP list" {
-  let expected : Array[ListMember] = [member_item(bare_item(SfInteger(42L))), member_item(bare_item(SfInteger(43L)))]
+  let expected : Array[ListMember] = [
+    member_item(bare_item(SfInteger(42L))),
+    member_item(bare_item(SfInteger(43L))),
+  ]
   match parse_list("  42, 43") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -108,7 +115,10 @@ test "httpwg: list - single item list" {
 
 ///|
 test "httpwg: list - no whitespace list" {
-  let expected : Array[ListMember] = [member_item(bare_item(SfInteger(1L))), member_item(bare_item(SfInteger(42L)))]
+  let expected : Array[ListMember] = [
+    member_item(bare_item(SfInteger(1L))),
+    member_item(bare_item(SfInteger(42L))),
+  ]
   match parse_list("1,42") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -123,7 +133,10 @@ test "httpwg: list - no whitespace list" {
 
 ///|
 test "httpwg: list - extra whitespace list" {
-  let expected : Array[ListMember] = [member_item(bare_item(SfInteger(1L))), member_item(bare_item(SfInteger(42L)))]
+  let expected : Array[ListMember] = [
+    member_item(bare_item(SfInteger(1L))),
+    member_item(bare_item(SfInteger(42L))),
+  ]
   match parse_list("1 , 42") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -138,7 +151,10 @@ test "httpwg: list - extra whitespace list" {
 
 ///|
 test "httpwg: list - tab separated list" {
-  let expected : Array[ListMember] = [member_item(bare_item(SfInteger(1L))), member_item(bare_item(SfInteger(42L)))]
+  let expected : Array[ListMember] = [
+    member_item(bare_item(SfInteger(1L))),
+    member_item(bare_item(SfInteger(42L))),
+  ]
   match parse_list("1\t,\t42") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -153,7 +169,10 @@ test "httpwg: list - tab separated list" {
 
 ///|
 test "httpwg: list - two line list" {
-  let expected : Array[ListMember] = [member_item(bare_item(SfInteger(1L))), member_item(bare_item(SfInteger(42L)))]
+  let expected : Array[ListMember] = [
+    member_item(bare_item(SfInteger(1L))),
+    member_item(bare_item(SfInteger(42L))),
+  ]
   match parse_list("1, 42") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -183,7 +202,10 @@ test "httpwg: list - empty item list (multiple field lines)" {
 
 ///|
 test "httpwg: listlist - basic list of lists" {
-  let expected : Array[ListMember] = [member_inner([bare_item(SfInteger(1L)), bare_item(SfInteger(2L))], []), member_inner([bare_item(SfInteger(42L)), bare_item(SfInteger(43L))], [])]
+  let expected : Array[ListMember] = [
+    member_inner([bare_item(SfInteger(1L)), bare_item(SfInteger(2L))], []),
+    member_inner([bare_item(SfInteger(42L)), bare_item(SfInteger(43L))], []),
+  ]
   match parse_list("(1 2), (42 43)") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -198,7 +220,9 @@ test "httpwg: listlist - basic list of lists" {
 
 ///|
 test "httpwg: listlist - single item list of lists" {
-  let expected : Array[ListMember] = [member_inner([bare_item(SfInteger(42L))], [])]
+  let expected : Array[ListMember] = [
+    member_inner([bare_item(SfInteger(42L))], []),
+  ]
   match parse_list("(42)") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -228,7 +252,11 @@ test "httpwg: listlist - empty item list of lists" {
 
 ///|
 test "httpwg: listlist - empty middle item list of lists" {
-  let expected : Array[ListMember] = [member_inner([bare_item(SfInteger(1L))], []), member_inner([], []), member_inner([bare_item(SfInteger(42L))], [])]
+  let expected : Array[ListMember] = [
+    member_inner([bare_item(SfInteger(1L))], []),
+    member_inner([], []),
+    member_inner([bare_item(SfInteger(42L))], []),
+  ]
   match parse_list("(1),(),(42)") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -243,7 +271,9 @@ test "httpwg: listlist - empty middle item list of lists" {
 
 ///|
 test "httpwg: listlist - extra whitespace list of lists" {
-  let expected : Array[ListMember] = [member_inner([bare_item(SfInteger(1L)), bare_item(SfInteger(42L))], [])]
+  let expected : Array[ListMember] = [
+    member_inner([bare_item(SfInteger(1L)), bare_item(SfInteger(42L))], []),
+  ]
   match parse_list("(  1  42  )") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -293,7 +323,15 @@ test "httpwg: listlist - dictionary in inner list" {
 
 ///|
 test "httpwg: dictionary - basic dictionary" {
-  let expected : Array[DictionaryMember] = [dict_entry("en", member_item(bare_item(SfString("Applepie")))), dict_entry("da", member_item(bare_item(SfByteSequence(base64_decode("w4ZibGV0w6ZydGUK").unwrap()))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("en", member_item(bare_item(SfString("Applepie")))),
+    dict_entry(
+      "da",
+      member_item(
+        bare_item(SfByteSequence(base64_decode("w4ZibGV0w6ZydGUK").unwrap())),
+      ),
+    ),
+  ]
   match parse_dictionary("en=\"Applepie\", da=:w4ZibGV0w6ZydGUK:") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -323,7 +361,9 @@ test "httpwg: dictionary - empty dictionary" {
 
 ///|
 test "httpwg: dictionary - single item dictionary" {
-  let expected : Array[DictionaryMember] = [dict_entry("a", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("a", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("a=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -338,7 +378,12 @@ test "httpwg: dictionary - single item dictionary" {
 
 ///|
 test "httpwg: dictionary - list item dictionary" {
-  let expected : Array[DictionaryMember] = [dict_entry("a", member_inner([bare_item(SfInteger(1L)), bare_item(SfInteger(2L))], []))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry(
+      "a",
+      member_inner([bare_item(SfInteger(1L)), bare_item(SfInteger(2L))], []),
+    ),
+  ]
   match parse_dictionary("a=(1 2)") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -353,7 +398,9 @@ test "httpwg: dictionary - list item dictionary" {
 
 ///|
 test "httpwg: dictionary - single list item dictionary" {
-  let expected : Array[DictionaryMember] = [dict_entry("a", member_inner([bare_item(SfInteger(1L))], []))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("a", member_inner([bare_item(SfInteger(1L))], [])),
+  ]
   match parse_dictionary("a=(1)") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -368,7 +415,9 @@ test "httpwg: dictionary - single list item dictionary" {
 
 ///|
 test "httpwg: dictionary - empty list item dictionary" {
-  let expected : Array[DictionaryMember] = [dict_entry("a", member_inner([], []))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("a", member_inner([], [])),
+  ]
   match parse_dictionary("a=()") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -383,7 +432,10 @@ test "httpwg: dictionary - empty list item dictionary" {
 
 ///|
 test "httpwg: dictionary - no whitespace dictionary" {
-  let expected : Array[DictionaryMember] = [dict_entry("a", member_item(bare_item(SfInteger(1L)))), dict_entry("b", member_item(bare_item(SfInteger(2L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("a", member_item(bare_item(SfInteger(1L)))),
+    dict_entry("b", member_item(bare_item(SfInteger(2L)))),
+  ]
   match parse_dictionary("a=1,b=2") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -398,7 +450,10 @@ test "httpwg: dictionary - no whitespace dictionary" {
 
 ///|
 test "httpwg: dictionary - extra whitespace dictionary" {
-  let expected : Array[DictionaryMember] = [dict_entry("a", member_item(bare_item(SfInteger(1L)))), dict_entry("b", member_item(bare_item(SfInteger(2L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("a", member_item(bare_item(SfInteger(1L)))),
+    dict_entry("b", member_item(bare_item(SfInteger(2L)))),
+  ]
   match parse_dictionary("a=1 ,  b=2") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -413,7 +468,10 @@ test "httpwg: dictionary - extra whitespace dictionary" {
 
 ///|
 test "httpwg: dictionary - tab separated dictionary" {
-  let expected : Array[DictionaryMember] = [dict_entry("a", member_item(bare_item(SfInteger(1L)))), dict_entry("b", member_item(bare_item(SfInteger(2L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("a", member_item(bare_item(SfInteger(1L)))),
+    dict_entry("b", member_item(bare_item(SfInteger(2L)))),
+  ]
   match parse_dictionary("a=1\t,\tb=2") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -428,7 +486,10 @@ test "httpwg: dictionary - tab separated dictionary" {
 
 ///|
 test "httpwg: dictionary - leading whitespace dictionary" {
-  let expected : Array[DictionaryMember] = [dict_entry("a", member_item(bare_item(SfInteger(1L)))), dict_entry("b", member_item(bare_item(SfInteger(2L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("a", member_item(bare_item(SfInteger(1L)))),
+    dict_entry("b", member_item(bare_item(SfInteger(2L)))),
+  ]
   match parse_dictionary("     a=1 ,  b=2") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -453,7 +514,10 @@ test "httpwg: dictionary - whitespace after = dictionary" {
 
 ///|
 test "httpwg: dictionary - two lines dictionary" {
-  let expected : Array[DictionaryMember] = [dict_entry("a", member_item(bare_item(SfInteger(1L)))), dict_entry("b", member_item(bare_item(SfInteger(2L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("a", member_item(bare_item(SfInteger(1L)))),
+    dict_entry("b", member_item(bare_item(SfInteger(2L)))),
+  ]
   match parse_dictionary("a=1, b=2") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -468,7 +532,11 @@ test "httpwg: dictionary - two lines dictionary" {
 
 ///|
 test "httpwg: dictionary - missing value dictionary" {
-  let expected : Array[DictionaryMember] = [dict_entry("a", member_item(bare_item(SfInteger(1L)))), dict_entry("b", member_item(bare_item(SfBoolean(true)))), dict_entry("c", member_item(bare_item(SfInteger(3L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("a", member_item(bare_item(SfInteger(1L)))),
+    dict_entry("b", member_item(bare_item(SfBoolean(true)))),
+    dict_entry("c", member_item(bare_item(SfInteger(3L)))),
+  ]
   match parse_dictionary("a=1, b, c=3") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -483,7 +551,11 @@ test "httpwg: dictionary - missing value dictionary" {
 
 ///|
 test "httpwg: dictionary - all missing value dictionary" {
-  let expected : Array[DictionaryMember] = [dict_entry("a", member_item(bare_item(SfBoolean(true)))), dict_entry("b", member_item(bare_item(SfBoolean(true)))), dict_entry("c", member_item(bare_item(SfBoolean(true))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("a", member_item(bare_item(SfBoolean(true)))),
+    dict_entry("b", member_item(bare_item(SfBoolean(true)))),
+    dict_entry("c", member_item(bare_item(SfBoolean(true)))),
+  ]
   match parse_dictionary("a, b, c") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -498,7 +570,10 @@ test "httpwg: dictionary - all missing value dictionary" {
 
 ///|
 test "httpwg: dictionary - start missing value dictionary" {
-  let expected : Array[DictionaryMember] = [dict_entry("a", member_item(bare_item(SfBoolean(true)))), dict_entry("b", member_item(bare_item(SfInteger(2L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("a", member_item(bare_item(SfBoolean(true)))),
+    dict_entry("b", member_item(bare_item(SfInteger(2L)))),
+  ]
   match parse_dictionary("a, b=2") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -513,7 +588,10 @@ test "httpwg: dictionary - start missing value dictionary" {
 
 ///|
 test "httpwg: dictionary - end missing value dictionary" {
-  let expected : Array[DictionaryMember] = [dict_entry("a", member_item(bare_item(SfInteger(1L)))), dict_entry("b", member_item(bare_item(SfBoolean(true))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("a", member_item(bare_item(SfInteger(1L)))),
+    dict_entry("b", member_item(bare_item(SfBoolean(true)))),
+  ]
   match parse_dictionary("a=1, b") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -528,7 +606,14 @@ test "httpwg: dictionary - end missing value dictionary" {
 
 ///|
 test "httpwg: dictionary - missing value with params dictionary" {
-  let expected : Array[DictionaryMember] = [dict_entry("a", member_item(bare_item(SfInteger(1L)))), dict_entry("b", member_item(item(SfBoolean(true), [param("foo", SfInteger(9L))]))), dict_entry("c", member_item(bare_item(SfInteger(3L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("a", member_item(bare_item(SfInteger(1L)))),
+    dict_entry(
+      "b",
+      member_item(item(SfBoolean(true), [param("foo", SfInteger(9L))])),
+    ),
+    dict_entry("c", member_item(bare_item(SfInteger(3L)))),
+  ]
   match parse_dictionary("a=1, b;foo=9, c=3") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -543,7 +628,14 @@ test "httpwg: dictionary - missing value with params dictionary" {
 
 ///|
 test "httpwg: dictionary - explicit true value with params dictionary" {
-  let expected : Array[DictionaryMember] = [dict_entry("a", member_item(bare_item(SfInteger(1L)))), dict_entry("b", member_item(item(SfBoolean(true), [param("foo", SfInteger(9L))]))), dict_entry("c", member_item(bare_item(SfInteger(3L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("a", member_item(bare_item(SfInteger(1L)))),
+    dict_entry(
+      "b",
+      member_item(item(SfBoolean(true), [param("foo", SfInteger(9L))])),
+    ),
+    dict_entry("c", member_item(bare_item(SfInteger(3L)))),
+  ]
   match parse_dictionary("a=1, b=?1;foo=9, c=3") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -568,7 +660,10 @@ test "httpwg: dictionary - empty item dictionary" {
 
 ///|
 test "httpwg: dictionary - duplicate key dictionary" {
-  let expected : Array[DictionaryMember] = [dict_entry("a", member_item(bare_item(SfInteger(3L)))), dict_entry("b", member_item(bare_item(SfInteger(2L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("a", member_item(bare_item(SfInteger(3L)))),
+    dict_entry("b", member_item(bare_item(SfInteger(2L)))),
+  ]
   match parse_dictionary("a=1,b=2,a=3") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -583,7 +678,11 @@ test "httpwg: dictionary - duplicate key dictionary" {
 
 ///|
 test "httpwg: dictionary - dictionary key ordering" {
-  let expected : Array[DictionaryMember] = [dict_entry("m", member_item(bare_item(SfBoolean(true)))), dict_entry("z", member_item(bare_item(SfBoolean(true)))), dict_entry("t", member_item(bare_item(SfBoolean(true))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("m", member_item(bare_item(SfBoolean(true)))),
+    dict_entry("z", member_item(bare_item(SfBoolean(true)))),
+    dict_entry("t", member_item(bare_item(SfBoolean(true)))),
+  ]
   match parse_dictionary("m, z, t") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -613,7 +712,27 @@ test "httpwg: dictionary - bad key dictionary" {
 
 ///|
 test "httpwg: param-dict - basic parameterised dict" {
-  let expected : Array[DictionaryMember] = [dict_entry("abc", member_item(item(SfInteger(123L), [param("a", SfInteger(1L)), param("b", SfInteger(2L))]))), dict_entry("def", member_item(bare_item(SfInteger(456L)))), dict_entry("ghi", member_item(item(SfInteger(789L), [param("q", SfInteger(9L)), param("r", SfString("+w"))])))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry(
+      "abc",
+      member_item(
+        item(SfInteger(123L), [
+          param("a", SfInteger(1L)),
+          param("b", SfInteger(2L)),
+        ]),
+      ),
+    ),
+    dict_entry("def", member_item(bare_item(SfInteger(456L)))),
+    dict_entry(
+      "ghi",
+      member_item(
+        item(SfInteger(789L), [
+          param("q", SfInteger(9L)),
+          param("r", SfString("+w")),
+        ]),
+      ),
+    ),
+  ]
   match parse_dictionary("abc=123;a=1;b=2, def=456, ghi=789;q=9;r=\"+w\"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -628,7 +747,12 @@ test "httpwg: param-dict - basic parameterised dict" {
 
 ///|
 test "httpwg: param-dict - single item parameterised dict" {
-  let expected : Array[DictionaryMember] = [dict_entry("a", member_item(item(SfToken("b"), [param("q", SfDecimal(1.0))])))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry(
+      "a",
+      member_item(item(SfToken("b"), [param("q", SfDecimal(1.0))])),
+    ),
+  ]
   match parse_dictionary("a=b; q=1.0") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -643,7 +767,14 @@ test "httpwg: param-dict - single item parameterised dict" {
 
 ///|
 test "httpwg: param-dict - list item parameterised dictionary" {
-  let expected : Array[DictionaryMember] = [dict_entry("a", member_inner([bare_item(SfInteger(1L)), bare_item(SfInteger(2L))], [param("q", SfDecimal(1.0))]))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry(
+      "a",
+      member_inner([bare_item(SfInteger(1L)), bare_item(SfInteger(2L))], [
+        param("q", SfDecimal(1.0)),
+      ]),
+    ),
+  ]
   match parse_dictionary("a=(1 2); q=1.0") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -658,7 +789,17 @@ test "httpwg: param-dict - list item parameterised dictionary" {
 
 ///|
 test "httpwg: param-dict - missing parameter value parameterised dict" {
-  let expected : Array[DictionaryMember] = [dict_entry("a", member_item(item(SfInteger(3L), [param("c", SfBoolean(true)), param("d", SfInteger(5L))])))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry(
+      "a",
+      member_item(
+        item(SfInteger(3L), [
+          param("c", SfBoolean(true)),
+          param("d", SfInteger(5L)),
+        ]),
+      ),
+    ),
+  ]
   match parse_dictionary("a=3;c;d=5") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -673,7 +814,17 @@ test "httpwg: param-dict - missing parameter value parameterised dict" {
 
 ///|
 test "httpwg: param-dict - terminal missing parameter value parameterised dict" {
-  let expected : Array[DictionaryMember] = [dict_entry("a", member_item(item(SfInteger(3L), [param("c", SfInteger(5L)), param("d", SfBoolean(true))])))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry(
+      "a",
+      member_item(
+        item(SfInteger(3L), [
+          param("c", SfInteger(5L)),
+          param("d", SfBoolean(true)),
+        ]),
+      ),
+    ),
+  ]
   match parse_dictionary("a=3;c=5;d") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -688,7 +839,16 @@ test "httpwg: param-dict - terminal missing parameter value parameterised dict" 
 
 ///|
 test "httpwg: param-dict - no whitespace parameterised dict" {
-  let expected : Array[DictionaryMember] = [dict_entry("a", member_item(item(SfToken("b"), [param("c", SfInteger(1L))]))), dict_entry("d", member_item(item(SfToken("e"), [param("f", SfInteger(2L))])))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry(
+      "a",
+      member_item(item(SfToken("b"), [param("c", SfInteger(1L))])),
+    ),
+    dict_entry(
+      "d",
+      member_item(item(SfToken("e"), [param("f", SfInteger(2L))])),
+    ),
+  ]
   match parse_dictionary("a=b;c=1,d=e;f=2") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -718,7 +878,12 @@ test "httpwg: param-dict - whitespace before ; parameterised dict" {
 
 ///|
 test "httpwg: param-dict - whitespace after ; parameterised dict" {
-  let expected : Array[DictionaryMember] = [dict_entry("a", member_item(item(SfToken("b"), [param("q", SfDecimal(0.5))])))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry(
+      "a",
+      member_item(item(SfToken("b"), [param("q", SfDecimal(0.5))])),
+    ),
+  ]
   match parse_dictionary("a=b; q=0.5") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -733,7 +898,21 @@ test "httpwg: param-dict - whitespace after ; parameterised dict" {
 
 ///|
 test "httpwg: param-dict - extra whitespace parameterised dict" {
-  let expected : Array[DictionaryMember] = [dict_entry("a", member_item(item(SfToken("b"), [param("c", SfInteger(1L))]))), dict_entry("d", member_item(item(SfToken("e"), [param("f", SfInteger(2L)), param("g", SfInteger(3L))])))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry(
+      "a",
+      member_item(item(SfToken("b"), [param("c", SfInteger(1L))])),
+    ),
+    dict_entry(
+      "d",
+      member_item(
+        item(SfToken("e"), [
+          param("f", SfInteger(2L)),
+          param("g", SfInteger(3L)),
+        ]),
+      ),
+    ),
+  ]
   match parse_dictionary("a=b;  c=1  ,  d=e; f=2; g=3") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -748,7 +927,16 @@ test "httpwg: param-dict - extra whitespace parameterised dict" {
 
 ///|
 test "httpwg: param-dict - two lines parameterised list" {
-  let expected : Array[DictionaryMember] = [dict_entry("a", member_item(item(SfToken("b"), [param("c", SfInteger(1L))]))), dict_entry("d", member_item(item(SfToken("e"), [param("f", SfInteger(2L))])))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry(
+      "a",
+      member_item(item(SfToken("b"), [param("c", SfInteger(1L))])),
+    ),
+    dict_entry(
+      "d",
+      member_item(item(SfToken("e"), [param("f", SfInteger(2L))])),
+    ),
+  ]
   match parse_dictionary("a=b;c=1, d=e;f=2") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -773,7 +961,21 @@ test "httpwg: param-dict - empty item parameterised list" {
 
 ///|
 test "httpwg: param-list - basic parameterised list" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("abc_123"), [param("a", SfInteger(1L)), param("b", SfInteger(2L)), param("cdef_456", SfBoolean(true))])), member_item(item(SfToken("ghi"), [param("q", SfInteger(9L)), param("r", SfString("+w"))]))]
+  let expected : Array[ListMember] = [
+    member_item(
+      item(SfToken("abc_123"), [
+        param("a", SfInteger(1L)),
+        param("b", SfInteger(2L)),
+        param("cdef_456", SfBoolean(true)),
+      ]),
+    ),
+    member_item(
+      item(SfToken("ghi"), [
+        param("q", SfInteger(9L)),
+        param("r", SfString("+w")),
+      ]),
+    ),
+  ]
   match parse_list("abc_123;a=1;b=2; cdef_456, ghi;q=9;r=\"+w\"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -788,7 +990,9 @@ test "httpwg: param-list - basic parameterised list" {
 
 ///|
 test "httpwg: param-list - single item parameterised list" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("text/html"), [param("q", SfDecimal(1.0))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("text/html"), [param("q", SfDecimal(1.0))])),
+  ]
   match parse_list("text/html;q=1.0") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -803,7 +1007,14 @@ test "httpwg: param-list - single item parameterised list" {
 
 ///|
 test "httpwg: param-list - missing parameter value parameterised list" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("text/html"), [param("a", SfBoolean(true)), param("q", SfDecimal(1.0))]))]
+  let expected : Array[ListMember] = [
+    member_item(
+      item(SfToken("text/html"), [
+        param("a", SfBoolean(true)),
+        param("q", SfDecimal(1.0)),
+      ]),
+    ),
+  ]
   match parse_list("text/html;a;q=1.0") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -818,7 +1029,14 @@ test "httpwg: param-list - missing parameter value parameterised list" {
 
 ///|
 test "httpwg: param-list - missing terminal parameter value parameterised list" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("text/html"), [param("q", SfDecimal(1.0)), param("a", SfBoolean(true))]))]
+  let expected : Array[ListMember] = [
+    member_item(
+      item(SfToken("text/html"), [
+        param("q", SfDecimal(1.0)),
+        param("a", SfBoolean(true)),
+      ]),
+    ),
+  ]
   match parse_list("text/html;q=1.0;a") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -833,7 +1051,10 @@ test "httpwg: param-list - missing terminal parameter value parameterised list" 
 
 ///|
 test "httpwg: param-list - no whitespace parameterised list" {
-  let expected : Array[ListMember] = [member_item(bare_item(SfToken("text/html"))), member_item(item(SfToken("text/plain"), [param("q", SfDecimal(0.5))]))]
+  let expected : Array[ListMember] = [
+    member_item(bare_item(SfToken("text/html"))),
+    member_item(item(SfToken("text/plain"), [param("q", SfDecimal(0.5))])),
+  ]
   match parse_list("text/html,text/plain;q=0.5") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -863,7 +1084,10 @@ test "httpwg: param-list - whitespace before ; parameterised list" {
 
 ///|
 test "httpwg: param-list - whitespace after ; parameterised list" {
-  let expected : Array[ListMember] = [member_item(bare_item(SfToken("text/html"))), member_item(item(SfToken("text/plain"), [param("q", SfDecimal(0.5))]))]
+  let expected : Array[ListMember] = [
+    member_item(bare_item(SfToken("text/html"))),
+    member_item(item(SfToken("text/plain"), [param("q", SfDecimal(0.5))])),
+  ]
   match parse_list("text/html, text/plain; q=0.5") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -878,7 +1102,15 @@ test "httpwg: param-list - whitespace after ; parameterised list" {
 
 ///|
 test "httpwg: param-list - extra whitespace parameterised list" {
-  let expected : Array[ListMember] = [member_item(bare_item(SfToken("text/html"))), member_item(item(SfToken("text/plain"), [param("q", SfDecimal(0.5)), param("charset", SfToken("utf-8"))]))]
+  let expected : Array[ListMember] = [
+    member_item(bare_item(SfToken("text/html"))),
+    member_item(
+      item(SfToken("text/plain"), [
+        param("q", SfDecimal(0.5)),
+        param("charset", SfToken("utf-8")),
+      ]),
+    ),
+  ]
   match parse_list("text/html  ,  text/plain;  q=0.5;  charset=utf-8") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -893,7 +1125,10 @@ test "httpwg: param-list - extra whitespace parameterised list" {
 
 ///|
 test "httpwg: param-list - two lines parameterised list" {
-  let expected : Array[ListMember] = [member_item(bare_item(SfToken("text/html"))), member_item(item(SfToken("text/plain"), [param("q", SfDecimal(0.5))]))]
+  let expected : Array[ListMember] = [
+    member_item(bare_item(SfToken("text/html"))),
+    member_item(item(SfToken("text/plain"), [param("q", SfDecimal(0.5))])),
+  ]
   match parse_list("text/html, text/plain;q=0.5") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -918,7 +1153,11 @@ test "httpwg: param-list - empty item parameterised list" {
 
 ///|
 test "httpwg: param-list - duplicate parameter with different positions" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("a"), [param("b", SfInteger(3L)), param("c", SfInteger(2L))]))]
+  let expected : Array[ListMember] = [
+    member_item(
+      item(SfToken("a"), [param("b", SfInteger(3L)), param("c", SfInteger(2L))]),
+    ),
+  ]
   match parse_list("a;b=1;c=2;b=3") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -933,7 +1172,15 @@ test "httpwg: param-list - duplicate parameter with different positions" {
 
 ///|
 test "httpwg: param-list - parameter ordering" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("a"), [param("m", SfBoolean(true)), param("z", SfBoolean(true)), param("t", SfBoolean(true))]))]
+  let expected : Array[ListMember] = [
+    member_item(
+      item(SfToken("a"), [
+        param("m", SfBoolean(true)),
+        param("z", SfBoolean(true)),
+        param("t", SfBoolean(true)),
+      ]),
+    ),
+  ]
   match parse_list("a;m;z;t") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -973,7 +1220,13 @@ test "httpwg: param-list - parameter prefix and space only" {
 
 ///|
 test "httpwg: param-listlist - parameterised inner list" {
-  let expected : Array[ListMember] = [member_inner([bare_item(SfToken("abc_123"))], [param("a", SfInteger(1L)), param("b", SfInteger(2L))]), member_item(bare_item(SfToken("cdef_456")))]
+  let expected : Array[ListMember] = [
+    member_inner([bare_item(SfToken("abc_123"))], [
+      param("a", SfInteger(1L)),
+      param("b", SfInteger(2L)),
+    ]),
+    member_item(bare_item(SfToken("cdef_456"))),
+  ]
   match parse_list("(abc_123);a=1;b=2, cdef_456") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -988,7 +1241,18 @@ test "httpwg: param-listlist - parameterised inner list" {
 
 ///|
 test "httpwg: param-listlist - parameterised inner list item" {
-  let expected : Array[ListMember] = [member_inner([item(SfToken("abc_123"), [param("a", SfInteger(1L)), param("b", SfInteger(2L)), param("cdef_456", SfBoolean(true))])], [])]
+  let expected : Array[ListMember] = [
+    member_inner(
+      [
+        item(SfToken("abc_123"), [
+          param("a", SfInteger(1L)),
+          param("b", SfInteger(2L)),
+          param("cdef_456", SfBoolean(true)),
+        ]),
+      ],
+      [],
+    ),
+  ]
   match parse_list("(abc_123;a=1;b=2;cdef_456)") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1003,7 +1267,17 @@ test "httpwg: param-listlist - parameterised inner list item" {
 
 ///|
 test "httpwg: param-listlist - parameterised inner list with parameterised item" {
-  let expected : Array[ListMember] = [member_inner([item(SfToken("abc_123"), [param("a", SfInteger(1L)), param("b", SfInteger(2L))])], [param("cdef_456", SfBoolean(true))])]
+  let expected : Array[ListMember] = [
+    member_inner(
+      [
+        item(SfToken("abc_123"), [
+          param("a", SfInteger(1L)),
+          param("b", SfInteger(2L)),
+        ]),
+      ],
+      [param("cdef_456", SfBoolean(true))],
+    ),
+  ]
   match parse_list("(abc_123;a=1;b=2);cdef_456") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1018,7 +1292,9 @@ test "httpwg: param-listlist - parameterised inner list with parameterised item"
 
 ///|
 test "httpwg: examples - Foo-Example" {
-  let expected : Item = item(SfInteger(2L), [param("foourl", SfString("https://foo.example.com/"))])
+  let expected : Item = item(SfInteger(2L), [
+    param("foourl", SfString("https://foo.example.com/")),
+  ])
   match parse_item("2; foourl=\"https://foo.example.com/\"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1033,7 +1309,11 @@ test "httpwg: examples - Foo-Example" {
 
 ///|
 test "httpwg: examples - Example-StrListHeader" {
-  let expected : Array[ListMember] = [member_item(bare_item(SfString("foo"))), member_item(bare_item(SfString("bar"))), member_item(bare_item(SfString("It was the best of times.")))]
+  let expected : Array[ListMember] = [
+    member_item(bare_item(SfString("foo"))),
+    member_item(bare_item(SfString("bar"))),
+    member_item(bare_item(SfString("It was the best of times."))),
+  ]
   match parse_list("\"foo\", \"bar\", \"It was the best of times.\"") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1048,7 +1328,10 @@ test "httpwg: examples - Example-StrListHeader" {
 
 ///|
 test "httpwg: examples - Example-Hdr (list on one line)" {
-  let expected : Array[ListMember] = [member_item(bare_item(SfToken("foo"))), member_item(bare_item(SfToken("bar")))]
+  let expected : Array[ListMember] = [
+    member_item(bare_item(SfToken("foo"))),
+    member_item(bare_item(SfToken("bar"))),
+  ]
   match parse_list("foo, bar") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1063,7 +1346,10 @@ test "httpwg: examples - Example-Hdr (list on one line)" {
 
 ///|
 test "httpwg: examples - Example-Hdr (list on two lines)" {
-  let expected : Array[ListMember] = [member_item(bare_item(SfToken("foo"))), member_item(bare_item(SfToken("bar")))]
+  let expected : Array[ListMember] = [
+    member_item(bare_item(SfToken("foo"))),
+    member_item(bare_item(SfToken("bar"))),
+  ]
   match parse_list("foo, bar") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1088,7 +1374,8 @@ test "httpwg: examples - Example-StrListListHeader" {
     Ok(parsed) => {
       assert_eq(parsed, expected)
       match serialize_list(parsed) {
-        Ok(s) => assert_eq(s, "(\"foo\" \"bar\"), (\"baz\"), (\"bat\" \"one\"), ()")
+        Ok(s) =>
+          assert_eq(s, "(\"foo\" \"bar\"), (\"baz\"), (\"bat\" \"one\"), ()")
         Err(_) => fail("expected canonical list serialization")
       }
     }
@@ -1098,12 +1385,26 @@ test "httpwg: examples - Example-StrListListHeader" {
 
 ///|
 test "httpwg: examples - Example-ListListParam" {
-  let expected : Array[ListMember] = [member_inner([item(SfString("foo"), [param("a", SfInteger(1L)), param("b", SfInteger(2L))])], [param("lvl", SfInteger(5L))]), member_inner([bare_item(SfString("bar")), bare_item(SfString("baz"))], [param("lvl", SfInteger(1L))])]
+  let expected : Array[ListMember] = [
+    member_inner(
+      [
+        item(SfString("foo"), [
+          param("a", SfInteger(1L)),
+          param("b", SfInteger(2L)),
+        ]),
+      ],
+      [param("lvl", SfInteger(5L))],
+    ),
+    member_inner([bare_item(SfString("bar")), bare_item(SfString("baz"))], [
+      param("lvl", SfInteger(1L)),
+    ]),
+  ]
   match parse_list("(\"foo\"; a=1;b=2);lvl=5, (\"bar\" \"baz\");lvl=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
       match serialize_list(parsed) {
-        Ok(s) => assert_eq(s, "(\"foo\";a=1;b=2);lvl=5, (\"bar\" \"baz\");lvl=1")
+        Ok(s) =>
+          assert_eq(s, "(\"foo\";a=1;b=2);lvl=5, (\"bar\" \"baz\");lvl=1")
         Err(_) => fail("expected canonical list serialization")
       }
     }
@@ -1113,7 +1414,22 @@ test "httpwg: examples - Example-ListListParam" {
 
 ///|
 test "httpwg: examples - Example-ParamListHeader" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("abc"), [param("a", SfInteger(1L)), param("b", SfInteger(2L)), param("cde_456", SfBoolean(true))])), member_inner([item(SfToken("ghi"), [param("jk", SfInteger(4L))]), bare_item(SfToken("l"))], [param("q", SfString("9")), param("r", SfToken("w"))])]
+  let expected : Array[ListMember] = [
+    member_item(
+      item(SfToken("abc"), [
+        param("a", SfInteger(1L)),
+        param("b", SfInteger(2L)),
+        param("cde_456", SfBoolean(true)),
+      ]),
+    ),
+    member_inner(
+      [
+        item(SfToken("ghi"), [param("jk", SfInteger(4L))]),
+        bare_item(SfToken("l")),
+      ],
+      [param("q", SfString("9")), param("r", SfToken("w"))],
+    ),
+  ]
   match parse_list("abc;a=1;b=2; cde_456, (ghi;jk=4 l);q=\"9\";r=w") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1128,7 +1444,10 @@ test "httpwg: examples - Example-ParamListHeader" {
 
 ///|
 test "httpwg: examples - Example-IntHeader" {
-  let expected : Item = item(SfInteger(1L), [param("a", SfBoolean(true)), param("b", SfBoolean(false))])
+  let expected : Item = item(SfInteger(1L), [
+    param("a", SfBoolean(true)),
+    param("b", SfBoolean(false)),
+  ])
   match parse_item("1; a; b=?0") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1143,7 +1462,15 @@ test "httpwg: examples - Example-IntHeader" {
 
 ///|
 test "httpwg: examples - Example-DictHeader" {
-  let expected : Array[DictionaryMember] = [dict_entry("en", member_item(bare_item(SfString("Applepie")))), dict_entry("da", member_item(bare_item(SfByteSequence(base64_decode("w4ZibGV0w6ZydGU=").unwrap()))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("en", member_item(bare_item(SfString("Applepie")))),
+    dict_entry(
+      "da",
+      member_item(
+        bare_item(SfByteSequence(base64_decode("w4ZibGV0w6ZydGU=").unwrap())),
+      ),
+    ),
+  ]
   match parse_dictionary("en=\"Applepie\", da=:w4ZibGV0w6ZydGU=:") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1158,7 +1485,14 @@ test "httpwg: examples - Example-DictHeader" {
 
 ///|
 test "httpwg: examples - Example-DictHeader (boolean values)" {
-  let expected : Array[DictionaryMember] = [dict_entry("a", member_item(bare_item(SfBoolean(false)))), dict_entry("b", member_item(bare_item(SfBoolean(true)))), dict_entry("c", member_item(item(SfBoolean(true), [param("foo", SfToken("bar"))])))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("a", member_item(bare_item(SfBoolean(false)))),
+    dict_entry("b", member_item(bare_item(SfBoolean(true)))),
+    dict_entry(
+      "c",
+      member_item(item(SfBoolean(true), [param("foo", SfToken("bar"))])),
+    ),
+  ]
   match parse_dictionary("a=?0, b, c; foo=bar") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1173,7 +1507,13 @@ test "httpwg: examples - Example-DictHeader (boolean values)" {
 
 ///|
 test "httpwg: examples - Example-DictListHeader" {
-  let expected : Array[DictionaryMember] = [dict_entry("rating", member_item(bare_item(SfDecimal(1.5)))), dict_entry("feelings", member_inner([bare_item(SfToken("joy")), bare_item(SfToken("sadness"))], []))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("rating", member_item(bare_item(SfDecimal(1.5)))),
+    dict_entry(
+      "feelings",
+      member_inner([bare_item(SfToken("joy")), bare_item(SfToken("sadness"))], []),
+    ),
+  ]
   match parse_dictionary("rating=1.5, feelings=(joy sadness)") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1189,10 +1529,21 @@ test "httpwg: examples - Example-DictListHeader" {
 ///|
 test "httpwg: examples - Example-MixDict" {
   let expected : Array[DictionaryMember] = [
-    dict_entry("a", member_inner([bare_item(SfInteger(1L)), bare_item(SfInteger(2L))], [])),
+    dict_entry(
+      "a",
+      member_inner([bare_item(SfInteger(1L)), bare_item(SfInteger(2L))], []),
+    ),
     dict_entry("b", member_item(bare_item(SfInteger(3L)))),
-    dict_entry("c", member_item(item(SfInteger(4L), [param("aa", SfToken("bb"))]))),
-    dict_entry("d", member_inner([bare_item(SfInteger(5L)), bare_item(SfInteger(6L))], [param("valid", SfBoolean(true))])),
+    dict_entry(
+      "c",
+      member_item(item(SfInteger(4L), [param("aa", SfToken("bb"))])),
+    ),
+    dict_entry(
+      "d",
+      member_inner([bare_item(SfInteger(5L)), bare_item(SfInteger(6L))], [
+        param("valid", SfBoolean(true)),
+      ]),
+    ),
   ]
   match parse_dictionary("a=(1 2), b=3, c=4;aa=bb, d=(5 6);valid") {
     Ok(parsed) => {
@@ -1208,7 +1559,10 @@ test "httpwg: examples - Example-MixDict" {
 
 ///|
 test "httpwg: examples - Example-Hdr (dictionary on one line)" {
-  let expected : Array[DictionaryMember] = [dict_entry("foo", member_item(bare_item(SfInteger(1L)))), dict_entry("bar", member_item(bare_item(SfInteger(2L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("foo", member_item(bare_item(SfInteger(1L)))),
+    dict_entry("bar", member_item(bare_item(SfInteger(2L)))),
+  ]
   match parse_dictionary("foo=1, bar=2") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1223,7 +1577,10 @@ test "httpwg: examples - Example-Hdr (dictionary on one line)" {
 
 ///|
 test "httpwg: examples - Example-Hdr (dictionary on two lines)" {
-  let expected : Array[DictionaryMember] = [dict_entry("foo", member_item(bare_item(SfInteger(1L)))), dict_entry("bar", member_item(bare_item(SfInteger(2L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("foo", member_item(bare_item(SfInteger(1L)))),
+    dict_entry("bar", member_item(bare_item(SfInteger(2L)))),
+  ]
   match parse_dictionary("foo=1, bar=2") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1313,7 +1670,11 @@ test "httpwg: examples - Example-StringHeader" {
 
 ///|
 test "httpwg: examples - Example-BinaryHdr" {
-  let expected : Item = bare_item(SfByteSequence(base64_decode("cHJldGVuZCB0aGlzIGlzIGJpbmFyeSBjb250ZW50Lg==").unwrap()))
+  let expected : Item = bare_item(
+    SfByteSequence(
+      base64_decode("cHJldGVuZCB0aGlzIGlzIGJpbmFyeSBjb250ZW50Lg==").unwrap(),
+    ),
+  )
   match parse_item(":cHJldGVuZCB0aGlzIGlzIGJpbmFyeSBjb250ZW50Lg==:") {
     Ok(parsed) => {
       assert_eq(parsed, expected)

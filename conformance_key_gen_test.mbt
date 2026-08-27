@@ -1,4 +1,5 @@
 ///| Conformance test vectors generated from httpwg/structured-field-tests
+
 ///| BSD 3-Clause License - IETF Trust
 
 ///|
@@ -213,7 +214,9 @@ test "httpwg: key-generated - 0x29 as a single-character dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x2a as a single-character dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("*", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("*", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("*=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -498,7 +501,9 @@ test "httpwg: key-generated - 0x60 as a single-character dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x61 as a single-character dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("a", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("a", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("a=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -513,7 +518,9 @@ test "httpwg: key-generated - 0x61 as a single-character dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x62 as a single-character dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("b", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("b", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("b=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -528,7 +535,9 @@ test "httpwg: key-generated - 0x62 as a single-character dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x63 as a single-character dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("c", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("c", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("c=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -543,7 +552,9 @@ test "httpwg: key-generated - 0x63 as a single-character dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x64 as a single-character dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("d", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("d", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("d=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -558,7 +569,9 @@ test "httpwg: key-generated - 0x64 as a single-character dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x65 as a single-character dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("e", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("e", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("e=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -573,7 +586,9 @@ test "httpwg: key-generated - 0x65 as a single-character dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x66 as a single-character dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("f", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("f", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("f=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -588,7 +603,9 @@ test "httpwg: key-generated - 0x66 as a single-character dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x67 as a single-character dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("g", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("g", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("g=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -603,7 +620,9 @@ test "httpwg: key-generated - 0x67 as a single-character dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x68 as a single-character dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("h", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("h", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("h=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -618,7 +637,9 @@ test "httpwg: key-generated - 0x68 as a single-character dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x69 as a single-character dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("i", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("i", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("i=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -633,7 +654,9 @@ test "httpwg: key-generated - 0x69 as a single-character dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x6a as a single-character dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("j", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("j", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("j=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -648,7 +671,9 @@ test "httpwg: key-generated - 0x6a as a single-character dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x6b as a single-character dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("k", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("k", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("k=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -663,7 +688,9 @@ test "httpwg: key-generated - 0x6b as a single-character dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x6c as a single-character dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("l", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("l", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("l=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -678,7 +705,9 @@ test "httpwg: key-generated - 0x6c as a single-character dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x6d as a single-character dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("m", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("m", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("m=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -693,7 +722,9 @@ test "httpwg: key-generated - 0x6d as a single-character dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x6e as a single-character dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("n", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("n", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("n=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -708,7 +739,9 @@ test "httpwg: key-generated - 0x6e as a single-character dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x6f as a single-character dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("o", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("o", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("o=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -723,7 +756,9 @@ test "httpwg: key-generated - 0x6f as a single-character dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x70 as a single-character dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("p", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("p", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("p=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -738,7 +773,9 @@ test "httpwg: key-generated - 0x70 as a single-character dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x71 as a single-character dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("q", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("q", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("q=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -753,7 +790,9 @@ test "httpwg: key-generated - 0x71 as a single-character dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x72 as a single-character dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("r", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("r", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("r=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -768,7 +807,9 @@ test "httpwg: key-generated - 0x72 as a single-character dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x73 as a single-character dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("s", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("s", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("s=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -783,7 +824,9 @@ test "httpwg: key-generated - 0x73 as a single-character dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x74 as a single-character dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("t", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("t", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("t=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -798,7 +841,9 @@ test "httpwg: key-generated - 0x74 as a single-character dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x75 as a single-character dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("u", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("u", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("u=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -813,7 +858,9 @@ test "httpwg: key-generated - 0x75 as a single-character dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x76 as a single-character dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("v", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("v", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("v=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -828,7 +875,9 @@ test "httpwg: key-generated - 0x76 as a single-character dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x77 as a single-character dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("w", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("w", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("w=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -843,7 +892,9 @@ test "httpwg: key-generated - 0x77 as a single-character dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x78 as a single-character dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("x", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("x", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("x=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -858,7 +909,9 @@ test "httpwg: key-generated - 0x78 as a single-character dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x79 as a single-character dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("y", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("y", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("y=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -873,7 +926,9 @@ test "httpwg: key-generated - 0x79 as a single-character dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x7a as a single-character dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("z", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("z", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("z=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1123,7 +1178,9 @@ test "httpwg: key-generated - 0x29 in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x2a in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("a*a", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("a*a", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("a*a=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1143,7 +1200,9 @@ test "httpwg: key-generated - 0x2b in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x2c in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("a", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("a", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("a,a=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1158,7 +1217,9 @@ test "httpwg: key-generated - 0x2c in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x2d in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("a-a", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("a-a", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("a-a=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1173,7 +1234,9 @@ test "httpwg: key-generated - 0x2d in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x2e in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("a.a", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("a.a", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("a.a=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1193,7 +1256,9 @@ test "httpwg: key-generated - 0x2f in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x30 in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("a0a", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("a0a", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("a0a=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1208,7 +1273,9 @@ test "httpwg: key-generated - 0x30 in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x31 in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("a1a", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("a1a", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("a1a=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1223,7 +1290,9 @@ test "httpwg: key-generated - 0x31 in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x32 in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("a2a", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("a2a", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("a2a=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1238,7 +1307,9 @@ test "httpwg: key-generated - 0x32 in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x33 in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("a3a", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("a3a", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("a3a=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1253,7 +1324,9 @@ test "httpwg: key-generated - 0x33 in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x34 in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("a4a", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("a4a", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("a4a=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1268,7 +1341,9 @@ test "httpwg: key-generated - 0x34 in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x35 in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("a5a", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("a5a", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("a5a=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1283,7 +1358,9 @@ test "httpwg: key-generated - 0x35 in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x36 in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("a6a", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("a6a", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("a6a=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1298,7 +1375,9 @@ test "httpwg: key-generated - 0x36 in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x37 in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("a7a", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("a7a", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("a7a=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1313,7 +1392,9 @@ test "httpwg: key-generated - 0x37 in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x38 in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("a8a", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("a8a", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("a8a=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1328,7 +1409,9 @@ test "httpwg: key-generated - 0x38 in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x39 in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("a9a", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("a9a", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("a9a=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1348,7 +1431,12 @@ test "httpwg: key-generated - 0x3a in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x3b in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("a", member_item(item(SfBoolean(true), [param("a", SfInteger(1L))])))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry(
+      "a",
+      member_item(item(SfBoolean(true), [param("a", SfInteger(1L))])),
+    ),
+  ]
   match parse_dictionary("a;a=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1538,7 +1626,9 @@ test "httpwg: key-generated - 0x5e in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x5f in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("a_a", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("a_a", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("a_a=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1558,7 +1648,9 @@ test "httpwg: key-generated - 0x60 in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x61 in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("aaa", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("aaa", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("aaa=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1573,7 +1665,9 @@ test "httpwg: key-generated - 0x61 in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x62 in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("aba", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("aba", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("aba=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1588,7 +1682,9 @@ test "httpwg: key-generated - 0x62 in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x63 in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("aca", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("aca", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("aca=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1603,7 +1699,9 @@ test "httpwg: key-generated - 0x63 in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x64 in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("ada", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("ada", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("ada=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1618,7 +1716,9 @@ test "httpwg: key-generated - 0x64 in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x65 in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("aea", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("aea", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("aea=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1633,7 +1733,9 @@ test "httpwg: key-generated - 0x65 in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x66 in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("afa", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("afa", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("afa=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1648,7 +1750,9 @@ test "httpwg: key-generated - 0x66 in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x67 in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("aga", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("aga", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("aga=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1663,7 +1767,9 @@ test "httpwg: key-generated - 0x67 in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x68 in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("aha", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("aha", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("aha=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1678,7 +1784,9 @@ test "httpwg: key-generated - 0x68 in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x69 in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("aia", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("aia", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("aia=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1693,7 +1801,9 @@ test "httpwg: key-generated - 0x69 in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x6a in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("aja", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("aja", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("aja=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1708,7 +1818,9 @@ test "httpwg: key-generated - 0x6a in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x6b in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("aka", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("aka", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("aka=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1723,7 +1835,9 @@ test "httpwg: key-generated - 0x6b in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x6c in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("ala", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("ala", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("ala=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1738,7 +1852,9 @@ test "httpwg: key-generated - 0x6c in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x6d in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("ama", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("ama", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("ama=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1753,7 +1869,9 @@ test "httpwg: key-generated - 0x6d in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x6e in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("ana", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("ana", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("ana=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1768,7 +1886,9 @@ test "httpwg: key-generated - 0x6e in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x6f in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("aoa", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("aoa", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("aoa=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1783,7 +1903,9 @@ test "httpwg: key-generated - 0x6f in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x70 in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("apa", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("apa", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("apa=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1798,7 +1920,9 @@ test "httpwg: key-generated - 0x70 in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x71 in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("aqa", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("aqa", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("aqa=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1813,7 +1937,9 @@ test "httpwg: key-generated - 0x71 in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x72 in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("ara", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("ara", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("ara=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1828,7 +1954,9 @@ test "httpwg: key-generated - 0x72 in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x73 in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("asa", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("asa", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("asa=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1843,7 +1971,9 @@ test "httpwg: key-generated - 0x73 in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x74 in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("ata", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("ata", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("ata=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1858,7 +1988,9 @@ test "httpwg: key-generated - 0x74 in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x75 in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("aua", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("aua", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("aua=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1873,7 +2005,9 @@ test "httpwg: key-generated - 0x75 in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x76 in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("ava", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("ava", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("ava=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1888,7 +2022,9 @@ test "httpwg: key-generated - 0x76 in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x77 in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("awa", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("awa", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("awa=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1903,7 +2039,9 @@ test "httpwg: key-generated - 0x77 in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x78 in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("axa", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("axa", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("axa=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1918,7 +2056,9 @@ test "httpwg: key-generated - 0x78 in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x79 in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("aya", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("aya", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("aya=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -1933,7 +2073,9 @@ test "httpwg: key-generated - 0x79 in dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x7a in dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("aza", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("aza", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("aza=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2133,7 +2275,9 @@ test "httpwg: key-generated - 0x1f starting a dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x20 starting a dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("a", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("a", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary(" a=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2193,7 +2337,9 @@ test "httpwg: key-generated - 0x29 starting a dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x2a starting a dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("*a", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("*a", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("*a=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2478,7 +2624,9 @@ test "httpwg: key-generated - 0x60 starting a dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x61 starting a dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("aa", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("aa", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("aa=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2493,7 +2641,9 @@ test "httpwg: key-generated - 0x61 starting a dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x62 starting a dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("ba", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("ba", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("ba=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2508,7 +2658,9 @@ test "httpwg: key-generated - 0x62 starting a dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x63 starting a dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("ca", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("ca", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("ca=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2523,7 +2675,9 @@ test "httpwg: key-generated - 0x63 starting a dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x64 starting a dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("da", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("da", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("da=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2538,7 +2692,9 @@ test "httpwg: key-generated - 0x64 starting a dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x65 starting a dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("ea", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("ea", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("ea=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2553,7 +2709,9 @@ test "httpwg: key-generated - 0x65 starting a dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x66 starting a dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("fa", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("fa", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("fa=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2568,7 +2726,9 @@ test "httpwg: key-generated - 0x66 starting a dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x67 starting a dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("ga", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("ga", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("ga=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2583,7 +2743,9 @@ test "httpwg: key-generated - 0x67 starting a dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x68 starting a dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("ha", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("ha", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("ha=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2598,7 +2760,9 @@ test "httpwg: key-generated - 0x68 starting a dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x69 starting a dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("ia", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("ia", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("ia=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2613,7 +2777,9 @@ test "httpwg: key-generated - 0x69 starting a dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x6a starting a dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("ja", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("ja", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("ja=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2628,7 +2794,9 @@ test "httpwg: key-generated - 0x6a starting a dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x6b starting a dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("ka", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("ka", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("ka=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2643,7 +2811,9 @@ test "httpwg: key-generated - 0x6b starting a dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x6c starting a dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("la", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("la", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("la=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2658,7 +2828,9 @@ test "httpwg: key-generated - 0x6c starting a dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x6d starting a dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("ma", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("ma", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("ma=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2673,7 +2845,9 @@ test "httpwg: key-generated - 0x6d starting a dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x6e starting a dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("na", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("na", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("na=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2688,7 +2862,9 @@ test "httpwg: key-generated - 0x6e starting a dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x6f starting a dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("oa", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("oa", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("oa=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2703,7 +2879,9 @@ test "httpwg: key-generated - 0x6f starting a dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x70 starting a dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("pa", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("pa", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("pa=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2718,7 +2896,9 @@ test "httpwg: key-generated - 0x70 starting a dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x71 starting a dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("qa", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("qa", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("qa=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2733,7 +2913,9 @@ test "httpwg: key-generated - 0x71 starting a dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x72 starting a dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("ra", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("ra", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("ra=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2748,7 +2930,9 @@ test "httpwg: key-generated - 0x72 starting a dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x73 starting a dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("sa", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("sa", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("sa=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2763,7 +2947,9 @@ test "httpwg: key-generated - 0x73 starting a dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x74 starting a dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("ta", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("ta", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("ta=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2778,7 +2964,9 @@ test "httpwg: key-generated - 0x74 starting a dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x75 starting a dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("ua", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("ua", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("ua=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2793,7 +2981,9 @@ test "httpwg: key-generated - 0x75 starting a dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x76 starting a dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("va", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("va", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("va=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2808,7 +2998,9 @@ test "httpwg: key-generated - 0x76 starting a dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x77 starting a dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("wa", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("wa", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("wa=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2823,7 +3015,9 @@ test "httpwg: key-generated - 0x77 starting a dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x78 starting a dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("xa", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("xa", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("xa=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2838,7 +3032,9 @@ test "httpwg: key-generated - 0x78 starting a dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x79 starting a dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("ya", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("ya", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("ya=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -2853,7 +3049,9 @@ test "httpwg: key-generated - 0x79 starting a dictionary key" {
 
 ///|
 test "httpwg: key-generated - 0x7a starting a dictionary key" {
-  let expected : Array[DictionaryMember] = [dict_entry("za", member_item(bare_item(SfInteger(1L))))]
+  let expected : Array[DictionaryMember] = [
+    dict_entry("za", member_item(bare_item(SfInteger(1L)))),
+  ]
   match parse_dictionary("za=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3103,7 +3301,9 @@ test "httpwg: key-generated - 0x29 in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x2a in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("a*a", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("a*a", SfInteger(1L))])),
+  ]
   match parse_list("foo; a*a=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3128,7 +3328,9 @@ test "httpwg: key-generated - 0x2c in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x2d in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("a-a", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("a-a", SfInteger(1L))])),
+  ]
   match parse_list("foo; a-a=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3143,7 +3345,9 @@ test "httpwg: key-generated - 0x2d in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x2e in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("a.a", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("a.a", SfInteger(1L))])),
+  ]
   match parse_list("foo; a.a=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3163,7 +3367,9 @@ test "httpwg: key-generated - 0x2f in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x30 in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("a0a", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("a0a", SfInteger(1L))])),
+  ]
   match parse_list("foo; a0a=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3178,7 +3384,9 @@ test "httpwg: key-generated - 0x30 in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x31 in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("a1a", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("a1a", SfInteger(1L))])),
+  ]
   match parse_list("foo; a1a=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3193,7 +3401,9 @@ test "httpwg: key-generated - 0x31 in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x32 in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("a2a", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("a2a", SfInteger(1L))])),
+  ]
   match parse_list("foo; a2a=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3208,7 +3418,9 @@ test "httpwg: key-generated - 0x32 in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x33 in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("a3a", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("a3a", SfInteger(1L))])),
+  ]
   match parse_list("foo; a3a=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3223,7 +3435,9 @@ test "httpwg: key-generated - 0x33 in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x34 in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("a4a", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("a4a", SfInteger(1L))])),
+  ]
   match parse_list("foo; a4a=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3238,7 +3452,9 @@ test "httpwg: key-generated - 0x34 in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x35 in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("a5a", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("a5a", SfInteger(1L))])),
+  ]
   match parse_list("foo; a5a=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3253,7 +3469,9 @@ test "httpwg: key-generated - 0x35 in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x36 in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("a6a", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("a6a", SfInteger(1L))])),
+  ]
   match parse_list("foo; a6a=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3268,7 +3486,9 @@ test "httpwg: key-generated - 0x36 in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x37 in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("a7a", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("a7a", SfInteger(1L))])),
+  ]
   match parse_list("foo; a7a=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3283,7 +3503,9 @@ test "httpwg: key-generated - 0x37 in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x38 in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("a8a", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("a8a", SfInteger(1L))])),
+  ]
   match parse_list("foo; a8a=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3298,7 +3520,9 @@ test "httpwg: key-generated - 0x38 in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x39 in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("a9a", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("a9a", SfInteger(1L))])),
+  ]
   match parse_list("foo; a9a=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3318,7 +3542,9 @@ test "httpwg: key-generated - 0x3a in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x3b in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("a", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("a", SfInteger(1L))])),
+  ]
   match parse_list("foo; a;a=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3508,7 +3734,9 @@ test "httpwg: key-generated - 0x5e in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x5f in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("a_a", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("a_a", SfInteger(1L))])),
+  ]
   match parse_list("foo; a_a=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3528,7 +3756,9 @@ test "httpwg: key-generated - 0x60 in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x61 in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("aaa", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("aaa", SfInteger(1L))])),
+  ]
   match parse_list("foo; aaa=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3543,7 +3773,9 @@ test "httpwg: key-generated - 0x61 in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x62 in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("aba", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("aba", SfInteger(1L))])),
+  ]
   match parse_list("foo; aba=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3558,7 +3790,9 @@ test "httpwg: key-generated - 0x62 in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x63 in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("aca", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("aca", SfInteger(1L))])),
+  ]
   match parse_list("foo; aca=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3573,7 +3807,9 @@ test "httpwg: key-generated - 0x63 in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x64 in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("ada", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("ada", SfInteger(1L))])),
+  ]
   match parse_list("foo; ada=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3588,7 +3824,9 @@ test "httpwg: key-generated - 0x64 in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x65 in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("aea", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("aea", SfInteger(1L))])),
+  ]
   match parse_list("foo; aea=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3603,7 +3841,9 @@ test "httpwg: key-generated - 0x65 in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x66 in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("afa", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("afa", SfInteger(1L))])),
+  ]
   match parse_list("foo; afa=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3618,7 +3858,9 @@ test "httpwg: key-generated - 0x66 in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x67 in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("aga", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("aga", SfInteger(1L))])),
+  ]
   match parse_list("foo; aga=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3633,7 +3875,9 @@ test "httpwg: key-generated - 0x67 in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x68 in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("aha", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("aha", SfInteger(1L))])),
+  ]
   match parse_list("foo; aha=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3648,7 +3892,9 @@ test "httpwg: key-generated - 0x68 in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x69 in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("aia", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("aia", SfInteger(1L))])),
+  ]
   match parse_list("foo; aia=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3663,7 +3909,9 @@ test "httpwg: key-generated - 0x69 in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x6a in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("aja", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("aja", SfInteger(1L))])),
+  ]
   match parse_list("foo; aja=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3678,7 +3926,9 @@ test "httpwg: key-generated - 0x6a in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x6b in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("aka", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("aka", SfInteger(1L))])),
+  ]
   match parse_list("foo; aka=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3693,7 +3943,9 @@ test "httpwg: key-generated - 0x6b in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x6c in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("ala", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("ala", SfInteger(1L))])),
+  ]
   match parse_list("foo; ala=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3708,7 +3960,9 @@ test "httpwg: key-generated - 0x6c in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x6d in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("ama", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("ama", SfInteger(1L))])),
+  ]
   match parse_list("foo; ama=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3723,7 +3977,9 @@ test "httpwg: key-generated - 0x6d in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x6e in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("ana", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("ana", SfInteger(1L))])),
+  ]
   match parse_list("foo; ana=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3738,7 +3994,9 @@ test "httpwg: key-generated - 0x6e in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x6f in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("aoa", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("aoa", SfInteger(1L))])),
+  ]
   match parse_list("foo; aoa=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3753,7 +4011,9 @@ test "httpwg: key-generated - 0x6f in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x70 in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("apa", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("apa", SfInteger(1L))])),
+  ]
   match parse_list("foo; apa=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3768,7 +4028,9 @@ test "httpwg: key-generated - 0x70 in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x71 in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("aqa", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("aqa", SfInteger(1L))])),
+  ]
   match parse_list("foo; aqa=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3783,7 +4045,9 @@ test "httpwg: key-generated - 0x71 in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x72 in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("ara", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("ara", SfInteger(1L))])),
+  ]
   match parse_list("foo; ara=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3798,7 +4062,9 @@ test "httpwg: key-generated - 0x72 in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x73 in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("asa", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("asa", SfInteger(1L))])),
+  ]
   match parse_list("foo; asa=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3813,7 +4079,9 @@ test "httpwg: key-generated - 0x73 in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x74 in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("ata", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("ata", SfInteger(1L))])),
+  ]
   match parse_list("foo; ata=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3828,7 +4096,9 @@ test "httpwg: key-generated - 0x74 in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x75 in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("aua", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("aua", SfInteger(1L))])),
+  ]
   match parse_list("foo; aua=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3843,7 +4113,9 @@ test "httpwg: key-generated - 0x75 in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x76 in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("ava", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("ava", SfInteger(1L))])),
+  ]
   match parse_list("foo; ava=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3858,7 +4130,9 @@ test "httpwg: key-generated - 0x76 in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x77 in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("awa", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("awa", SfInteger(1L))])),
+  ]
   match parse_list("foo; awa=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3873,7 +4147,9 @@ test "httpwg: key-generated - 0x77 in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x78 in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("axa", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("axa", SfInteger(1L))])),
+  ]
   match parse_list("foo; axa=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3888,7 +4164,9 @@ test "httpwg: key-generated - 0x78 in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x79 in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("aya", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("aya", SfInteger(1L))])),
+  ]
   match parse_list("foo; aya=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -3903,7 +4181,9 @@ test "httpwg: key-generated - 0x79 in parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x7a in parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("aza", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("aza", SfInteger(1L))])),
+  ]
   match parse_list("foo; aza=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -4103,7 +4383,9 @@ test "httpwg: key-generated - 0x1f starting a parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x20 starting a parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("a", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("a", SfInteger(1L))])),
+  ]
   match parse_list("foo;  a=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -4163,7 +4445,9 @@ test "httpwg: key-generated - 0x29 starting a parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x2a starting a parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("*a", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("*a", SfInteger(1L))])),
+  ]
   match parse_list("foo; *a=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -4448,7 +4732,9 @@ test "httpwg: key-generated - 0x60 starting a parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x61 starting a parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("aa", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("aa", SfInteger(1L))])),
+  ]
   match parse_list("foo; aa=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -4463,7 +4749,9 @@ test "httpwg: key-generated - 0x61 starting a parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x62 starting a parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("ba", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("ba", SfInteger(1L))])),
+  ]
   match parse_list("foo; ba=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -4478,7 +4766,9 @@ test "httpwg: key-generated - 0x62 starting a parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x63 starting a parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("ca", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("ca", SfInteger(1L))])),
+  ]
   match parse_list("foo; ca=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -4493,7 +4783,9 @@ test "httpwg: key-generated - 0x63 starting a parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x64 starting a parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("da", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("da", SfInteger(1L))])),
+  ]
   match parse_list("foo; da=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -4508,7 +4800,9 @@ test "httpwg: key-generated - 0x64 starting a parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x65 starting a parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("ea", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("ea", SfInteger(1L))])),
+  ]
   match parse_list("foo; ea=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -4523,7 +4817,9 @@ test "httpwg: key-generated - 0x65 starting a parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x66 starting a parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("fa", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("fa", SfInteger(1L))])),
+  ]
   match parse_list("foo; fa=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -4538,7 +4834,9 @@ test "httpwg: key-generated - 0x66 starting a parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x67 starting a parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("ga", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("ga", SfInteger(1L))])),
+  ]
   match parse_list("foo; ga=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -4553,7 +4851,9 @@ test "httpwg: key-generated - 0x67 starting a parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x68 starting a parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("ha", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("ha", SfInteger(1L))])),
+  ]
   match parse_list("foo; ha=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -4568,7 +4868,9 @@ test "httpwg: key-generated - 0x68 starting a parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x69 starting a parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("ia", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("ia", SfInteger(1L))])),
+  ]
   match parse_list("foo; ia=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -4583,7 +4885,9 @@ test "httpwg: key-generated - 0x69 starting a parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x6a starting a parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("ja", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("ja", SfInteger(1L))])),
+  ]
   match parse_list("foo; ja=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -4598,7 +4902,9 @@ test "httpwg: key-generated - 0x6a starting a parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x6b starting a parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("ka", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("ka", SfInteger(1L))])),
+  ]
   match parse_list("foo; ka=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -4613,7 +4919,9 @@ test "httpwg: key-generated - 0x6b starting a parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x6c starting a parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("la", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("la", SfInteger(1L))])),
+  ]
   match parse_list("foo; la=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -4628,7 +4936,9 @@ test "httpwg: key-generated - 0x6c starting a parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x6d starting a parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("ma", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("ma", SfInteger(1L))])),
+  ]
   match parse_list("foo; ma=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -4643,7 +4953,9 @@ test "httpwg: key-generated - 0x6d starting a parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x6e starting a parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("na", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("na", SfInteger(1L))])),
+  ]
   match parse_list("foo; na=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -4658,7 +4970,9 @@ test "httpwg: key-generated - 0x6e starting a parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x6f starting a parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("oa", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("oa", SfInteger(1L))])),
+  ]
   match parse_list("foo; oa=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -4673,7 +4987,9 @@ test "httpwg: key-generated - 0x6f starting a parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x70 starting a parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("pa", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("pa", SfInteger(1L))])),
+  ]
   match parse_list("foo; pa=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -4688,7 +5004,9 @@ test "httpwg: key-generated - 0x70 starting a parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x71 starting a parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("qa", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("qa", SfInteger(1L))])),
+  ]
   match parse_list("foo; qa=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -4703,7 +5021,9 @@ test "httpwg: key-generated - 0x71 starting a parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x72 starting a parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("ra", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("ra", SfInteger(1L))])),
+  ]
   match parse_list("foo; ra=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -4718,7 +5038,9 @@ test "httpwg: key-generated - 0x72 starting a parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x73 starting a parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("sa", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("sa", SfInteger(1L))])),
+  ]
   match parse_list("foo; sa=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -4733,7 +5055,9 @@ test "httpwg: key-generated - 0x73 starting a parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x74 starting a parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("ta", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("ta", SfInteger(1L))])),
+  ]
   match parse_list("foo; ta=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -4748,7 +5072,9 @@ test "httpwg: key-generated - 0x74 starting a parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x75 starting a parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("ua", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("ua", SfInteger(1L))])),
+  ]
   match parse_list("foo; ua=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -4763,7 +5089,9 @@ test "httpwg: key-generated - 0x75 starting a parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x76 starting a parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("va", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("va", SfInteger(1L))])),
+  ]
   match parse_list("foo; va=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -4778,7 +5106,9 @@ test "httpwg: key-generated - 0x76 starting a parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x77 starting a parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("wa", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("wa", SfInteger(1L))])),
+  ]
   match parse_list("foo; wa=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -4793,7 +5123,9 @@ test "httpwg: key-generated - 0x77 starting a parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x78 starting a parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("xa", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("xa", SfInteger(1L))])),
+  ]
   match parse_list("foo; xa=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -4808,7 +5140,9 @@ test "httpwg: key-generated - 0x78 starting a parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x79 starting a parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("ya", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("ya", SfInteger(1L))])),
+  ]
   match parse_list("foo; ya=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
@@ -4823,7 +5157,9 @@ test "httpwg: key-generated - 0x79 starting a parameterised list key" {
 
 ///|
 test "httpwg: key-generated - 0x7a starting a parameterised list key" {
-  let expected : Array[ListMember] = [member_item(item(SfToken("foo"), [param("za", SfInteger(1L))]))]
+  let expected : Array[ListMember] = [
+    member_item(item(SfToken("foo"), [param("za", SfInteger(1L))])),
+  ]
   match parse_list("foo; za=1") {
     Ok(parsed) => {
       assert_eq(parsed, expected)
