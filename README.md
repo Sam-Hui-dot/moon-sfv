@@ -43,7 +43,7 @@ A strict RFC 9651 Structured Field Values parser and serializer for MoonBit.
 
 ## Installation
 
-Once published to [Mooncakes](https://mooncakes.io/) (pending v0.1.0 release):
+Add `moon-sfv` to your MoonBit project from [Mooncakes](https://mooncakes.io/):
 
 ```bash
 moon add Sam-Hui-dot/moon-sfv
@@ -190,7 +190,7 @@ moon run examples/main
 
 ## Status
 
-`moon-sfv` is at version **v0.1.0** (Release Candidate). All RFC 9651 bare item types, container types, and canonical serialization rules are implemented and validated against the HTTP Working Group test vectors.
+`moon-sfv` is at version **v0.1.0**. All RFC 9651 bare item types, container types, and canonical serialization rules are implemented and validated against the HTTP Working Group test vectors.
 
 ## License and Attribution
 
