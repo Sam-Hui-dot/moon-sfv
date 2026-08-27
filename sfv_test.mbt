@@ -523,7 +523,7 @@ test "serialize Display String Item" {
 ///|
 test "serialize escaped String Item" {
   expect_serialized_item(
-    { value: SfString("say \"hi\""), parameters: [] },
+    bare_item(SfString("say \"hi\"")),
     "\"say \\\"hi\\\"\"",
   )
 }
@@ -531,53 +531,44 @@ test "serialize escaped String Item" {
 ///|
 test "serialize Token with parameters" {
   expect_serialized_item(
-    {
-      value: SfToken("example"),
-      parameters: [
-        { key: "secure", value: SfBoolean(true) },
-        { key: "level", value: SfInteger(2L) },
-      ],
-    },
+    item(SfToken("example"), [
+      param("secure", SfBoolean(true)),
+      param("level", SfInteger(2L)),
+    ]),
     "example;secure;level=2",
   )
 }
 
 ///|
 test "serialize List" {
-  let item1 : Item = { value: SfInteger(1L), parameters: [] }
-  let item2 : Item = { value: SfString("two"), parameters: [] }
-  let inner1 : Item = { value: SfInteger(3L), parameters: [] }
-  let inner2 : Item = { value: SfInteger(4L), parameters: [] }
+  let item1 : Item = bare_item(SfInteger(1L))
+  let item2 : Item = bare_item(SfString("two"))
+  let inner1 : Item = bare_item(SfInteger(3L))
+  let inner2 : Item = bare_item(SfInteger(4L))
   let list : Array[ListMember] = [
-    ListMember::Item(item1),
-    ListMember::Item(item2),
-    ListMember::InnerList({
-      items: [inner1, inner2],
-      parameters: [{ key: "param", value: SfInteger(1L) }],
-    }),
+    member_item(item1),
+    member_item(item2),
+    member_inner([inner1, inner2], [param("param", SfInteger(1L))]),
   ]
   expect_serialized_list(list, "1, \"two\", (3 4);param=1")
 }
 
 ///|
 test "serialize Dictionary" {
-  let item_a : Item = { value: SfInteger(1L), parameters: [] }
-  let item_b : Item = { value: SfBoolean(true), parameters: [] }
-  let item_c : Item = {
-    value: SfBoolean(true),
-    parameters: [{ key: "secure", value: SfBoolean(true) }],
-  }
+  let item_a : Item = bare_item(SfInteger(1L))
+  let item_b : Item = bare_item(SfBoolean(true))
+  let item_c : Item = item(SfBoolean(true), [param("secure", SfBoolean(true))])
   let dict : Array[DictionaryMember] = [
-    { key: "a", value: ListMember::Item(item_a) },
-    { key: "b", value: ListMember::Item(item_b) },
-    { key: "c", value: ListMember::Item(item_c) },
+    dict_entry("a", member_item(item_a)),
+    dict_entry("b", member_item(item_b)),
+    dict_entry("c", member_item(item_c)),
   ]
   expect_serialized_dict(dict, "a=1, b, c;secure")
 }
 
 ///|
 test "reject invalid Token during serialization" {
-  match serialize_item({ value: SfToken("not valid"), parameters: [] }) {
+  match serialize_item(bare_item(SfToken("not valid"))) {
     Ok(_) => fail("expected invalid Token to be rejected")
     Err(_) => ()
   }
