@@ -475,47 +475,41 @@ test "reject trailing comma in Dictionary" {
 
 ///|
 test "serialize Boolean Item" {
-  expect_serialized_item({ value: SfBoolean(true), parameters: [] }, "?1")
+  expect_serialized_item(bare_item(SfBoolean(true)), "?1")
 }
 
 ///|
 test "serialize Integer Item" {
-  expect_serialized_item({ value: SfInteger(-42L), parameters: [] }, "-42")
+  expect_serialized_item(bare_item(SfInteger(-42L)), "-42")
 }
 
 ///|
 test "serialize Decimal Item" {
-  expect_serialized_item({ value: SfDecimal(1.5), parameters: [] }, "1.5")
-  expect_serialized_item({ value: SfDecimal(1.0), parameters: [] }, "1.0")
-  expect_serialized_item({ value: SfDecimal(1.234), parameters: [] }, "1.234")
-  expect_serialized_item({ value: SfDecimal(-0.5), parameters: [] }, "-0.5")
+  expect_serialized_item(bare_item(SfDecimal(1.5)), "1.5")
+  expect_serialized_item(bare_item(SfDecimal(1.0)), "1.0")
+  expect_serialized_item(bare_item(SfDecimal(1.234)), "1.234")
+  expect_serialized_item(bare_item(SfDecimal(-0.5)), "-0.5")
 }
 
 ///|
 test "serialize Date Item" {
-  expect_serialized_item(
-    { value: SfDate(1659578233L), parameters: [] },
-    "@1659578233",
-  )
+  expect_serialized_item(bare_item(SfDate(1659578233L)), "@1659578233")
 }
 
 ///|
 test "serialize Byte Sequence Item" {
   let b = b"hello"
-  expect_serialized_item(
-    { value: SfByteSequence(b), parameters: [] },
-    ":aGVsbG8=:",
-  )
+  expect_serialized_item(bare_item(SfByteSequence(b)), ":aGVsbG8=:")
 }
 
 ///|
 test "serialize Display String Item" {
   expect_serialized_item(
-    { value: SfDisplayString("hello world"), parameters: [] },
+    bare_item(SfDisplayString("hello world")),
     "%\"hello world\"",
   )
   expect_serialized_item(
-    { value: SfDisplayString("say % \"hi\""), parameters: [] },
+    bare_item(SfDisplayString("say % \"hi\"")),
     "%\"say %25 %22hi%22\"",
   )
 }
