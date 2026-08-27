@@ -43,8 +43,8 @@ def val_to_bare_item(v):
             return f'SfDisplayString("{escape_string(val)}")'
         elif t == 'binary':
             b = base64.b32decode(val) if val else b''
-            byte_arr = ', '.join(f'({b_val} : Byte)' for b_val in b)
-            return f'SfByteSequence(Bytes::from_array([{byte_arr}]))'
+            b64 = base64.b64encode(b).decode('ascii')
+            return f'SfByteSequence(base64_decode("{b64}").unwrap())'
     raise ValueError(f'Unknown value: {v}')
 
 def params_to_mbt(params):

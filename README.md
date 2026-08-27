@@ -1,4 +1,4 @@
-﻿# moon-sfv
+# moon-sfv
 
 [![CI](https://github.com/Sam-Hui-dot/moon-sfv/actions/workflows/ci.yml/badge.svg)](https://github.com/Sam-Hui-dot/moon-sfv/actions/workflows/ci.yml)
 
@@ -30,22 +30,26 @@ A strict RFC 9651 Structured Field Values parser and serializer for MoonBit.
 
 ## Standards Compliance
 
-- **RFC 9651 Conformance**: Strictly follows RFC 9651 grammar, numeric bounds, whitespace handling, and duplicate key replacement semantics.
-- **HTTPWG Test Suite**: Integrated with official test vectors from [httpwg/structured-field-tests](https://github.com/httpwg/structured-field-tests).
-  - **Parsing test vectors**: 1,591 passed / 1,591 total (100%)
-  - **Serialization test vectors**: 544 passed / 544 total (100%)
-  - **Unit tests**: 46 passed / 46 total (100%)
-  - **Total automated tests**: **2,181 passed / 2,181 total (100%)**
+`moon-sfv` is thoroughly validated against the official [HTTPWG structured-field-tests](https://github.com/httpwg/structured-field-tests) test suite:
+
+- **HTTPWG Parsing Test Vectors**: 1,591 / 1,591 passed
+  - **Mandatory vectors**: 1,585 / 1,585 passed (100%)
+  - **Optional (`can_fail`) vectors**: 6 / 6 passed (100%)
+  - **Verification method**: Parsed output is strictly compared for semantic equality (`assert_eq`) against the official expected data structures and verified for canonical serialization matching.
+- **HTTPWG Serialization Test Vectors**: 544 / 544 passed (100%)
+- **Internal Unit Tests**: 46 / 46 passed (100%)
+- **Total Test Suite**: **2,181 / 2,181 passed (100%)**
+- **Skipped / Unsupported**: **0**
 
 ## Installation
 
-Add `moon-sfv` to your MoonBit project:
+Once published to [Mooncakes](https://mooncakes.io/) (pending v0.1.0 release):
 
 ```bash
 moon add Sam-Hui-dot/moon-sfv
 ```
 
-Or add it directly to your `moon.pkg` / `moon.mod.json`:
+Or reference as a dependency in your `moon.pkg.json` / `moon.pkg`:
 
 ```moonbit
 import {
