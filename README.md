@@ -34,8 +34,8 @@ A strict RFC 9651 Structured Field Values parser and serializer for MoonBit.
 
 - **HTTPWG Parsing Test Vectors**: 1,591 / 1,591 passed
   - **Mandatory vectors**: 1,585 / 1,585 passed (100%)
-  - **Optional (`can_fail`) vectors**: 6 / 6 passed (100%)
-  - **Verification method**: Parsed output is strictly compared for semantic equality (`assert_eq`) against the official expected data structures and verified for canonical serialization matching.
+  - **Optional (`can_fail`) vectors**: 6 / 6 supported and passed (100% strict verification)
+  - **Verification method**: Parsed output is strictly compared for semantic equality (`assert_eq`) against the official expected data structures and verified for canonical serialization matching with zero silent-pass fallbacks.
 - **HTTPWG Serialization Test Vectors**: 544 / 544 passed (100%)
 - **Internal Unit Tests**: 46 / 46 passed (100%)
 - **Total Test Suite**: **2,181 / 2,181 passed (100%)**

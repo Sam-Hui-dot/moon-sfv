@@ -55,7 +55,10 @@ def params_to_mbt(params):
         k = escape_string(p[0])
         v = val_to_bare_item(p[1])
         res.append(f'param("{k}", {v})')
-    return '[' + ', '.join(res) + ']'
+    if len(res) <= 3:
+        return '[' + ', '.join(res) + ']'
+    else:
+        return '[\n      ' + ',\n      '.join(res) + ',\n    ]'
 
 def item_to_mbt(item_arr):
     bare = val_to_bare_item(item_arr[0])
@@ -69,8 +72,13 @@ def list_member_to_mbt(v):
     if isinstance(v[0], list): # inner list
         inner_items = [item_to_mbt(it) for it in v[0]]
         inner_params = params_to_mbt(v[1])
-        inner_items_str = ', '.join(inner_items)
-        return f'member_inner([{inner_items_str}], {inner_params})'
+        if not inner_items:
+            return f'member_inner([], {inner_params})'
+        elif len(inner_items) <= 3:
+            return f'member_inner([{", ".join(inner_items)}], {inner_params})'
+        else:
+            inner_items_str = ',\n      '.join(inner_items)
+            return f'member_inner([\n      {inner_items_str},\n    ], {inner_params})'
     else:
         return f'member_item({item_to_mbt(v)})'
 
@@ -126,10 +134,7 @@ def generate_file_tests(fpaths):
                     out_lines.append('        Err(_) => fail("expected canonical serialization")')
                     out_lines.append('      }')
                     out_lines.append('    }')
-                    if can_fail:
-                        out_lines.append('    Err(_) => ()')
-                    else:
-                        out_lines.append('    Err(_) => fail("expected item to parse")')
+                    out_lines.append('    Err(_) => fail("expected item to parse")')
                     out_lines.append('  }')
 
             elif header_type == 'list':
@@ -137,7 +142,10 @@ def generate_file_tests(fpaths):
                     out_lines.append(f'  expect_parse_list_error("{raw_str}")')
                 else:
                     list_entries = [list_member_to_mbt(x) for x in expected]
-                    exp_mbt = '[' + ', '.join(list_entries) + ']'
+                    if len(list_entries) <= 3:
+                        exp_mbt = '[' + ', '.join(list_entries) + ']'
+                    else:
+                        exp_mbt = '[\n    ' + ',\n    '.join(list_entries) + ',\n  ]'
                     out_lines.append(f'  let expected : Array[ListMember] = {exp_mbt}')
                     out_lines.append(f'  match parse_list("{raw_str}") {{')
                     out_lines.append('    Ok(parsed) => {')
@@ -147,10 +155,7 @@ def generate_file_tests(fpaths):
                     out_lines.append('        Err(_) => fail("expected canonical list serialization")')
                     out_lines.append('      }')
                     out_lines.append('    }')
-                    if can_fail:
-                        out_lines.append('    Err(_) => ()')
-                    else:
-                        out_lines.append('    Err(_) => fail("expected list to parse")')
+                    out_lines.append('    Err(_) => fail("expected list to parse")')
                     out_lines.append('  }')
 
             elif header_type == 'dictionary':
@@ -162,7 +167,10 @@ def generate_file_tests(fpaths):
                         k_esc = escape_string(k)
                         v_mbt = list_member_to_mbt(v)
                         dict_entries.append(f'dict_entry("{k_esc}", {v_mbt})')
-                    exp_mbt = '[' + ', '.join(dict_entries) + ']'
+                    if len(dict_entries) <= 3:
+                        exp_mbt = '[' + ', '.join(dict_entries) + ']'
+                    else:
+                        exp_mbt = '[\n    ' + ',\n    '.join(dict_entries) + ',\n  ]'
                     out_lines.append(f'  let expected : Array[DictionaryMember] = {exp_mbt}')
                     out_lines.append(f'  match parse_dictionary("{raw_str}") {{')
                     out_lines.append('    Ok(parsed) => {')
@@ -172,10 +180,7 @@ def generate_file_tests(fpaths):
                     out_lines.append('        Err(_) => fail("expected canonical dictionary serialization")')
                     out_lines.append('      }')
                     out_lines.append('    }')
-                    if can_fail:
-                        out_lines.append('    Err(_) => ()')
-                    else:
-                        out_lines.append('    Err(_) => fail("expected dictionary to parse")')
+                    out_lines.append('    Err(_) => fail("expected dictionary to parse")')
                     out_lines.append('  }')
 
             out_lines.append('}')

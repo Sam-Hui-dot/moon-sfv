@@ -1,5 +1,4 @@
 ///| Conformance test vectors generated from httpwg/structured-field-tests
-
 ///| BSD 3-Clause License - IETF Trust
 
 ///|
